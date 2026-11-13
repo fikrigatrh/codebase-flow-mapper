@@ -17,7 +17,7 @@ import (
 	"github.com/fikrigatrh/codebase-flow-mapper/internal/report"
 )
 
-const version = "0.1.0"
+const version = "0.2.0"
 
 const (
 	exitOK       = 0

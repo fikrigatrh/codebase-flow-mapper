@@ -10,7 +10,7 @@ The viewer reads this JSON, and `--json` writes the same JSON. JSON fields are c
 ```json
 {
   "schemaVersion": "2.1.0",
-  "analyzerVersion": "0.1.0",
+  "analyzerVersion": "0.2.0",
   "module": "github.com/acme/payment-service",
   "goVersion": "go1.23.4",
   "generatedAt": "2026-11-12T09:00:00Z",

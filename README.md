@@ -1,6 +1,6 @@
 # Codebase Flow Mapper (CFM)
 
-**Version:** 0.1.0 (lean MVP) · **Language:** Go only · **Routers:** Gin, net/http, Fiber v2
+**Version:** 0.2.0 · **Language:** Go only · **Routers:** Gin, net/http, Fiber v2
 
 CFM is a single Go binary. Point it at a Go module and it writes one self-contained HTML file. Open the file and you can:
 
@@ -15,7 +15,7 @@ There is no server, database, account, AI or network call, and CFM never runs an
 Requires Go 1.26 or newer.
 
 ```bash
-go install github.com/fikrigatrh/codebase-flow-mapper/cmd/cfm@v0.1.0
+go install github.com/fikrigatrh/codebase-flow-mapper/cmd/cfm@v0.2.0
 cfm version
 ```
 
