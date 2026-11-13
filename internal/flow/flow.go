@@ -23,16 +23,31 @@ import (
 
 const maxText = 120
 
-// Build returns the outline of every project function node in cg.
-func Build(p *load.Program, cg *callgraph.Result) (map[graph.NodeID][]graph.Step, []graph.Diagnostic) {
+// Result is the per-function outline plus the request body each function binds (CFM-401).
+type Result struct {
+	Steps  map[graph.NodeID][]graph.Step
+	Bodies map[graph.NodeID]*graph.Body
+	Diags  []graph.Diagnostic
+}
+
+// Build returns the outline of every project function node in cg. Bodies are found first: a
+// condition is a body test only if it reads a type some function binds.
+func Build(p *load.Program, cg *callgraph.Result) Result {
 	infos := map[*token.File]*types.Info{}
 	for _, pkg := range p.Pkgs {
 		for _, f := range pkg.Syntax {
 			infos[p.Fset.File(f.Pos())] = pkg.TypesInfo
 		}
 	}
-	out := map[graph.NodeID][]graph.Step{}
-	var diags []graph.Diagnostic
+	type fn struct {
+		id   graph.NodeID
+		syn  ast.Node
+		body *ast.BlockStmt
+		w    *walker
+	}
+	var fns []fn
+	dtos := map[string]bool{}
+	res := Result{Steps: map[graph.NodeID][]graph.Step{}, Bodies: map[graph.NodeID]*graph.Body{}}
 	for _, id := range slices.Sorted(maps.Keys(cg.Funcs)) {
 		syn := cg.Funcs[id].Syntax()
 		var body *ast.BlockStmt
@@ -49,27 +64,67 @@ func Build(p *load.Program, cg *callgraph.Result) (map[graph.NodeID][]graph.Step
 		if info == nil {
 			continue
 		}
-		w := &walker{fset: p.Fset, info: info, root: p.Root}
-		func() {
-			defer func() {
-				if r := recover(); r != nil {
-					loc := w.loc(syn.Pos())
-					diags = append(diags, graph.Diagnostic{Severity: graph.SevError, Code: "ANALYZER_PANIC",
-						Message: fmt.Sprintf("flow outline of %s failed: %v", id, r), Loc: &loc, NodeID: id})
+		w := &walker{fset: p.Fset, info: info, root: p.Root, dtos: dtos}
+		fns = append(fns, fn{id, syn, body, w})
+		res.guard(w, id, syn, func() {
+			if b := w.body(body.List); b != nil {
+				res.Bodies[id] = b
+				dtos[b.Type] = true
+				for t := range nestedTypes(b.Fields) {
+					dtos[t] = true
 				}
-			}()
-			if steps := w.stmts(body.List); len(steps) > 0 {
-				out[id] = steps
 			}
-		}()
+		})
 	}
-	return out, diags
+	for _, f := range fns {
+		res.guard(f.w, f.id, f.syn, func() {
+			if steps := f.w.stmts(f.body.List); len(steps) > 0 {
+				res.Steps[f.id] = steps
+			}
+		})
+	}
+	return res
+}
+
+// guard turns a panic while reading one function into a diagnostic for that function.
+func (r *Result) guard(w *walker, id graph.NodeID, syn ast.Node, do func()) {
+	defer func() {
+		if p := recover(); p != nil {
+			loc := w.loc(syn.Pos())
+			r.Diags = append(r.Diags, graph.Diagnostic{Severity: graph.SevError, Code: "ANALYZER_PANIC",
+				Message: fmt.Sprintf("flow outline of %s failed: %v", id, p), Loc: &loc, NodeID: id})
+		}
+	}()
+	do()
+}
+
+// nestedTypes yields the named struct types inside a body, so a usecase that takes req.Data
+// still matches.
+func nestedTypes(fs []graph.Field) map[string]bool {
+	out := map[string]bool{}
+	var walk func(f graph.Field)
+	walk = func(f graph.Field) {
+		if f.Kind == graph.FieldObject && f.Type != "" {
+			out[f.Type] = true
+		}
+		for _, c := range f.Fields {
+			walk(c)
+		}
+		if f.Elem != nil {
+			walk(*f.Elem)
+		}
+	}
+	for _, f := range fs {
+		walk(f)
+	}
+	return out
 }
 
 type walker struct {
 	fset *token.FileSet
 	info *types.Info
 	root string
+	dtos map[string]bool // qualified names of bound body types (filled before the outline pass)
 }
 
 func (w *walker) loc(p token.Pos) graph.Loc { return graph.LocOf(w.fset.Position(p), w.root) }
@@ -115,15 +170,11 @@ func (w *walker) stmt(s ast.Stmt) []graph.Step {
 		if len(then) == 0 && len(els) == 0 {
 			return pre
 		}
-		return append(pre, graph.Step{K: graph.StepIf, Cond: w.text(s.Cond), Line: w.line(s.If), Then: then, Else: els})
+		return append(pre, graph.Step{K: graph.StepIf, Cond: w.text(s.Cond), Line: w.line(s.If), Then: then, Else: els, Test: w.test(s.Cond)})
 	case *ast.SwitchStmt:
-		tag := ""
-		if s.Tag != nil {
-			tag = w.text(s.Tag)
-		}
-		return w.switchStmt(s.Switch, tag, s.Body, w.calls(s.Init, s.Tag))
+		return w.switchStmt(s, w.calls(s.Init, s.Tag))
 	case *ast.TypeSwitchStmt:
-		return w.switchStmt(s.Switch, w.text(s.Assign), s.Body, w.calls(s.Init, s.Assign))
+		return w.switchStmt(s, w.calls(s.Init, s.Assign))
 	case *ast.ForStmt:
 		body := append(w.calls(s.Cond), w.stmts(s.Body.List)...)
 		body = append(body, w.calls(s.Post)...)
@@ -176,9 +227,25 @@ func (w *walker) stmt(s ast.Stmt) []graph.Step {
 	return w.calls(s) // assign, decl, inc/dec, send, branch, empty
 }
 
-func (w *walker) switchStmt(at token.Pos, tag string, body *ast.BlockStmt, pre []graph.Step) []graph.Step {
+// switchStmt handles *ast.SwitchStmt and *ast.TypeSwitchStmt; only the former gets body tests.
+func (w *walker) switchStmt(sw ast.Stmt, pre []graph.Step) []graph.Step {
+	var (
+		at    token.Pos
+		tag   string
+		body  *ast.BlockStmt
+		tests []*graph.Test
+	)
+	switch s := sw.(type) {
+	case *ast.SwitchStmt:
+		at, body, tests = s.Switch, s.Body, w.caseTests(s.Tag, s.Body)
+		if s.Tag != nil {
+			tag = w.text(s.Tag)
+		}
+	case *ast.TypeSwitchStmt:
+		at, body, tag = s.Switch, s.Body, w.text(s.Assign)
+	}
 	var cases []graph.Case
-	for _, cc := range body.List {
+	for i, cc := range body.List {
 		c := cc.(*ast.CaseClause)
 		pre = append(pre, w.calls(nodes(c.List)...)...)
 		steps := w.stmts(c.Body)
@@ -193,7 +260,11 @@ func (w *walker) switchStmt(at token.Pos, tag string, body *ast.BlockStmt, pre [
 			}
 			label = trunc(strings.Join(parts, ", "))
 		}
-		cases = append(cases, graph.Case{Label: label, Body: steps})
+		gc := graph.Case{Label: label, Body: steps}
+		if tests != nil {
+			gc.Test = tests[i]
+		}
+		cases = append(cases, gc)
 	}
 	if len(cases) == 0 {
 		return pre

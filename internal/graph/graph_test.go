@@ -134,6 +134,20 @@ func TestValidateRejects(t *testing.T) {
 		{"absolute path", "non-relative", func(g *Graph) { g.Nodes[0].Loc = &Loc{File: "/Users/x/a.go", Line: 1} }},
 		{"escaping path", "non-relative", func(g *Graph) { g.Diagnostics[0].Loc = &Loc{File: "../other/a.go", Line: 1} }},
 		{"blocker out of range", "out of range", func(g *Graph) { g.Stats.Blockers = []int{5} }},
+		{"bad test op", "invalid test op", func(g *Graph) { ifStep(g).Test = &Test{Op: "matches"} }},
+		{"compare without value", "missing its ref or value", func(g *Graph) {
+			ifStep(g).Test = &Test{Op: OpEq, Ref: &Ref{Type: "m/dto.Req", Path: []string{"currency"}}}
+		}},
+		{"not with two args", "has 2 args", func(g *Graph) {
+			ifStep(g).Test = &Test{Op: OpNot, Args: []Test{{Op: OpUnknown}, {Op: OpUnknown}}}
+		}},
+		{"bad field kind", "invalid kind \"date\"", func(g *Graph) {
+			for i := range g.Nodes {
+				if g.Nodes[i].Kind == KindFunction {
+					g.Nodes[i].Body = &Body{Type: "m/dto.Req", Fields: []Field{{Name: "at", Kind: "date"}}}
+				}
+			}
+		}},
 	}
 	for _, c := range cases {
 		t.Run(c.name, func(t *testing.T) {
@@ -146,6 +160,18 @@ func TestValidateRejects(t *testing.T) {
 			}
 		})
 	}
+}
+
+// ifStep is the if step in validGraph's service function.
+func ifStep(g *Graph) *Step {
+	for i := range g.Nodes {
+		for j := range g.Nodes[i].Flow {
+			if g.Nodes[i].Flow[j].K == StepIf {
+				return &g.Nodes[i].Flow[j]
+			}
+		}
+	}
+	panic("validGraph has no if step")
 }
 
 func TestAbsolutePathAllowedWithEditorRoot(t *testing.T) {

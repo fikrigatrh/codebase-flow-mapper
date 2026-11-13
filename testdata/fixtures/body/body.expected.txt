@@ -1,0 +1,29 @@
+# Hand-written before running the analyzer (CFM-401). Per function: the bound body, then every
+# test in its outline. Refs read <short type>.<json path>, then |fold in the order applied.
+== fn:example.com/body/internal/handler.(*Handler).Topup
+body example.com/body/internal/dto.TopupReq ShouldBindJSON L21
+  requestId string
+  source object example.com/body/internal/dto.Amount
+    value number
+    currency string
+  targetCurrency string nullable
+  express boolean
+  tags array nullable
+    [] string
+  meta object nullable
+  at string time.Time
+  Note string
+L25 if and(truthy(dto.TopupReq.express), gt(dto.TopupReq.source.value, 1000))
+== fn:example.com/body/internal/handler.Legacy
+body example.com/body/internal/dto.LegacyReq Decode L33
+  count integer
+  dryRun boolean
+L37 if ge(dto.LegacyReq.count, 3)
+L40 if not(truthy(dto.LegacyReq.dryRun))
+== fn:example.com/body/internal/service.(*Service).Topup
+L18 case "HKD": eq(dto.TopupReq.source.currency|trim|upper, "HKD")
+L18 case dto.CurrencySGD, "MYR": or(eq(dto.TopupReq.source.currency|trim|upper, "SGD"), eq(dto.TopupReq.source.currency|trim|upper, "MYR"))
+L18 case default: and(not(eq(dto.TopupReq.source.currency|trim|upper, "HKD")), not(or(eq(dto.TopupReq.source.currency|trim|upper, "SGD"), eq(dto.TopupReq.source.currency|trim|upper, "MYR"))), not(eq(dto.TopupReq.source.currency|trim|upper, "IDR")))
+== fn:example.com/body/internal/service.(*Service).pay
+L34 if or(eq(dto.Amount.currency, "SGD"), unknown)
+L36 if eq(dto.Amount.currency|lower, "hkd")

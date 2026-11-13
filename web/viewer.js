@@ -138,6 +138,179 @@
     if (e.key === "/" && t !== "INPUT" && t !== "TEXTAREA") { e.preventDefault(); search.focus(); search.select(); }
   });
 
+  // ---- request body probe (CFM-401) ----
+  // probe is the body the user typed for one bound type; tests from the analyzer are evaluated
+  // against it to true, false or null (can't tell). Go semantics: a missing field is its zero value.
+  var probe = null, bodyText = {}, redrawTimer = 0;
+  function zero(f) {
+    if (f.nullable) return null;
+    return f.kind === "string" ? "" : f.kind === "integer" || f.kind === "number" ? 0
+      : f.kind === "boolean" ? false : f.kind === "object" ? {} : null;
+  }
+  function sample(fields) {
+    var o = {};
+    fields.forEach(function (f) {
+      o[f.name] = f.kind === "object" ? (f.fields ? sample(f.fields) : {}) : f.kind === "array" ? [] : zero(f);
+    });
+    return o;
+  }
+  // locate finds where a bound type sits inside the probed body: the root, or a nested struct field.
+  function locate(type) {
+    if (probe.type === type) return [];
+    var found = null;
+    (function walk(fs, pre) {
+      fs.forEach(function (f) {
+        if (found || f.kind !== "object") return;
+        if (f.type === type) found = pre.concat(f.name);
+        else if (f.fields) walk(f.fields, pre.concat(f.name));
+      });
+    })(probe.fields, []);
+    return found;
+  }
+  // encoding/json matches keys case-insensitively, preferring an exact match.
+  function pick(o, name) {
+    if (o === null || typeof o !== "object" || Array.isArray(o)) return undefined;
+    if (Object.prototype.hasOwnProperty.call(o, name)) return o[name];
+    var l = name.toLowerCase(), k;
+    for (k in o) if (Object.prototype.hasOwnProperty.call(o, k) && k.toLowerCase() === l) return o[k];
+    return undefined;
+  }
+  var KINDS = { string: "string", integer: "number", number: "number", boolean: "boolean" };
+  function resolve(ref) {
+    var pre = locate(ref.type);
+    if (!pre) return { ok: false };
+    var path = pre.concat(ref.path), v = probe.value, fs = probe.fields, f = null;
+    for (var i = 0; i < path.length; i++) {
+      f = (fs || []).filter(function (x) { return x.name === path[i]; })[0];
+      if (!f) return { ok: false };
+      if (v === null && i > 0) return { ok: false }; // reading through a nil pointer
+      v = pick(v, path[i]);
+      if (v === undefined || (v === null && !f.nullable)) v = zero(f);
+      fs = f.fields;
+    }
+    if (v !== null && KINDS[f.kind] && typeof v !== KINDS[f.kind]) return { ok: false }; // binding would fail
+    (ref.fold || []).forEach(function (op) {
+      if (typeof v !== "string") return;
+      v = op === "upper" ? v.toUpperCase() : op === "lower" ? v.toLowerCase() : v.trim();
+    });
+    return { ok: true, v: v };
+  }
+  function evalT(t) {
+    if (!probe || !t) return null;
+    var r, i, x;
+    switch (t.op) {
+    case "and": case "or":
+      r = t.op === "and";
+      for (i = 0; i < t.args.length; i++) {
+        x = evalT(t.args[i]);
+        if (x === !r) return !r;
+        if (x === null) r = null;
+      }
+      return r;
+    case "not":
+      x = evalT(t.args[0]);
+      return x === null ? null : !x;
+    case "unknown": return null;
+    }
+    var got = resolve(t.ref);
+    if (!got.ok) return null;
+    var a = got.v, b = t.value;
+    switch (t.op) {
+    case "truthy": return a === true;
+    case "eq": return a === b;
+    case "ne": return a !== b;
+    }
+    if (typeof a !== "number" || typeof b !== "number") return null;
+    return t.op === "lt" ? a < b : t.op === "le" ? a <= b : t.op === "gt" ? a > b : a >= b;
+  }
+  // switchResult: the first case that matches, unless an earlier one can't be decided.
+  function switchResult(st) {
+    var cs = (st.cases || []).filter(function (c) { return c.test; });
+    for (var i = 0; i < cs.length; i++) {
+      var r = evalT(cs[i].test);
+      if (r === null) return null;
+      if (r) return "case " + cs[i].label;
+    }
+    return cs.length ? "no shown case" : null;
+  }
+  function hasTest(st) { return !!st.test || (st.cases || []).some(function (c) { return c.test; }); }
+  // bodyConditions lists the body tests in every function the handler reaches (low-confidence
+  // fan-out skipped, like the gate-5 kit).
+  function bodyConditions(fn) {
+    var seen = {}, queue = [fn], outl = [];
+    seen[fn] = true;
+    while (queue.length && queue.length < 5000) {
+      var id = queue.shift();
+      (function walk(steps) {
+        (steps || []).forEach(function (st) {
+          if (hasTest(st)) outl.push({ fn: id, st: st });
+          walk(st.then); walk(st.else); walk(st.body);
+          (st.cases || []).forEach(function (c) { walk(c.body); });
+        });
+      })(byId[id].flow);
+      out[id].forEach(function (e) {
+        if (e.kind === "calls" && e.confidence !== "low" && byId[e.target].kind === "function" && !seen[e.target]) {
+          seen[e.target] = true;
+          queue.push(e.target);
+        }
+      });
+    }
+    return outl;
+  }
+  function resultText(r) { return r === null ? "can't tell" : r === true ? "true" : r === false ? "false" : r; }
+  // from is the node whose panel holds the box (an endpoint or its handler), for the "entered on" link.
+  function bodySection(fn, from) {
+    var b = byId[fn].body, sec = el("section", "probe");
+    sec.append(el("h3", "", "Request body (" + b.type.split("/").pop() + ")"),
+      el("p", "muted", "Bound by " + b.binder + " at line " + b.line + ". Edit the JSON to see which branches it takes. A missing field counts as Go's zero value."));
+    var ta = el("textarea", "mono");
+    ta.id = "probe-input";
+    ta.spellcheck = false;
+    ta.setAttribute("aria-label", "Request body JSON");
+    ta.setAttribute("aria-describedby", "probe-status");
+    var blank = JSON.stringify(sample(b.fields), null, 2);
+    ta.value = bodyText[fn] != null ? bodyText[fn] : blank;
+    var reset = el("button", "", "Reset to empty body");
+    reset.type = "button";
+    var st = el("p", "probe-status");
+    st.id = "probe-status";
+    var conds = bodyConditions(fn), ul = el("ul", "edges");
+    var head = el("h3", "", "Conditions on this body (" + conds.length + ")");
+    function apply() {
+      bodyText[fn] = ta.value;
+      try {
+        probe = { from: from, type: b.type, fields: b.fields, value: JSON.parse(ta.value) };
+        st.textContent = "The results below and the flowchart branches follow this body.";
+        st.className = "probe-status muted";
+      } catch (e) {
+        probe = null;
+        st.textContent = "Not valid JSON (" + e.message + "). Nothing is highlighted.";
+        st.className = "probe-status diag";
+      }
+      ul.replaceChildren();
+      conds.forEach(function (c) {
+        var r = c.st.k === "if" ? evalT(c.st.test) : switchResult(c.st);
+        var li = el("li"), btn = el("button", "link edge", "");
+        btn.type = "button";
+        var meta = el("span", "conf", label(byId[c.fn]) + " · line " + c.st.line + " · ");
+        meta.append(el("span", r === null ? "" : "taken", resultText(r)));
+        btn.append(el("span", "mono", c.st.k === "if" ? c.st.cond : "switch " + (c.st.tag || "")), meta);
+        btn.addEventListener("click", function () { select(c.fn); setView("flow"); });
+        li.append(btn);
+        ul.append(li);
+      });
+      clearTimeout(redrawTimer);
+      redrawTimer = setTimeout(function () { if (view === "flow") draw(); }, 250);
+    }
+    ta.addEventListener("input", apply);
+    reset.addEventListener("click", function () { ta.value = blank; apply(); ta.focus(); });
+    sec.append(ta, reset, st, head);
+    if (conds.length) sec.append(ul);
+    else sec.append(el("p", "muted", "No condition reachable from the handler compares a field of this body with a constant. Values copied into another struct or read from a database are not traced."));
+    apply();
+    return sec;
+  }
+
   // ---- detail panel ----
   var detail = $("detail"), selected = null;
   function dl(pairs) {
@@ -207,6 +380,16 @@
       edgeList("Incoming", inc[id], "source"));
     var dg = diagList(id);
     if (dg) detail.append(dg);
+    var fn = flowFn(id);
+    if (fn && byId[fn].body) {
+      detail.append(bodySection(fn, id));
+    } else if (n.kind === "endpoint") {
+      probe = null;
+    } else if (probe) {
+      var p = el("p", "muted", "Flowchart branches follow the request body entered on ");
+      p.append(nodeButton(probe.from), ".");
+      detail.append(p);
+    }
   }
   function showStep(st, fn) {
     var f = byId[fn], loc = f.loc ? { file: f.loc.file, line: st.line } : null;
@@ -214,7 +397,8 @@
       el("h2", "", st.k === "loop" ? "Loop" : st.k === "if" ? "If" : st.k === "select" ? "Select" : "Switch"),
       dl([[st.k === "if" ? "Condition" : st.k === "loop" ? "Header" : "Tag", st.cond || st.head || st.tag, true],
         ["Cases", st.cases ? st.cases.map(function (c) { return c.label; }).join(" · ") : "", true],
-        ["Location", loc ? locNode(loc) : ""], ["In", nodeButton(fn)]]));
+        ["Location", loc ? locNode(loc) : ""], ["In", nodeButton(fn)],
+        ["Body result", probe && hasTest(st) ? resultText(st.k === "if" ? evalT(st.test) : switchResult(st)) : "", true]]));
   }
   function showEdge(e) {
     var back = el("button", "link", "Back to " + (byId[selected] ? label(byId[selected]) : "node"));
@@ -372,6 +556,8 @@
     return id;
   }
 
+  // taken marks a branch edge for the probed body: hit when its result is want, miss when not.
+  function taken(r, want) { return r === null ? "" : r === want ? "hit" : "miss"; }
   function buildFlow(fnId) {
     var els = [], seq = 0, cut = false;
     function node(l, kind, parent, extra) {
@@ -394,7 +580,7 @@
     }
     function link(entries, to, cls) {
       entries.forEach(function (en) {
-        els.push({ data: { source: en.from, target: to, label: short(en.label || "") }, classes: cls || "" });
+        els.push({ data: { source: en.from, target: to, label: short(en.label || "") }, classes: ((cls || "") + " " + (en.cls || "")).trim() });
       });
     }
     // steps returns the open exits ({from, label}) that the next step connects to.
@@ -428,8 +614,10 @@
       case "if":
         id = node(st.cond, "diamond", ctx.parent, { step: st, fn: ctx.fn });
         link(entries, id);
-        exits = steps(st.then || [], [{ from: id, label: "true" }], ctx);
-        return exits.concat(st.else ? steps(st.else, [{ from: id, label: "false" }], ctx) : [{ from: id, label: "false" }]);
+        var r = evalT(st.test);
+        exits = steps(st.then || [], [{ from: id, label: "true", cls: taken(r, true) }], ctx);
+        var no = { from: id, label: "false", cls: taken(r, false) };
+        return exits.concat(st.else ? steps(st.else, [no], ctx) : [no]);
       case "switch": case "select":
         id = node(st.k === "select" ? "select" : st.tag || "switch", "diamond", ctx.parent, { step: st, fn: ctx.fn });
         link(entries, id);
@@ -437,7 +625,8 @@
         var dflt = false;
         (st.cases || []).forEach(function (c) {
           if (c.label === "default") dflt = true;
-          exits = exits.concat(steps(c.body || [], [{ from: id, label: c.label === "default" ? "default" : "case " + c.label }], ctx));
+          var cls = c.test ? taken(evalT(c.test), true) : "";
+          exits = exits.concat(steps(c.body || [], [{ from: id, label: c.label === "default" ? "default" : "case " + c.label, cls: cls }], ctx));
         });
         // Cases without calls are pruned, so with no default there may be paths the outline does not show.
         return dflt ? exits : exits.concat([{ from: id, label: "other" }]);
@@ -538,7 +727,9 @@
       { selector: "edge[conf = 'high']", style: { label: "" } }, // solid line already says high; label only the doubtful ones
       { selector: "edge[conf = 'medium']", style: { "line-style": "dashed" } },
       { selector: "edge[conf = 'low'], edge[conf = 'unknown']", style: { "line-style": "dotted" } },
-      { selector: "edge.helper", style: { "line-style": "dotted", "target-arrow-shape": "none" } }
+      { selector: "edge.helper", style: { "line-style": "dotted", "target-arrow-shape": "none" } },
+      { selector: "edge.hit", style: { width: 2.5, "line-color": css("--accent"), "target-arrow-color": css("--accent"), color: css("--text") } },
+      { selector: "edge.miss", style: { opacity: 0.3 } }
     ];
   }
 

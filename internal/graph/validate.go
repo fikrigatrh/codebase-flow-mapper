@@ -19,6 +19,9 @@ var (
 	validStatus  = []Status{StatusResolved, StatusPartiallyResolved, StatusUnresolved}
 	validConf    = []Confidence{ConfHigh, ConfMedium, ConfLow, ConfUnknown}
 	validMethods = []Method{MethodStatic, MethodVTA, MethodFrameworkRegistration, MethodWrapperHeuristic, MethodUnresolved}
+	validFields  = []string{FieldString, FieldInteger, FieldNumber, FieldBoolean, FieldObject, FieldArray, FieldAny}
+	// arity of each test op: -1 = one or more args, 0 = ref (+ value), no args
+	validOps = map[string]int{OpAnd: -1, OpOr: -1, OpNot: 1, OpEq: 0, OpNe: 0, OpLt: 0, OpLe: 0, OpGt: 0, OpGe: 0, OpTruthy: 0, OpUnknown: 0}
 )
 
 // Validate checks GRAPH_SCHEMA §7. A failure is a CFM bug, never a property of the analyzed code.
@@ -84,6 +87,10 @@ func Validate(g *Graph) error {
 		if n.Kind != KindFunction {
 			continue
 		}
+		if n.Body != nil {
+			checkFields(n.ID, n.Body.Fields, bad)
+		}
+		walkTests(n.Flow, func(t *Test) { checkTest(n.ID, t, bad) })
 		steps := map[string]bool{}
 		WalkSites(n.Flow, func(site string) { steps[site] = true })
 		for site := range steps {
@@ -129,6 +136,53 @@ func WalkSites(steps []Step, visit func(string)) {
 		WalkSites(s.Body, visit)
 		for _, c := range s.Cases {
 			WalkSites(c.Body, visit)
+		}
+	}
+}
+
+// §8: body field kinds, and test ops with the operands each op needs.
+func checkFields(id NodeID, fs []Field, bad func(string, ...any)) {
+	for _, f := range fs {
+		if !slices.Contains(validFields, f.Kind) {
+			bad("function %q: body field %q has invalid kind %q", id, f.Name, f.Kind)
+		}
+		checkFields(id, f.Fields, bad)
+		if f.Elem != nil {
+			checkFields(id, []Field{*f.Elem}, bad)
+		}
+	}
+}
+
+func checkTest(id NodeID, t *Test, bad func(string, ...any)) {
+	arity, ok := validOps[t.Op]
+	compare := t.Op != OpTruthy && t.Op != OpUnknown && arity == 0
+	switch {
+	case !ok:
+		bad("function %q: invalid test op %q", id, t.Op)
+	case arity == -1 && len(t.Args) == 0, arity > 0 && len(t.Args) != arity:
+		bad("function %q: test %q has %d args", id, t.Op, len(t.Args))
+	case t.Op == OpTruthy && t.Ref == nil, compare && (t.Ref == nil || t.Value == nil):
+		bad("function %q: test %q is missing its ref or value", id, t.Op)
+	}
+	for i := range t.Args {
+		checkTest(id, &t.Args[i], bad)
+	}
+}
+
+// walkTests visits the top-level test of every if step and switch case in a flow tree.
+func walkTests(steps []Step, visit func(*Test)) {
+	for _, s := range steps {
+		if s.Test != nil {
+			visit(s.Test)
+		}
+		walkTests(s.Then, visit)
+		walkTests(s.Else, visit)
+		walkTests(s.Body, visit)
+		for _, c := range s.Cases {
+			if c.Test != nil {
+				visit(c.Test)
+			}
+			walkTests(c.Body, visit)
 		}
 	}
 }

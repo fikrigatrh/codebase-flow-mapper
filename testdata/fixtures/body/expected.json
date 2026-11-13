@@ -1,0 +1,1304 @@
+{
+  "schemaVersion": "2.1.0",
+  "analyzerVersion": "test",
+  "module": "example.com/body",
+  "goVersion": "1.23",
+  "generatedAt": "",
+  "editorRoot": null,
+  "nodes": [
+    {
+      "id": "endpoint:gin:GET:/v1/ping:main.go:16",
+      "kind": "endpoint",
+      "name": "GET /v1/ping",
+      "loc": {
+        "file": "main.go",
+        "line": 16,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "GET",
+      "path": "/v1/ping"
+    },
+    {
+      "id": "endpoint:gin:POST:/v1/topup:main.go:15",
+      "kind": "endpoint",
+      "name": "POST /v1/topup",
+      "loc": {
+        "file": "main.go",
+        "line": 15,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "POST",
+      "path": "/v1/topup"
+    },
+    {
+      "id": "endpoint:nethttp:ANY:/legacy:main.go:17",
+      "kind": "endpoint",
+      "name": "ANY /legacy",
+      "loc": {
+        "file": "main.go",
+        "line": 17,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "nethttp",
+      "method": "ANY",
+      "path": "/legacy"
+    },
+    {
+      "id": "external:encoding/json.(*Decoder).Decode",
+      "kind": "external",
+      "name": "(*Decoder).Decode",
+      "pkg": "encoding/json",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:encoding/json.NewDecoder",
+      "kind": "external",
+      "name": "NewDecoder",
+      "pkg": "encoding/json",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*Context).ShouldBindJSON",
+      "kind": "external",
+      "name": "(*Context).ShouldBindJSON",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*Context).Status",
+      "kind": "external",
+      "name": "(*Context).Status",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*Context).String",
+      "kind": "external",
+      "name": "(*Context).String",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*Engine).Run",
+      "kind": "external",
+      "name": "(*Engine).Run",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*RouterGroup).GET",
+      "kind": "external",
+      "name": "(*RouterGroup).GET",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*RouterGroup).POST",
+      "kind": "external",
+      "name": "(*RouterGroup).POST",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.New",
+      "kind": "external",
+      "name": "New",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.(ResponseWriter).WriteHeader",
+      "kind": "external",
+      "name": "(ResponseWriter).WriteHeader",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.Error",
+      "kind": "external",
+      "name": "Error",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.Get",
+      "kind": "external",
+      "name": "Get",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "http_client"
+    },
+    {
+      "id": "external:net/http.HandleFunc",
+      "kind": "external",
+      "name": "HandleFunc",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:strings.EqualFold",
+      "kind": "external",
+      "name": "EqualFold",
+      "pkg": "strings",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:strings.ToUpper",
+      "kind": "external",
+      "name": "ToUpper",
+      "pkg": "strings",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:strings.TrimSpace",
+      "kind": "external",
+      "name": "TrimSpace",
+      "pkg": "strings",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "fn:example.com/body.main",
+      "kind": "function",
+      "name": "main",
+      "pkg": "example.com/body",
+      "loc": {
+        "file": "main.go",
+        "line": 12,
+        "col": 1,
+        "endLine": 19
+      },
+      "status": "resolved",
+      "signature": "func()",
+      "flow": [
+        {
+          "k": "call",
+          "site": "main.go:13:30",
+          "line": 13
+        },
+        {
+          "k": "call",
+          "site": "main.go:13:18",
+          "line": 13
+        },
+        {
+          "k": "call",
+          "site": "main.go:14:14",
+          "line": 14
+        },
+        {
+          "k": "call",
+          "site": "main.go:15:8",
+          "line": 15
+        },
+        {
+          "k": "call",
+          "site": "main.go:16:7",
+          "line": 16
+        },
+        {
+          "k": "call",
+          "site": "main.go:17:17",
+          "line": 17
+        },
+        {
+          "k": "call",
+          "site": "main.go:18:11",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/body/internal/handler.(*Handler).Ping",
+      "kind": "function",
+      "name": "(*Handler).Ping",
+      "pkg": "example.com/body/internal/handler",
+      "loc": {
+        "file": "internal/handler/handler.go",
+        "line": 17,
+        "col": 1,
+        "endLine": 17
+      },
+      "status": "resolved",
+      "receiver": "*Handler",
+      "signature": "func(c *gin.Context)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/handler/handler.go:17:50",
+          "line": 17
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/body/internal/handler.(*Handler).Topup",
+      "kind": "function",
+      "name": "(*Handler).Topup",
+      "pkg": "example.com/body/internal/handler",
+      "loc": {
+        "file": "internal/handler/handler.go",
+        "line": 19,
+        "col": 1,
+        "endLine": 29
+      },
+      "status": "resolved",
+      "receiver": "*Handler",
+      "signature": "func(c *gin.Context)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/handler/handler.go:21:28",
+          "line": 21
+        },
+        {
+          "k": "if",
+          "line": 21,
+          "cond": "err != nil",
+          "then": [
+            {
+              "k": "call",
+              "site": "internal/handler/handler.go:22:11",
+              "line": 22
+            },
+            {
+              "k": "return",
+              "line": 23
+            }
+          ]
+        },
+        {
+          "k": "if",
+          "line": 25,
+          "cond": "req.Express \u0026\u0026 req.Source.Value \u003e 1000",
+          "then": [
+            {
+              "k": "call",
+              "site": "internal/handler/handler.go:26:15",
+              "line": 26
+            }
+          ],
+          "test": {
+            "op": "and",
+            "args": [
+              {
+                "op": "truthy",
+                "ref": {
+                  "type": "example.com/body/internal/dto.TopupReq",
+                  "path": [
+                    "express"
+                  ]
+                }
+              },
+              {
+                "op": "gt",
+                "ref": {
+                  "type": "example.com/body/internal/dto.TopupReq",
+                  "path": [
+                    "source",
+                    "value"
+                  ]
+                },
+                "value": 1000
+              }
+            ]
+          }
+        },
+        {
+          "k": "call",
+          "site": "internal/handler/handler.go:28:13",
+          "line": 28
+        }
+      ],
+      "body": {
+        "type": "example.com/body/internal/dto.TopupReq",
+        "binder": "ShouldBindJSON",
+        "line": 21,
+        "fields": [
+          {
+            "name": "requestId",
+            "kind": "string"
+          },
+          {
+            "name": "source",
+            "kind": "object",
+            "type": "example.com/body/internal/dto.Amount",
+            "fields": [
+              {
+                "name": "value",
+                "kind": "number"
+              },
+              {
+                "name": "currency",
+                "kind": "string"
+              }
+            ]
+          },
+          {
+            "name": "targetCurrency",
+            "kind": "string",
+            "nullable": true
+          },
+          {
+            "name": "express",
+            "kind": "boolean"
+          },
+          {
+            "name": "tags",
+            "kind": "array",
+            "nullable": true,
+            "elem": {
+              "kind": "string"
+            }
+          },
+          {
+            "name": "meta",
+            "kind": "object",
+            "nullable": true
+          },
+          {
+            "name": "at",
+            "kind": "string",
+            "type": "time.Time"
+          },
+          {
+            "name": "Note",
+            "kind": "string"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fn:example.com/body/internal/handler.Legacy",
+      "kind": "function",
+      "name": "Legacy",
+      "pkg": "example.com/body/internal/handler",
+      "loc": {
+        "file": "internal/handler/handler.go",
+        "line": 31,
+        "col": 1,
+        "endLine": 43
+      },
+      "status": "resolved",
+      "signature": "func(w http.ResponseWriter, r *http.Request)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/handler/handler.go:33:27",
+          "line": 33
+        },
+        {
+          "k": "call",
+          "site": "internal/handler/handler.go:33:42",
+          "line": 33
+        },
+        {
+          "k": "if",
+          "line": 33,
+          "cond": "err != nil",
+          "then": [
+            {
+              "k": "call",
+              "site": "internal/handler/handler.go:34:13",
+              "line": 34
+            },
+            {
+              "k": "return",
+              "line": 35
+            }
+          ]
+        },
+        {
+          "k": "if",
+          "line": 37,
+          "cond": "3 \u003c= in.Count",
+          "then": [
+            {
+              "k": "call",
+              "site": "internal/handler/handler.go:38:16",
+              "line": 38
+            }
+          ],
+          "test": {
+            "op": "ge",
+            "ref": {
+              "type": "example.com/body/internal/dto.LegacyReq",
+              "path": [
+                "count"
+              ]
+            },
+            "value": 3
+          }
+        },
+        {
+          "k": "if",
+          "line": 40,
+          "cond": "!in.DryRun",
+          "then": [
+            {
+              "k": "call",
+              "site": "internal/handler/handler.go:41:16",
+              "line": 41
+            }
+          ],
+          "test": {
+            "op": "not",
+            "args": [
+              {
+                "op": "truthy",
+                "ref": {
+                  "type": "example.com/body/internal/dto.LegacyReq",
+                  "path": [
+                    "dryRun"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "body": {
+        "type": "example.com/body/internal/dto.LegacyReq",
+        "binder": "Decode",
+        "line": 33,
+        "fields": [
+          {
+            "name": "count",
+            "kind": "integer"
+          },
+          {
+            "name": "dryRun",
+            "kind": "boolean"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fn:example.com/body/internal/handler.New",
+      "kind": "function",
+      "name": "New",
+      "pkg": "example.com/body/internal/handler",
+      "loc": {
+        "file": "internal/handler/handler.go",
+        "line": 15,
+        "col": 1,
+        "endLine": 15
+      },
+      "status": "resolved",
+      "signature": "func(s *service.Service) *Handler",
+      "flow": [
+        {
+          "k": "return",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/body/internal/service.(*Service).Review",
+      "kind": "function",
+      "name": "(*Service).Review",
+      "pkg": "example.com/body/internal/service",
+      "loc": {
+        "file": "internal/service/service.go",
+        "line": 15,
+        "col": 1,
+        "endLine": 15
+      },
+      "status": "resolved",
+      "receiver": "*Service",
+      "signature": "func(id string)"
+    },
+    {
+      "id": "fn:example.com/body/internal/service.(*Service).Topup",
+      "kind": "function",
+      "name": "(*Service).Topup",
+      "pkg": "example.com/body/internal/service",
+      "loc": {
+        "file": "internal/service/service.go",
+        "line": 17,
+        "col": 1,
+        "endLine": 31
+      },
+      "status": "resolved",
+      "receiver": "*Service",
+      "signature": "func(ctx context.Context, req dto.TopupReq)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/service/service.go:18:42",
+          "line": 18
+        },
+        {
+          "k": "call",
+          "site": "internal/service/service.go:18:24",
+          "line": 18
+        },
+        {
+          "k": "switch",
+          "line": 18,
+          "tag": "strings.ToUpper(strings.TrimSpace(req.Source.Currency))",
+          "cases": [
+            {
+              "label": "\"HKD\"",
+              "body": [
+                {
+                  "k": "call",
+                  "site": "internal/service/service.go:20:10",
+                  "line": 20
+                }
+              ],
+              "test": {
+                "op": "eq",
+                "ref": {
+                  "type": "example.com/body/internal/dto.TopupReq",
+                  "path": [
+                    "source",
+                    "currency"
+                  ],
+                  "fold": [
+                    "trim",
+                    "upper"
+                  ]
+                },
+                "value": "HKD"
+              }
+            },
+            {
+              "label": "dto.CurrencySGD, \"MYR\"",
+              "body": [
+                {
+                  "k": "call",
+                  "site": "internal/service/service.go:22:18",
+                  "line": 22
+                }
+              ],
+              "test": {
+                "op": "or",
+                "args": [
+                  {
+                    "op": "eq",
+                    "ref": {
+                      "type": "example.com/body/internal/dto.TopupReq",
+                      "path": [
+                        "source",
+                        "currency"
+                      ],
+                      "fold": [
+                        "trim",
+                        "upper"
+                      ]
+                    },
+                    "value": "SGD"
+                  },
+                  {
+                    "op": "eq",
+                    "ref": {
+                      "type": "example.com/body/internal/dto.TopupReq",
+                      "path": [
+                        "source",
+                        "currency"
+                      ],
+                      "fold": [
+                        "trim",
+                        "upper"
+                      ]
+                    },
+                    "value": "MYR"
+                  }
+                ]
+              }
+            },
+            {
+              "label": "default",
+              "body": [
+                {
+                  "k": "call",
+                  "site": "internal/service/service.go:25:11",
+                  "line": 25
+                }
+              ],
+              "test": {
+                "op": "and",
+                "args": [
+                  {
+                    "op": "not",
+                    "args": [
+                      {
+                        "op": "eq",
+                        "ref": {
+                          "type": "example.com/body/internal/dto.TopupReq",
+                          "path": [
+                            "source",
+                            "currency"
+                          ],
+                          "fold": [
+                            "trim",
+                            "upper"
+                          ]
+                        },
+                        "value": "HKD"
+                      }
+                    ]
+                  },
+                  {
+                    "op": "not",
+                    "args": [
+                      {
+                        "op": "or",
+                        "args": [
+                          {
+                            "op": "eq",
+                            "ref": {
+                              "type": "example.com/body/internal/dto.TopupReq",
+                              "path": [
+                                "source",
+                                "currency"
+                              ],
+                              "fold": [
+                                "trim",
+                                "upper"
+                              ]
+                            },
+                            "value": "SGD"
+                          },
+                          {
+                            "op": "eq",
+                            "ref": {
+                              "type": "example.com/body/internal/dto.TopupReq",
+                              "path": [
+                                "source",
+                                "currency"
+                              ],
+                              "fold": [
+                                "trim",
+                                "upper"
+                              ]
+                            },
+                            "value": "MYR"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "op": "not",
+                    "args": [
+                      {
+                        "op": "eq",
+                        "ref": {
+                          "type": "example.com/body/internal/dto.TopupReq",
+                          "path": [
+                            "source",
+                            "currency"
+                          ],
+                          "fold": [
+                            "trim",
+                            "upper"
+                          ]
+                        },
+                        "value": "IDR"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "k": "call",
+          "site": "internal/service/service.go:27:7",
+          "line": 27
+        },
+        {
+          "k": "if",
+          "line": 28,
+          "cond": "s.strict",
+          "then": [
+            {
+              "k": "call",
+              "site": "internal/service/service.go:29:11",
+              "line": 29
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/body/internal/service.(*Service).local",
+      "kind": "function",
+      "name": "(*Service).local",
+      "pkg": "example.com/body/internal/service",
+      "loc": {
+        "file": "internal/service/service.go",
+        "line": 41,
+        "col": 1,
+        "endLine": 41
+      },
+      "status": "resolved",
+      "receiver": "*Service",
+      "signature": "func()"
+    },
+    {
+      "id": "fn:example.com/body/internal/service.(*Service).pay",
+      "kind": "function",
+      "name": "(*Service).pay",
+      "pkg": "example.com/body/internal/service",
+      "loc": {
+        "file": "internal/service/service.go",
+        "line": 33,
+        "col": 1,
+        "endLine": 39
+      },
+      "status": "resolved",
+      "receiver": "*Service",
+      "signature": "func(a dto.Amount)",
+      "flow": [
+        {
+          "k": "if",
+          "line": 34,
+          "cond": "a.Currency == \"SGD\" || s.strict",
+          "then": [
+            {
+              "k": "call",
+              "site": "internal/service/service.go:35:10",
+              "line": 35
+            }
+          ],
+          "else": [
+            {
+              "k": "call",
+              "site": "internal/service/service.go:36:29",
+              "line": 36
+            },
+            {
+              "k": "if",
+              "line": 36,
+              "cond": "strings.EqualFold(a.Currency, \"HKD\")",
+              "then": [
+                {
+                  "k": "call",
+                  "site": "internal/service/service.go:37:10",
+                  "line": 37
+                }
+              ],
+              "test": {
+                "op": "eq",
+                "ref": {
+                  "type": "example.com/body/internal/dto.Amount",
+                  "path": [
+                    "currency"
+                  ],
+                  "fold": [
+                    "lower"
+                  ]
+                },
+                "value": "hkd"
+              }
+            }
+          ],
+          "test": {
+            "op": "or",
+            "args": [
+              {
+                "op": "eq",
+                "ref": {
+                  "type": "example.com/body/internal/dto.Amount",
+                  "path": [
+                    "currency"
+                  ]
+                },
+                "value": "SGD"
+              },
+              {
+                "op": "unknown"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/body/internal/service.(*Service).reject",
+      "kind": "function",
+      "name": "(*Service).reject",
+      "pkg": "example.com/body/internal/service",
+      "loc": {
+        "file": "internal/service/service.go",
+        "line": 42,
+        "col": 1,
+        "endLine": 42
+      },
+      "status": "resolved",
+      "receiver": "*Service",
+      "signature": "func()"
+    },
+    {
+      "id": "fn:example.com/body/internal/service.New",
+      "kind": "function",
+      "name": "New",
+      "pkg": "example.com/body/internal/service",
+      "loc": {
+        "file": "internal/service/service.go",
+        "line": 13,
+        "col": 1,
+        "endLine": 13
+      },
+      "status": "resolved",
+      "signature": "func() *Service",
+      "flow": [
+        {
+          "k": "return",
+          "line": 13
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "endpoint:gin:GET:/v1/ping:main.go:16",
+      "target": "fn:example.com/body/internal/handler.(*Handler).Ping",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 16,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:gin:POST:/v1/topup:main.go:15",
+      "target": "fn:example.com/body/internal/handler.(*Handler).Topup",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 15,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:nethttp:ANY:/legacy:main.go:17",
+      "target": "fn:example.com/body/internal/handler.Legacy",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 17,
+        "col": 2
+      }
+    },
+    {
+      "source": "fn:example.com/body.main",
+      "target": "external:github.com/gin-gonic/gin.(*Engine).Run",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 18,
+        "col": 11
+      },
+      "siteId": "main.go:18:11"
+    },
+    {
+      "source": "fn:example.com/body.main",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).GET",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 16,
+        "col": 7
+      },
+      "siteId": "main.go:16:7"
+    },
+    {
+      "source": "fn:example.com/body.main",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).POST",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 15,
+        "col": 8
+      },
+      "siteId": "main.go:15:8"
+    },
+    {
+      "source": "fn:example.com/body.main",
+      "target": "external:github.com/gin-gonic/gin.New",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 14,
+        "col": 14
+      },
+      "siteId": "main.go:14:14"
+    },
+    {
+      "source": "fn:example.com/body.main",
+      "target": "external:net/http.HandleFunc",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 17,
+        "col": 17
+      },
+      "siteId": "main.go:17:17"
+    },
+    {
+      "source": "fn:example.com/body.main",
+      "target": "fn:example.com/body/internal/handler.New",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 13,
+        "col": 18
+      },
+      "siteId": "main.go:13:18"
+    },
+    {
+      "source": "fn:example.com/body.main",
+      "target": "fn:example.com/body/internal/service.New",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 13,
+        "col": 30
+      },
+      "siteId": "main.go:13:30"
+    },
+    {
+      "source": "fn:example.com/body/internal/handler.(*Handler).Ping",
+      "target": "external:github.com/gin-gonic/gin.(*Context).String",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 17,
+        "col": 50
+      },
+      "siteId": "internal/handler/handler.go:17:50"
+    },
+    {
+      "source": "fn:example.com/body/internal/handler.(*Handler).Topup",
+      "target": "external:github.com/gin-gonic/gin.(*Context).ShouldBindJSON",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 21,
+        "col": 28
+      },
+      "siteId": "internal/handler/handler.go:21:28"
+    },
+    {
+      "source": "fn:example.com/body/internal/handler.(*Handler).Topup",
+      "target": "external:github.com/gin-gonic/gin.(*Context).Status",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 22,
+        "col": 11
+      },
+      "siteId": "internal/handler/handler.go:22:11"
+    },
+    {
+      "source": "fn:example.com/body/internal/handler.(*Handler).Topup",
+      "target": "fn:example.com/body/internal/service.(*Service).Review",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 26,
+        "col": 15
+      },
+      "siteId": "internal/handler/handler.go:26:15"
+    },
+    {
+      "source": "fn:example.com/body/internal/handler.(*Handler).Topup",
+      "target": "fn:example.com/body/internal/service.(*Service).Topup",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 28,
+        "col": 13
+      },
+      "siteId": "internal/handler/handler.go:28:13"
+    },
+    {
+      "source": "fn:example.com/body/internal/handler.Legacy",
+      "target": "external:encoding/json.(*Decoder).Decode",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 33,
+        "col": 42
+      },
+      "siteId": "internal/handler/handler.go:33:42"
+    },
+    {
+      "source": "fn:example.com/body/internal/handler.Legacy",
+      "target": "external:encoding/json.NewDecoder",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 33,
+        "col": 27
+      },
+      "siteId": "internal/handler/handler.go:33:27"
+    },
+    {
+      "source": "fn:example.com/body/internal/handler.Legacy",
+      "target": "external:net/http.(ResponseWriter).WriteHeader",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call http.ResponseWriter.WriteHeader declared in net/http; implementation not tracked",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 38,
+        "col": 16
+      },
+      "siteId": "internal/handler/handler.go:38:16"
+    },
+    {
+      "source": "fn:example.com/body/internal/handler.Legacy",
+      "target": "external:net/http.(ResponseWriter).WriteHeader",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call http.ResponseWriter.WriteHeader declared in net/http; implementation not tracked",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 41,
+        "col": 16
+      },
+      "siteId": "internal/handler/handler.go:41:16"
+    },
+    {
+      "source": "fn:example.com/body/internal/handler.Legacy",
+      "target": "external:net/http.Error",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 34,
+        "col": 13
+      },
+      "siteId": "internal/handler/handler.go:34:13"
+    },
+    {
+      "source": "fn:example.com/body/internal/service.(*Service).Topup",
+      "target": "external:net/http.Get",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/service/service.go",
+        "line": 22,
+        "col": 18
+      },
+      "siteId": "internal/service/service.go:22:18"
+    },
+    {
+      "source": "fn:example.com/body/internal/service.(*Service).Topup",
+      "target": "external:strings.ToUpper",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/service/service.go",
+        "line": 18,
+        "col": 24
+      },
+      "siteId": "internal/service/service.go:18:24"
+    },
+    {
+      "source": "fn:example.com/body/internal/service.(*Service).Topup",
+      "target": "external:strings.TrimSpace",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/service/service.go",
+        "line": 18,
+        "col": 42
+      },
+      "siteId": "internal/service/service.go:18:42"
+    },
+    {
+      "source": "fn:example.com/body/internal/service.(*Service).Topup",
+      "target": "fn:example.com/body/internal/service.(*Service).local",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/service/service.go",
+        "line": 20,
+        "col": 10
+      },
+      "siteId": "internal/service/service.go:20:10"
+    },
+    {
+      "source": "fn:example.com/body/internal/service.(*Service).Topup",
+      "target": "fn:example.com/body/internal/service.(*Service).pay",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/service/service.go",
+        "line": 27,
+        "col": 7
+      },
+      "siteId": "internal/service/service.go:27:7"
+    },
+    {
+      "source": "fn:example.com/body/internal/service.(*Service).Topup",
+      "target": "fn:example.com/body/internal/service.(*Service).reject",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/service/service.go",
+        "line": 25,
+        "col": 11
+      },
+      "siteId": "internal/service/service.go:25:11"
+    },
+    {
+      "source": "fn:example.com/body/internal/service.(*Service).Topup",
+      "target": "fn:example.com/body/internal/service.(*Service).reject",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/service/service.go",
+        "line": 29,
+        "col": 11
+      },
+      "siteId": "internal/service/service.go:29:11"
+    },
+    {
+      "source": "fn:example.com/body/internal/service.(*Service).pay",
+      "target": "external:strings.EqualFold",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/service/service.go",
+        "line": 36,
+        "col": 29
+      },
+      "siteId": "internal/service/service.go:36:29"
+    },
+    {
+      "source": "fn:example.com/body/internal/service.(*Service).pay",
+      "target": "fn:example.com/body/internal/service.(*Service).local",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/service/service.go",
+        "line": 35,
+        "col": 10
+      },
+      "siteId": "internal/service/service.go:35:10"
+    },
+    {
+      "source": "fn:example.com/body/internal/service.(*Service).pay",
+      "target": "fn:example.com/body/internal/service.(*Service).local",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/service/service.go",
+        "line": 37,
+        "col": 10
+      },
+      "siteId": "internal/service/service.go:37:10"
+    }
+  ],
+  "diagnostics": [],
+  "stats": {
+    "packages": 4,
+    "functions": 11,
+    "endpoints": 3,
+    "edges": 30,
+    "unresolved": 0,
+    "elapsedMs": 0,
+    "blockers": []
+  }
+}

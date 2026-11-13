@@ -154,6 +154,21 @@ Sizes are guesses, and M0 is there to calibrate them. Tasks run in order unless 
 - The README has install instructions (`go install …/cmd/cfm@vX`), the `go mod download` prerequisite, a privacy note on sharing reports, and the supported patterns table.
 - A tag is cut.
 
+## M4: Request body
+
+### CFM-401: Request body schema, body-driven branches, try-a-body in the viewer ✅ (2026-11-13; `body` fixture with hand-written `body.expected.txt`; on a private Gin service: 41 bodies, 117 tests, 0 console errors; branch highlight checked in Chromium, dark + light, 390 px)
+A handler often branches on a body field, sometimes several calls deep (`currency == "SGD"` goes to a partner, `"HKD"` stays local). The report should show the body an endpoint takes, mark the conditions that read it, and let the user paste a body to see which branches it takes.
+
+**AC:**
+- **Schema.** A function that binds a request body gets `body`: the bound Go type and its JSON fields (json tag names, kind, nesting, nullable). Binders: Gin `ShouldBindJSON`/`BindJSON`/`ShouldBind`/`Bind`, Fiber v2 `BodyParser`, `json.NewDecoder(r.Body).Decode` on an `*http.Request`.
+- **Conditions.** An `if` condition, a `switch` case or `default` that compares a field of a bound type gets a `test`. This holds in any project function, because DTOs are passed on to usecases. Supported: `==`, `!=`, `<`, `<=`, `>`, `>=` against a constant (literal or named const), `&&`, `||`, `!`, bool fields, `strings.ToUpper`/`ToLower`/`TrimSpace` and `strings.EqualFold`. Anything else inside a test is `unknown`. A value copied into another struct, or read from a DB, is not traced, and its condition carries no test.
+- **Viewer.** The panel of an endpoint whose handler binds a body shows a JSON box prefilled with a sample from the schema.
+  - Valid JSON lists every body condition reachable from the handler, each with its result: true, false, the matching case, or can't tell.
+  - In the flowchart, a taken branch is highlighted and an untaken one is dimmed. A branch whose result can't be decided keeps its normal look.
+  - A missing field evaluates as Go's zero value.
+  - Invalid JSON says so and highlights nothing.
+- **Contract.** `GRAPH_SCHEMA.md` (2.1.0), `internal/graph` types, `Validate`, goldens and `viewer.js` change together. A new `body` fixture has hand-written expectations.
+
 ---
 
 ## Definition of done (every task)

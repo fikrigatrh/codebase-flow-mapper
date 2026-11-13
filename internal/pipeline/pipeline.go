@@ -32,7 +32,7 @@ func Run(ctx context.Context, opts Options) (*graph.Graph, error) {
 	}
 	cg := callgraph.Build(p)
 	rt := routes.Build(p, cg)
-	steps, flowDiags := flow.Build(p, cg)
+	fl := flow.Build(p, cg)
 
 	g := &graph.Graph{
 		SchemaVersion:   graph.SchemaVersion,
@@ -41,7 +41,7 @@ func Run(ctx context.Context, opts Options) (*graph.Graph, error) {
 		GoVersion:       p.GoVersion,
 		GeneratedAt:     start.UTC().Format(time.RFC3339),
 		Edges:           slices.Concat(cg.Edges, rt.Edges),
-		Diagnostics:     slices.Concat(loadDiags, cg.Diags, rt.Diags, flowDiags),
+		Diagnostics:     slices.Concat(loadDiags, cg.Diags, rt.Diags, fl.Diags),
 	}
 	if opts.EditorRoot {
 		g.EditorRoot = &p.Root
@@ -54,7 +54,7 @@ func Run(ctx context.Context, opts Options) (*graph.Graph, error) {
 			continue
 		}
 		seen[n.ID] = true
-		n.Flow = steps[n.ID]
+		n.Flow, n.Body = fl.Steps[n.ID], fl.Bodies[n.ID]
 		g.Nodes = append(g.Nodes, n)
 		switch n.Kind {
 		case graph.KindFunction:

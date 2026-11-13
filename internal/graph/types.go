@@ -1,7 +1,9 @@
 // Package graph holds the report graph (GRAPH_SCHEMA.md): types, IDs, validation and encoding.
 package graph
 
-const SchemaVersion = "2.0.0"
+import "encoding/json"
+
+const SchemaVersion = "2.1.0"
 
 type Graph struct {
 	SchemaVersion   string       `json:"schemaVersion"`
@@ -91,6 +93,7 @@ type Node struct {
 	Receiver  string `json:"receiver,omitempty"`
 	Signature string `json:"signature,omitempty"`
 	Flow      []Step `json:"flow,omitempty"`
+	Body      *Body  `json:"body,omitempty"` // the request body this function binds (CFM-401)
 
 	// external
 	Category string `json:"category,omitempty"`
@@ -145,9 +148,69 @@ type Step struct {
 	Else  []Step `json:"else,omitempty"`
 	Cases []Case `json:"cases,omitempty"`
 	Body  []Step `json:"body,omitempty"`
+	Test  *Test  `json:"test,omitempty"` // if: the condition, when it reads a bound body type
 }
 
 type Case struct {
 	Label string `json:"label"`
 	Body  []Step `json:"body"`
+	Test  *Test  `json:"test,omitempty"` // when the case (or default) depends on a bound body type
+}
+
+// Body is a bound request body (GRAPH_SCHEMA §8).
+type Body struct {
+	Type   string  `json:"type"`   // qualified Go type, e.g. example.com/app/dto.TopupReq
+	Binder string  `json:"binder"` // ShouldBindJSON, BodyParser, Decode, …
+	Line   int     `json:"line"`
+	Fields []Field `json:"fields"`
+}
+
+// Field kinds.
+const (
+	FieldString  = "string"
+	FieldInteger = "integer"
+	FieldNumber  = "number"
+	FieldBoolean = "boolean"
+	FieldObject  = "object"
+	FieldArray   = "array"
+	FieldAny     = "any"
+)
+
+type Field struct {
+	Name     string  `json:"name,omitempty"` // JSON name; empty for an array element
+	Kind     string  `json:"kind"`
+	Type     string  `json:"type,omitempty"` // qualified Go type for named types
+	Nullable bool    `json:"nullable,omitempty"`
+	Fields   []Field `json:"fields,omitempty"` // object
+	Elem     *Field  `json:"elem,omitempty"`   // array
+}
+
+// Test ops: and/or/not take Args; eq…ge compare Ref with Value; truthy reads a bool Ref; unknown
+// is a part of the condition CFM can't evaluate.
+const (
+	OpAnd     = "and"
+	OpOr      = "or"
+	OpNot     = "not"
+	OpEq      = "eq"
+	OpNe      = "ne"
+	OpLt      = "lt"
+	OpLe      = "le"
+	OpGt      = "gt"
+	OpGe      = "ge"
+	OpTruthy  = "truthy"
+	OpUnknown = "unknown"
+)
+
+type Test struct {
+	Op    string          `json:"op"`
+	Args  []Test          `json:"args,omitempty"`
+	Ref   *Ref            `json:"ref,omitempty"`
+	Value json.RawMessage `json:"value,omitempty"` // JSON constant; null for nil
+}
+
+// Ref is a field path inside a bound body type, with string transforms applied in order.
+type Ref struct {
+	Type string   `json:"type"`
+	Path []string `json:"path"`
+	Fold []string `json:"fold,omitempty"` // upper, lower, trim
 }

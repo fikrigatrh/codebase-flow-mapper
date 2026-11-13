@@ -1,6 +1,6 @@
 # Codebase Flow Mapper — Graph Schema (lean MVP)
 
-**Schema version:** `2.0.0`
+**Schema version:** `2.1.0` (2.1 adds request bodies and body tests, §8; a 2.0 reader can ignore them)
 **Supersedes:** `archive/v1.1/GRAPH_SCHEMA.md`
 
 The viewer reads this JSON, and `--json` writes the same JSON. JSON fields are camelCase and enum values are snake_case. The Go types in `internal/graph` are the source of truth, and this document has to match them.
@@ -9,7 +9,7 @@ The viewer reads this JSON, and `--json` writes the same JSON. JSON fields are c
 
 ```json
 {
-  "schemaVersion": "2.0.0",
+  "schemaVersion": "2.1.0",
   "analyzerVersion": "0.1.0",
   "module": "github.com/acme/payment-service",
   "goVersion": "go1.23.4",
@@ -55,7 +55,8 @@ Kind-specific fields:
   "receiver": "*txService", "signature": "func(ctx context.Context, in CreateInput) (Tx, error)",
   "loc": { "file": "internal/service/tx.go", "line": 30, "col": 1, "endLine": 71 },
   "status": "resolved",
-  "flow": [ /* Step[] — §5 */ ] }
+  "flow": [ /* Step[] — §5 */ ],
+  "body": { /* Body — §8, only when the function binds a request body */ } }
 
 // external
 { "id": "external:database/sql.(*DB).ExecContext", "kind": "external",
@@ -124,6 +125,7 @@ This is an ordered tree of steps. It describes structure inside one function, so
 
 - `call.site` matches `edge.siteId`. One site may have several edges (`low` alternatives) or one `unresolved` target.
 - The pruning rule (ARCHITECTURE §4.3) applies: no step without a call, return or panic beneath it.
+- An `if` step and a switch `case` may carry `test` (§8) when the condition reads a bound body type.
 - `cond`/`tag`/`head`/`label` are expression text up to 120 runes. This is the only source text stored (PRD NFR-4).
 
 ## 6. IDs
@@ -147,4 +149,51 @@ Generic instantiations collapse onto the generic function's ID.
 4. IDs are unique, and nodes and edges are sorted.
 5. No absolute path appears anywhere unless `editorRoot` is set.
 
+6. Body field `kind`s and test `op`s are from the enums in §8, and each op has the operands it needs.
+
 A validation failure is a CFM bug: the run exits with code 2 and doesn't write a report.
+
+## 8. Request bodies and body tests (2.1)
+
+A function that binds a request body gets `body`. Binders: Gin `ShouldBindJSON`, `BindJSON`, `ShouldBind` and `Bind`; Fiber v2 `BodyParser`; and `json.NewDecoder(r.Body).Decode(&x)` with `r` an `*http.Request`. Only the first bind in a function counts.
+
+```jsonc
+{ "type": "example.com/app/dto.TopupReq", "binder": "ShouldBindJSON", "line": 21,
+  "fields": [
+    { "name": "source", "kind": "object", "type": "example.com/app/dto.Amount",
+      "fields": [ { "name": "currency", "kind": "string" }, { "name": "value", "kind": "number" } ] },
+    { "name": "targetCurrency", "kind": "string", "nullable": true },
+    { "name": "tags", "kind": "array", "nullable": true, "elem": { "kind": "string" } } ] }
+```
+
+- `kind` is one of `string`, `integer`, `number`, `boolean`, `object`, `array`, `any`.
+  - `time.Time` is `string`.
+  - A type with its own `UnmarshalJSON` is `any`.
+  - A map is an `object` with no `fields`.
+- `name` is the json tag name, or the Go field name if the field has no tag. `json:"-"` and unexported fields are left out, and an untagged embedded struct is flattened.
+- `nullable` means JSON `null` leaves Go `nil`: pointers, slices, maps and interfaces.
+- `type` is set on named types, so a test can find a nested struct inside a body.
+
+A **test** describes a condition that compares a field of any bound type (the root or a nested struct) with a constant. It is set in every project function, because DTOs are passed on to usecases.
+
+```jsonc
+{ "op": "and", "args": [ { "op": "truthy", "ref": { "type": "…/dto.TopupReq", "path": ["express"] } },
+                         { "op": "gt", "ref": { "type": "…/dto.TopupReq", "path": ["source", "value"] }, "value": 1000 } ] }
+{ "op": "eq", "ref": { "type": "…/dto.TopupReq", "path": ["source", "currency"], "fold": ["trim", "upper"] }, "value": "HKD" }
+```
+
+- **`op` values:**
+  - `and`, `or`: one or more `args`.
+  - `not`: one arg.
+  - `eq`, `ne`, `lt`, `le`, `gt`, `ge`: a `ref` and a constant `value`, which is any JSON constant (`null` for `nil`).
+  - `truthy`: a bool `ref`.
+  - `unknown`: a part CFM can't evaluate, such as a field compared with a variable, or a non-body operand of `&&`.
+- `ref.path` starts at the outermost bound type the expression reaches.
+- `ref.fold` lists the string functions applied, in order: `strings.TrimSpace` → `trim`, `ToUpper` → `upper`, `ToLower` → `lower`. `strings.EqualFold(x, "c")` becomes `eq` with `lower` and a lower-cased value.
+- **Switch cases:**
+  - In a tagged switch on a body field, each `case` gets `eq`, or `or` over `eq`s.
+  - In a tagless switch, each case gets its own expression.
+  - `default` gets `and` over `not(case)` for every other case, including cases pruned from the outline.
+- A value copied into another struct or read from a database is not traced and has no test.
+
+The viewer evaluates tests against the body the user types in, using Go semantics (a missing field is its zero value, and keys match case-insensitively). The result is true, false or can't tell. CFM itself never evaluates anything.

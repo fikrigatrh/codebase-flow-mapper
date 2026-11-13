@@ -92,6 +92,22 @@ Typical run: 2–3 s and under 2 GB RSS for a service with 50–200 endpoints (`
 | Non-constant path, router or handler in a map, func value chosen at runtime | Shown as unresolved, with a diagnostic. Never dropped silently |
 | Fiber v3 or other routers | `ROUTER_UNSUPPORTED` diagnostic |
 
+### Trying a request body
+
+When a handler binds a JSON body (Gin `ShouldBindJSON`/`BindJSON`/`ShouldBind`/`Bind`, Fiber `BodyParser`,
+`json.NewDecoder(r.Body).Decode`), the endpoint's detail panel shows a JSON box prefilled with the body's fields. Edit
+it, and the panel lists every condition reachable from the handler that compares a body field with a constant, such as
+`req.Currency == "SGD"` or `switch strings.ToUpper(req.Currency)`, with its result for that body. In the Flowchart, the
+branch the body takes is highlighted and the others are dimmed.
+
+This only works when the condition reads the bound struct itself, or a struct nested in it, even several calls deep.
+Some conditions show as "can't tell" and keep all their branches:
+
+- the value was copied into another struct;
+- the value comes from a database or config;
+- the field is compared with a variable;
+- the choice goes through a map.
+
 The graph comes from static analysis. It is not a runtime trace and doesn't prove that a branch or call runs for a
 given request.
 

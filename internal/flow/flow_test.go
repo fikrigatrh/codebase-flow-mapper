@@ -3,6 +3,7 @@ package flow
 import (
 	"context"
 	"fmt"
+	"maps"
 	"os"
 	"slices"
 	"strings"
@@ -22,8 +23,8 @@ func build(t *testing.T, fixture string) (*callgraph.Result, map[graph.NodeID][]
 		t.Fatal(err)
 	}
 	cg := callgraph.Build(p)
-	steps, diags := Build(p, cg)
-	return cg, steps, diags
+	r := Build(p, cg)
+	return cg, r.Steps, r.Diags
 }
 
 // render prints a step tree in the flow.expected.txt format.
@@ -137,4 +138,113 @@ func TestTrunc(t *testing.T) {
 	if got := trunc("x < y"); got != "x < y" {
 		t.Errorf("short text changed: %q", got)
 	}
+}
+
+// TestBodyMatchesHandWrittenExpectation compares bound bodies and body tests against
+// body/body.expected.txt (CFM-401).
+func TestBodyMatchesHandWrittenExpectation(t *testing.T) {
+	raw, err := os.ReadFile(fixtures + "body/body.expected.txt")
+	if err != nil {
+		t.Fatal(err)
+	}
+	var want []string
+	for _, l := range strings.Split(strings.TrimRight(string(raw), "\n"), "\n") {
+		if !strings.HasPrefix(l, "#") {
+			want = append(want, l)
+		}
+	}
+	p, _, err := load.Load(context.Background(), load.Options{Dir: fixtures + "body"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	r := Build(p, callgraph.Build(p))
+	if len(r.Diags) > 0 {
+		t.Fatalf("diagnostics: %+v", r.Diags)
+	}
+	ids := map[graph.NodeID]bool{}
+	for id := range r.Bodies {
+		ids[id] = true
+	}
+	for id, steps := range r.Steps {
+		if len(testLines(steps)) > 0 {
+			ids[id] = true
+		}
+	}
+	var got []string
+	for _, id := range slices.Sorted(maps.Keys(ids)) {
+		got = append(got, "== "+string(id))
+		if b := r.Bodies[id]; b != nil {
+			got = append(got, fmt.Sprintf("body %s %s L%d", b.Type, b.Binder, b.Line))
+			got = append(got, fieldLines(b.Fields, "  ")...)
+		}
+		got = append(got, testLines(r.Steps[id])...)
+	}
+	if !slices.Equal(got, want) {
+		t.Errorf("got:\n%s\nwant:\n%s", strings.Join(got, "\n"), strings.Join(want, "\n"))
+	}
+}
+
+func fieldLines(fs []graph.Field, indent string) []string {
+	var out []string
+	for _, f := range fs {
+		out = append(out, fieldLine(f, indent, f.Name))
+		out = append(out, fieldLines(f.Fields, indent+"  ")...)
+		if f.Elem != nil {
+			out = append(out, fieldLine(*f.Elem, indent+"  ", "[]"))
+		}
+	}
+	return out
+}
+
+func fieldLine(f graph.Field, indent, name string) string {
+	l := indent + name + " " + f.Kind
+	if f.Type != "" {
+		l += " " + f.Type
+	}
+	if f.Nullable {
+		l += " nullable"
+	}
+	return l
+}
+
+func testLines(steps []graph.Step) []string {
+	var out []string
+	for _, s := range steps {
+		if s.Test != nil {
+			out = append(out, fmt.Sprintf("L%d if %s", s.Line, testText(*s.Test)))
+		}
+		for _, c := range s.Cases {
+			if c.Test != nil {
+				out = append(out, fmt.Sprintf("L%d case %s: %s", s.Line, c.Label, testText(*c.Test)))
+			}
+		}
+		out = append(out, testLines(s.Then)...)
+		out = append(out, testLines(s.Else)...)
+		out = append(out, testLines(s.Body)...)
+		for _, c := range s.Cases {
+			out = append(out, testLines(c.Body)...)
+		}
+	}
+	return out
+}
+
+func testText(t graph.Test) string {
+	var args []string
+	for _, a := range t.Args {
+		args = append(args, testText(a))
+	}
+	if t.Ref != nil {
+		r := t.Ref.Type[strings.LastIndex(t.Ref.Type, "/")+1:] + "." + strings.Join(t.Ref.Path, ".")
+		for _, f := range t.Ref.Fold {
+			r += "|" + f
+		}
+		args = append(args, r)
+	}
+	if t.Value != nil {
+		args = append(args, string(t.Value))
+	}
+	if t.Op == graph.OpUnknown {
+		return "unknown"
+	}
+	return t.Op + "(" + strings.Join(args, ", ") + ")"
 }
