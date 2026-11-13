@@ -5,3 +5,5 @@
 .omc/
 .DS_Store
 docs/private/
+# Reports contain the analyzed code structure; never commit them
+*.html
