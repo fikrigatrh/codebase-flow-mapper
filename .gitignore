@@ -1,0 +1,7 @@
+# Build output and local reports
+/cfm
+*.html.tmp
+/dist/
+.omc/
+.DS_Store
+docs/private/

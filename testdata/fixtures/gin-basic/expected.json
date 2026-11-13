@@ -1,0 +1,1196 @@
+{
+  "schemaVersion": "2.0.0",
+  "analyzerVersion": "test",
+  "module": "example.com/ginbasic",
+  "goVersion": "1.23",
+  "generatedAt": "",
+  "editorRoot": null,
+  "nodes": [
+    {
+      "id": "endpoint:gin:ANY:/any:main.go:26",
+      "kind": "endpoint",
+      "name": "ANY /any",
+      "loc": {
+        "file": "main.go",
+        "line": 26,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "ANY",
+      "path": "/any"
+    },
+    {
+      "id": "endpoint:gin:DELETE:/tx/:id:main.go:25",
+      "kind": "endpoint",
+      "name": "DELETE /tx/:id",
+      "loc": {
+        "file": "main.go",
+        "line": 25,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "DELETE",
+      "path": "/tx/:id"
+    },
+    {
+      "id": "endpoint:gin:GET:/?:main.go:27",
+      "kind": "endpoint",
+      "name": "GET /?",
+      "loc": {
+        "file": "main.go",
+        "line": 27,
+        "col": 2
+      },
+      "status": "partially_resolved",
+      "framework": "gin",
+      "method": "GET",
+      "path": "/?"
+    },
+    {
+      "id": "endpoint:gin:GET:/api/v1/tx/:id:main.go:23",
+      "kind": "endpoint",
+      "name": "GET /api/v1/tx/:id",
+      "loc": {
+        "file": "main.go",
+        "line": 23,
+        "col": 3
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "GET",
+      "path": "/api/v1/tx/:id"
+    },
+    {
+      "id": "endpoint:gin:GET:/health:main.go:15",
+      "kind": "endpoint",
+      "name": "GET /health",
+      "loc": {
+        "file": "main.go",
+        "line": 15,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "GET",
+      "path": "/health"
+    },
+    {
+      "id": "endpoint:gin:GET:/ping:main.go:17",
+      "kind": "endpoint",
+      "name": "GET /ping",
+      "loc": {
+        "file": "main.go",
+        "line": 17,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "GET",
+      "path": "/ping"
+    },
+    {
+      "id": "endpoint:gin:POST:/api/v1/tx:main.go:22",
+      "kind": "endpoint",
+      "name": "POST /api/v1/tx",
+      "loc": {
+        "file": "main.go",
+        "line": 22,
+        "col": 3
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "POST",
+      "path": "/api/v1/tx"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*Context).Abort",
+      "kind": "external",
+      "name": "(*Context).Abort",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*Context).Next",
+      "kind": "external",
+      "name": "(*Context).Next",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*Context).Param",
+      "kind": "external",
+      "name": "(*Context).Param",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*Context).Status",
+      "kind": "external",
+      "name": "(*Context).Status",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*Context).String",
+      "kind": "external",
+      "name": "(*Context).String",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*Engine).Run",
+      "kind": "external",
+      "name": "(*Engine).Run",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*Engine).Use",
+      "kind": "external",
+      "name": "(*Engine).Use",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*RouterGroup).Any",
+      "kind": "external",
+      "name": "(*RouterGroup).Any",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*RouterGroup).GET",
+      "kind": "external",
+      "name": "(*RouterGroup).GET",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*RouterGroup).Group",
+      "kind": "external",
+      "name": "(*RouterGroup).Group",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*RouterGroup).Handle",
+      "kind": "external",
+      "name": "(*RouterGroup).Handle",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*RouterGroup).POST",
+      "kind": "external",
+      "name": "(*RouterGroup).POST",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*RouterGroup).Use",
+      "kind": "external",
+      "name": "(*RouterGroup).Use",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.New",
+      "kind": "external",
+      "name": "New",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "fn:example.com/ginbasic.main",
+      "kind": "function",
+      "name": "main",
+      "pkg": "example.com/ginbasic",
+      "loc": {
+        "file": "main.go",
+        "line": 12,
+        "col": 1,
+        "endLine": 29
+      },
+      "status": "resolved",
+      "signature": "func()",
+      "flow": [
+        {
+          "k": "call",
+          "site": "main.go:13:14",
+          "line": 13
+        },
+        {
+          "k": "call",
+          "site": "main.go:14:18",
+          "line": 14
+        },
+        {
+          "k": "call",
+          "site": "main.go:15:7",
+          "line": 15
+        },
+        {
+          "k": "call",
+          "site": "main.go:16:17",
+          "line": 16
+        },
+        {
+          "k": "call",
+          "site": "main.go:16:7",
+          "line": 16
+        },
+        {
+          "k": "call",
+          "site": "main.go:17:7",
+          "line": 17
+        },
+        {
+          "k": "call",
+          "site": "main.go:18:16",
+          "line": 18
+        },
+        {
+          "k": "call",
+          "site": "main.go:19:9",
+          "line": 19
+        },
+        {
+          "k": "call",
+          "site": "main.go:20:17",
+          "line": 20
+        },
+        {
+          "k": "call",
+          "site": "main.go:22:30",
+          "line": 22
+        },
+        {
+          "k": "call",
+          "site": "main.go:22:10",
+          "line": 22
+        },
+        {
+          "k": "call",
+          "site": "main.go:23:9",
+          "line": 23
+        },
+        {
+          "k": "call",
+          "site": "main.go:25:10",
+          "line": 25
+        },
+        {
+          "k": "call",
+          "site": "main.go:26:7",
+          "line": 26
+        },
+        {
+          "k": "call",
+          "site": "main.go:27:7",
+          "line": 27
+        },
+        {
+          "k": "call",
+          "site": "main.go:28:11",
+          "line": 28
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginbasic.main$1",
+      "kind": "function",
+      "name": "main$1",
+      "pkg": "example.com/ginbasic",
+      "loc": {
+        "file": "main.go",
+        "line": 23,
+        "col": 21,
+        "endLine": 23
+      },
+      "status": "resolved",
+      "signature": "func(c *gin.Context)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "main.go:23:65",
+          "line": 23
+        },
+        {
+          "k": "call",
+          "site": "main.go:23:52",
+          "line": 23
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginbasic/internal/handler.(*Handler).CreateTx",
+      "kind": "function",
+      "name": "(*Handler).CreateTx",
+      "pkg": "example.com/ginbasic/internal/handler",
+      "loc": {
+        "file": "internal/handler/handler.go",
+        "line": 10,
+        "col": 1,
+        "endLine": 10
+      },
+      "status": "resolved",
+      "receiver": "*Handler",
+      "signature": "func(c *gin.Context)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/handler/handler.go:10:54",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginbasic/internal/handler.(*Handler).DeleteTx",
+      "kind": "function",
+      "name": "(*Handler).DeleteTx",
+      "pkg": "example.com/ginbasic/internal/handler",
+      "loc": {
+        "file": "internal/handler/handler.go",
+        "line": 11,
+        "col": 1,
+        "endLine": 11
+      },
+      "status": "resolved",
+      "receiver": "*Handler",
+      "signature": "func(c *gin.Context)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/handler/handler.go:11:54",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginbasic/internal/handler.(*Handler).Ping",
+      "kind": "function",
+      "name": "(*Handler).Ping",
+      "pkg": "example.com/ginbasic/internal/handler",
+      "loc": {
+        "file": "internal/handler/handler.go",
+        "line": 9,
+        "col": 1,
+        "endLine": 9
+      },
+      "status": "resolved",
+      "receiver": "*Handler",
+      "signature": "func(c *gin.Context)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/handler/handler.go:9:54",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginbasic/internal/handler.New",
+      "kind": "function",
+      "name": "New",
+      "pkg": "example.com/ginbasic/internal/handler",
+      "loc": {
+        "file": "internal/handler/handler.go",
+        "line": 7,
+        "col": 1,
+        "endLine": 7
+      },
+      "status": "resolved",
+      "signature": "func() *Handler",
+      "flow": [
+        {
+          "k": "return",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginbasic/internal/mw.Auth",
+      "kind": "function",
+      "name": "Auth",
+      "pkg": "example.com/ginbasic/internal/mw",
+      "loc": {
+        "file": "internal/mw/mw.go",
+        "line": 8,
+        "col": 1,
+        "endLine": 8
+      },
+      "status": "resolved",
+      "signature": "func(c *gin.Context)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/mw/mw.go:8:36",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginbasic/internal/mw.Logger",
+      "kind": "function",
+      "name": "Logger",
+      "pkg": "example.com/ginbasic/internal/mw",
+      "loc": {
+        "file": "internal/mw/mw.go",
+        "line": 6,
+        "col": 1,
+        "endLine": 6
+      },
+      "status": "resolved",
+      "signature": "func() gin.HandlerFunc",
+      "flow": [
+        {
+          "k": "return",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginbasic/internal/mw.Logger$1",
+      "kind": "function",
+      "name": "Logger$1",
+      "pkg": "example.com/ginbasic/internal/mw",
+      "loc": {
+        "file": "internal/mw/mw.go",
+        "line": 6,
+        "col": 40,
+        "endLine": 6
+      },
+      "status": "resolved",
+      "signature": "func(c *gin.Context)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/mw/mw.go:6:69",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginbasic/internal/mw.RateLimit",
+      "kind": "function",
+      "name": "RateLimit",
+      "pkg": "example.com/ginbasic/internal/mw",
+      "loc": {
+        "file": "internal/mw/mw.go",
+        "line": 11,
+        "col": 1,
+        "endLine": 18
+      },
+      "status": "resolved",
+      "signature": "func(n int) gin.HandlerFunc",
+      "flow": [
+        {
+          "k": "return",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginbasic/internal/mw.RateLimit$1",
+      "kind": "function",
+      "name": "RateLimit$1",
+      "pkg": "example.com/ginbasic/internal/mw",
+      "loc": {
+        "file": "internal/mw/mw.go",
+        "line": 12,
+        "col": 9,
+        "endLine": 17
+      },
+      "status": "resolved",
+      "signature": "func(c *gin.Context)",
+      "flow": [
+        {
+          "k": "if",
+          "line": 13,
+          "cond": "n \u003c 0",
+          "then": [
+            {
+              "k": "call",
+              "site": "internal/mw/mw.go:14:11",
+              "line": 14
+            }
+          ]
+        },
+        {
+          "k": "call",
+          "site": "internal/mw/mw.go:16:9",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginbasic/internal/mw.Trace",
+      "kind": "function",
+      "name": "Trace",
+      "pkg": "example.com/ginbasic/internal/mw",
+      "loc": {
+        "file": "internal/mw/mw.go",
+        "line": 9,
+        "col": 1,
+        "endLine": 9
+      },
+      "status": "resolved",
+      "signature": "func(c *gin.Context)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/mw/mw.go:9:36",
+          "line": 9
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "endpoint:gin:ANY:/any:main.go:26",
+      "target": "fn:example.com/ginbasic/internal/handler.(*Handler).Ping",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 26,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:gin:ANY:/any:main.go:26",
+      "target": "fn:example.com/ginbasic/internal/mw.Logger$1",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 26,
+        "col": 2
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:gin:DELETE:/tx/:id:main.go:25",
+      "target": "fn:example.com/ginbasic/internal/handler.(*Handler).DeleteTx",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 25,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:gin:DELETE:/tx/:id:main.go:25",
+      "target": "fn:example.com/ginbasic/internal/mw.Logger$1",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 25,
+        "col": 2
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:gin:GET:/?:main.go:27",
+      "target": "fn:example.com/ginbasic/internal/handler.(*Handler).Ping",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 27,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:gin:GET:/?:main.go:27",
+      "target": "fn:example.com/ginbasic/internal/mw.Logger$1",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 27,
+        "col": 2
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:gin:GET:/api/v1/tx/:id:main.go:23",
+      "target": "fn:example.com/ginbasic.main$1",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 23,
+        "col": 3
+      }
+    },
+    {
+      "source": "endpoint:gin:GET:/api/v1/tx/:id:main.go:23",
+      "target": "fn:example.com/ginbasic/internal/mw.Auth",
+      "kind": "uses_middleware",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 23,
+        "col": 3
+      },
+      "order": 1
+    },
+    {
+      "source": "endpoint:gin:GET:/api/v1/tx/:id:main.go:23",
+      "target": "fn:example.com/ginbasic/internal/mw.Logger$1",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 23,
+        "col": 3
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:gin:GET:/api/v1/tx/:id:main.go:23",
+      "target": "fn:example.com/ginbasic/internal/mw.Trace",
+      "kind": "uses_middleware",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 23,
+        "col": 3
+      },
+      "order": 2
+    },
+    {
+      "source": "endpoint:gin:GET:/health:main.go:15",
+      "target": "fn:example.com/ginbasic/internal/handler.(*Handler).Ping",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 15,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:gin:GET:/ping:main.go:17",
+      "target": "fn:example.com/ginbasic/internal/handler.(*Handler).Ping",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 17,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:gin:GET:/ping:main.go:17",
+      "target": "fn:example.com/ginbasic/internal/mw.Logger$1",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 17,
+        "col": 2
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:gin:POST:/api/v1/tx:main.go:22",
+      "target": "fn:example.com/ginbasic/internal/handler.(*Handler).CreateTx",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 22,
+        "col": 3
+      }
+    },
+    {
+      "source": "endpoint:gin:POST:/api/v1/tx:main.go:22",
+      "target": "fn:example.com/ginbasic/internal/mw.Auth",
+      "kind": "uses_middleware",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 22,
+        "col": 3
+      },
+      "order": 1
+    },
+    {
+      "source": "endpoint:gin:POST:/api/v1/tx:main.go:22",
+      "target": "fn:example.com/ginbasic/internal/mw.Logger$1",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 22,
+        "col": 3
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:gin:POST:/api/v1/tx:main.go:22",
+      "target": "fn:example.com/ginbasic/internal/mw.RateLimit$1",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 22,
+        "col": 3
+      },
+      "order": 3
+    },
+    {
+      "source": "endpoint:gin:POST:/api/v1/tx:main.go:22",
+      "target": "fn:example.com/ginbasic/internal/mw.Trace",
+      "kind": "uses_middleware",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 22,
+        "col": 3
+      },
+      "order": 2
+    },
+    {
+      "source": "fn:example.com/ginbasic.main",
+      "target": "external:github.com/gin-gonic/gin.(*Engine).Run",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 28,
+        "col": 11
+      },
+      "siteId": "main.go:28:11"
+    },
+    {
+      "source": "fn:example.com/ginbasic.main",
+      "target": "external:github.com/gin-gonic/gin.(*Engine).Use",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 16,
+        "col": 7
+      },
+      "siteId": "main.go:16:7"
+    },
+    {
+      "source": "fn:example.com/ginbasic.main",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).Any",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 26,
+        "col": 7
+      },
+      "siteId": "main.go:26:7"
+    },
+    {
+      "source": "fn:example.com/ginbasic.main",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).GET",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 15,
+        "col": 7
+      },
+      "siteId": "main.go:15:7"
+    },
+    {
+      "source": "fn:example.com/ginbasic.main",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).GET",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 17,
+        "col": 7
+      },
+      "siteId": "main.go:17:7"
+    },
+    {
+      "source": "fn:example.com/ginbasic.main",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).GET",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 23,
+        "col": 9
+      },
+      "siteId": "main.go:23:9"
+    },
+    {
+      "source": "fn:example.com/ginbasic.main",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).GET",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 27,
+        "col": 7
+      },
+      "siteId": "main.go:27:7"
+    },
+    {
+      "source": "fn:example.com/ginbasic.main",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).Group",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 18,
+        "col": 16
+      },
+      "siteId": "main.go:18:16"
+    },
+    {
+      "source": "fn:example.com/ginbasic.main",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).Group",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 20,
+        "col": 17
+      },
+      "siteId": "main.go:20:17"
+    },
+    {
+      "source": "fn:example.com/ginbasic.main",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).Handle",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 25,
+        "col": 10
+      },
+      "siteId": "main.go:25:10"
+    },
+    {
+      "source": "fn:example.com/ginbasic.main",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).POST",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 22,
+        "col": 10
+      },
+      "siteId": "main.go:22:10"
+    },
+    {
+      "source": "fn:example.com/ginbasic.main",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).Use",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 19,
+        "col": 9
+      },
+      "siteId": "main.go:19:9"
+    },
+    {
+      "source": "fn:example.com/ginbasic.main",
+      "target": "external:github.com/gin-gonic/gin.New",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 13,
+        "col": 14
+      },
+      "siteId": "main.go:13:14"
+    },
+    {
+      "source": "fn:example.com/ginbasic.main",
+      "target": "fn:example.com/ginbasic/internal/handler.New",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 14,
+        "col": 18
+      },
+      "siteId": "main.go:14:18"
+    },
+    {
+      "source": "fn:example.com/ginbasic.main",
+      "target": "fn:example.com/ginbasic/internal/mw.Logger",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 16,
+        "col": 17
+      },
+      "siteId": "main.go:16:17"
+    },
+    {
+      "source": "fn:example.com/ginbasic.main",
+      "target": "fn:example.com/ginbasic/internal/mw.RateLimit",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 22,
+        "col": 30
+      },
+      "siteId": "main.go:22:30"
+    },
+    {
+      "source": "fn:example.com/ginbasic.main$1",
+      "target": "external:github.com/gin-gonic/gin.(*Context).Param",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 23,
+        "col": 65
+      },
+      "siteId": "main.go:23:65"
+    },
+    {
+      "source": "fn:example.com/ginbasic.main$1",
+      "target": "external:github.com/gin-gonic/gin.(*Context).String",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 23,
+        "col": 52
+      },
+      "siteId": "main.go:23:52"
+    },
+    {
+      "source": "fn:example.com/ginbasic/internal/handler.(*Handler).CreateTx",
+      "target": "external:github.com/gin-gonic/gin.(*Context).Status",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 10,
+        "col": 54
+      },
+      "siteId": "internal/handler/handler.go:10:54"
+    },
+    {
+      "source": "fn:example.com/ginbasic/internal/handler.(*Handler).DeleteTx",
+      "target": "external:github.com/gin-gonic/gin.(*Context).Status",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 11,
+        "col": 54
+      },
+      "siteId": "internal/handler/handler.go:11:54"
+    },
+    {
+      "source": "fn:example.com/ginbasic/internal/handler.(*Handler).Ping",
+      "target": "external:github.com/gin-gonic/gin.(*Context).String",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 9,
+        "col": 54
+      },
+      "siteId": "internal/handler/handler.go:9:54"
+    },
+    {
+      "source": "fn:example.com/ginbasic/internal/mw.Auth",
+      "target": "external:github.com/gin-gonic/gin.(*Context).Next",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/mw/mw.go",
+        "line": 8,
+        "col": 36
+      },
+      "siteId": "internal/mw/mw.go:8:36"
+    },
+    {
+      "source": "fn:example.com/ginbasic/internal/mw.Logger$1",
+      "target": "external:github.com/gin-gonic/gin.(*Context).Next",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/mw/mw.go",
+        "line": 6,
+        "col": 69
+      },
+      "siteId": "internal/mw/mw.go:6:69"
+    },
+    {
+      "source": "fn:example.com/ginbasic/internal/mw.RateLimit$1",
+      "target": "external:github.com/gin-gonic/gin.(*Context).Abort",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/mw/mw.go",
+        "line": 14,
+        "col": 11
+      },
+      "siteId": "internal/mw/mw.go:14:11"
+    },
+    {
+      "source": "fn:example.com/ginbasic/internal/mw.RateLimit$1",
+      "target": "external:github.com/gin-gonic/gin.(*Context).Next",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/mw/mw.go",
+        "line": 16,
+        "col": 9
+      },
+      "siteId": "internal/mw/mw.go:16:9"
+    },
+    {
+      "source": "fn:example.com/ginbasic/internal/mw.Trace",
+      "target": "external:github.com/gin-gonic/gin.(*Context).Next",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/mw/mw.go",
+        "line": 9,
+        "col": 36
+      },
+      "siteId": "internal/mw/mw.go:9:36"
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "warning",
+      "code": "ROUTE_PATH_DYNAMIC",
+      "message": "route path is not a constant; kept with a '?' segment",
+      "loc": {
+        "file": "main.go",
+        "line": 27,
+        "col": 8
+      }
+    }
+  ],
+  "stats": {
+    "packages": 3,
+    "functions": 12,
+    "endpoints": 7,
+    "edges": 44,
+    "unresolved": 0,
+    "elapsedMs": 0,
+    "blockers": []
+  }
+}

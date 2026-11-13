@@ -1,0 +1,55 @@
+# Hand-written before internal/flow existed. One block per function: "== <node id>", then the
+# step tree. Call/go/defer steps show only their line (sites are checked against calls edges by
+# GRAPH_SCHEMA §7.3). Pruned on purpose: `defer close(ch)` and len (builtins), the n++ else, the
+# continue-only if, the empty "skip" case, the counting for loop, the `v := <-ch` case, int64(v).
+# Correction after first run: the go literal is Process$2, not $1. SSA numbers the synthetic
+# range-over-func yield closure as $1, and literal IDs follow SSA numbering (GRAPH_SCHEMA §6).
+== fn:example.com/flow.Process
+call L20
+defer L21
+if L24 n == 0
+  then:
+    call L25
+    return L25
+  else:
+    if L26 n > 100
+      then:
+        call L27
+        panic L27
+loop L31 _, id := range ids
+  call L32
+  switch L36 it.ID
+    case "a", "b":
+      call L39
+    case default:
+      call L41
+call L47
+loop L47 v := range seq
+  call L48
+call L51
+select L50
+  case <-ctx.Done():
+    call L52
+    return L52
+go L56
+switch L58 t := x.(type)
+  case int:
+    if L60 t == 1 || t == 2 || t == 3 || t == 4 || t == 5 || t == 6 || t == 7 || t == 8 || t == 9 || t == 10 || t == 11 || t == 12 …
+      then:
+        return L61
+call L64
+call L64
+return L64
+== fn:example.com/flow.Process$2
+call L56
+== fn:example.com/flow.load
+return L14
+== fn:example.com/flow.save
+return L15
+== fn:example.com/flow.seq
+call L16
+== fn:example.com/flow.int64ToInt
+return L67
+== fn:example.com/flow.main
+call L69
+call L69

@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "2.0.0",
+  "analyzerVersion": "test",
+  "module": "example.com/wirestale",
+  "goVersion": "1.23",
+  "generatedAt": "",
+  "editorRoot": null,
+  "nodes": [
+    {
+      "id": "fn:example.com/wirestale/internal/app.New",
+      "kind": "function",
+      "name": "New",
+      "pkg": "example.com/wirestale/internal/app",
+      "loc": {
+        "file": "internal/app/app.go",
+        "line": 6,
+        "col": 1,
+        "endLine": 6
+      },
+      "status": "resolved",
+      "signature": "func(name string) *App",
+      "flow": [
+        {
+          "k": "return",
+          "line": 6
+        }
+      ]
+    }
+  ],
+  "edges": [],
+  "diagnostics": [
+    {
+      "severity": "warning",
+      "code": "GO_TYPE_ERROR",
+      "message": "not enough arguments in call to app.New\n\thave ()\n\twant (string) (package left out of the call graph)",
+      "loc": {
+        "file": "wire_gen.go",
+        "line": 15,
+        "col": 17
+      }
+    },
+    {
+      "severity": "warning",
+      "code": "WIRE_GEN_STALE",
+      "message": "wire_gen.go does not type-check (generated before providers changed?): its package is left out of the call graph, so interface calls wired by Wire cannot be resolved",
+      "loc": {
+        "file": "wire_gen.go",
+        "line": 9,
+        "col": 2
+      },
+      "details": {
+        "fix": "wire ."
+      }
+    },
+    {
+      "severity": "info",
+      "code": "NO_COMPOSITION_ROOT",
+      "message": "no well-typed main package loaded: interface calls can only resolve if concrete types are constructed in the analyzed code"
+    }
+  ],
+  "stats": {
+    "packages": 2,
+    "functions": 1,
+    "endpoints": 0,
+    "edges": 0,
+    "unresolved": 0,
+    "elapsedMs": 0,
+    "blockers": [
+      1
+    ]
+  }
+}

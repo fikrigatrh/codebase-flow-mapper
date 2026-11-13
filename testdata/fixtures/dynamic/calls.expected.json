@@ -1,0 +1,51 @@
+{
+  "_comment": "Hand-written before running internal/callgraph on this fixture. Columns count a tab as 1. The range-over-func call site (line 19) is a guess: the column SSA uses for it is not obvious. routes.go (CFM-106) added by hand before nethttp.go existed.",
+  "functions": [
+    "fn:example.com/dynamic.main",
+    "fn:example.com/dynamic.main$1",
+    "fn:example.com/dynamic.ping",
+    "fn:example.com/dynamic.routes",
+    "fn:example.com/dynamic/internal/notify.(Email).Notify",
+    "fn:example.com/dynamic/internal/notify.(SMS).Notify",
+    "fn:example.com/dynamic/internal/notify.(Service).Send",
+    "fn:example.com/dynamic/internal/notify.Apply",
+    "fn:example.com/dynamic/internal/notify.Count",
+    "fn:example.com/dynamic/internal/notify.Double",
+    "fn:example.com/dynamic/internal/notify.Each",
+    "fn:example.com/dynamic/internal/notify.Log",
+    "fn:example.com/dynamic/internal/notify.WithCancel"
+  ],
+  "externals": {
+    "external:context.Background": "other",
+    "external:context.CancelFunc": "other",
+    "external:context.WithCancel": "other",
+    "external:net/http.NewServeMux": "other",
+    "external:net/http.(*ServeMux).HandleFunc": "other"
+  },
+  "unresolved": {
+    "unresolved:internal/notify/notify.go:21:41": "no_concrete_type",
+    "unresolved:internal/notify/notify.go:24:62": "func_value_unknown"
+  },
+  "calls": [
+    ["internal/notify/cancel.go:6:35", "external:context.WithCancel", "high", "static"],
+    ["internal/notify/cancel.go:6:54", "external:context.Background", "high", "static"],
+    ["internal/notify/cancel.go:7:2", "external:context.CancelFunc", "high", "static"],
+    ["internal/notify/notify.go:16:60", "fn:example.com/dynamic/internal/notify.(Email).Notify", "low", "vta"],
+    ["internal/notify/notify.go:16:60", "fn:example.com/dynamic/internal/notify.(SMS).Notify", "low", "vta"],
+    ["internal/notify/notify.go:21:41", "unresolved:internal/notify/notify.go:21:41", "unknown", "unresolved"],
+    ["internal/notify/notify.go:24:62", "unresolved:internal/notify/notify.go:24:62", "unknown", "unresolved"],
+    ["internal/notify/notify.go:28:4", "fn:example.com/dynamic.main$1", "medium", "vta"],
+    ["internal/notify/notify.go:32:41", "fn:example.com/dynamic.main", "medium", "vta"],
+    ["main.go:16:10", "fn:example.com/dynamic/internal/notify.(Service).Send", "high", "static"],
+    ["main.go:17:13", "fn:example.com/dynamic/internal/notify.Each", "high", "static"],
+    ["main.go:17:56", "fn:example.com/dynamic/internal/notify.(Service).Send", "high", "static"],
+    ["main.go:18:12", "fn:example.com/dynamic/internal/notify.Log", "high", "static"],
+    ["main.go:19:2", "fn:example.com/dynamic/internal/notify.Count", "high", "static"],
+    ["main.go:20:20", "fn:example.com/dynamic/internal/notify.Double", "high", "static"],
+    ["routes.go:11:25", "external:net/http.(*ServeMux).HandleFunc", "high", "static"],
+    ["routes.go:12:25", "external:net/http.NewServeMux", "high", "static"],
+    ["routes.go:13:16", "external:net/http.(*ServeMux).HandleFunc", "high", "static"],
+    ["routes.go:14:16", "external:net/http.(*ServeMux).HandleFunc", "high", "static"],
+    ["routes.go:9:60", "external:net/http.NewServeMux", "high", "static"]
+  ]
+}

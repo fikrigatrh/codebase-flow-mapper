@@ -1,0 +1,247 @@
+{
+  "schemaVersion": "2.0.0",
+  "analyzerVersion": "test",
+  "module": "example.com/evil",
+  "goVersion": "1.23",
+  "generatedAt": "",
+  "editorRoot": null,
+  "nodes": [
+    {
+      "id": "endpoint:nethttp:ANY:/\u003c/script\u003e\u003cscript\u003ealert(1)\u003c/script\u003e:main.go:23",
+      "kind": "endpoint",
+      "name": "ANY /\u003c/script\u003e\u003cscript\u003ealert(1)\u003c/script\u003e",
+      "loc": {
+        "file": "main.go",
+        "line": 23,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "nethttp",
+      "method": "ANY",
+      "path": "/\u003c/script\u003e\u003cscript\u003ealert(1)\u003c/script\u003e"
+    },
+    {
+      "id": "external:fmt.Println",
+      "kind": "external",
+      "name": "Println",
+      "pkg": "fmt",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.HandleFunc",
+      "kind": "external",
+      "name": "HandleFunc",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.ListenAndServe",
+      "kind": "external",
+      "name": "ListenAndServe",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:os.WriteFile",
+      "kind": "external",
+      "name": "WriteFile",
+      "pkg": "os",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "fn:example.com/evil.check",
+      "kind": "function",
+      "name": "check",
+      "pkg": "example.com/evil",
+      "loc": {
+        "file": "main.go",
+        "line": 16,
+        "col": 1,
+        "endLine": 20
+      },
+      "status": "resolved",
+      "signature": "func(s string)",
+      "flow": [
+        {
+          "k": "if",
+          "line": 17,
+          "cond": "s == \"\u003c/script\u003e\u003cimg src=x onerror=alert(1)\u003e\"",
+          "then": [
+            {
+              "k": "call",
+              "site": "main.go:18:14",
+              "line": 18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/evil.init#1",
+      "kind": "function",
+      "name": "init#1",
+      "pkg": "example.com/evil",
+      "loc": {
+        "file": "main.go",
+        "line": 12,
+        "col": 1,
+        "endLine": 14
+      },
+      "status": "resolved",
+      "signature": "func()",
+      "flow": [
+        {
+          "k": "call",
+          "site": "main.go:13:18",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/evil.main",
+      "kind": "function",
+      "name": "main",
+      "pkg": "example.com/evil",
+      "loc": {
+        "file": "main.go",
+        "line": 22,
+        "col": 1,
+        "endLine": 25
+      },
+      "status": "resolved",
+      "signature": "func()",
+      "flow": [
+        {
+          "k": "call",
+          "site": "main.go:23:17",
+          "line": 23
+        },
+        {
+          "k": "call",
+          "site": "main.go:24:25",
+          "line": 24
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/evil.main$1",
+      "kind": "function",
+      "name": "main$1",
+      "pkg": "example.com/evil",
+      "loc": {
+        "file": "main.go",
+        "line": 23,
+        "col": 57,
+        "endLine": 23
+      },
+      "status": "resolved",
+      "signature": "func(w http.ResponseWriter, r *http.Request)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "main.go:23:109",
+          "line": 23
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "endpoint:nethttp:ANY:/\u003c/script\u003e\u003cscript\u003ealert(1)\u003c/script\u003e:main.go:23",
+      "target": "fn:example.com/evil.main$1",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 23,
+        "col": 2
+      }
+    },
+    {
+      "source": "fn:example.com/evil.check",
+      "target": "external:fmt.Println",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 18,
+        "col": 14
+      },
+      "siteId": "main.go:18:14"
+    },
+    {
+      "source": "fn:example.com/evil.init#1",
+      "target": "external:os.WriteFile",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 13,
+        "col": 18
+      },
+      "siteId": "main.go:13:18"
+    },
+    {
+      "source": "fn:example.com/evil.main",
+      "target": "external:net/http.HandleFunc",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 23,
+        "col": 17
+      },
+      "siteId": "main.go:23:17"
+    },
+    {
+      "source": "fn:example.com/evil.main",
+      "target": "external:net/http.ListenAndServe",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 24,
+        "col": 25
+      },
+      "siteId": "main.go:24:25"
+    },
+    {
+      "source": "fn:example.com/evil.main$1",
+      "target": "fn:example.com/evil.check",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 23,
+        "col": 109
+      },
+      "siteId": "main.go:23:109"
+    }
+  ],
+  "diagnostics": [],
+  "stats": {
+    "packages": 1,
+    "functions": 4,
+    "endpoints": 1,
+    "edges": 6,
+    "unresolved": 0,
+    "elapsedMs": 0,
+    "blockers": []
+  }
+}

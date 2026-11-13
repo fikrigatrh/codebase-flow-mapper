@@ -1,0 +1,11 @@
+# Hand-written before internal/routes ran on this fixture.
+# METHOD PATH -> handler | middleware in order     (~ = module path, (h) = factory heuristic, medium)
+# diag: CODE  lines list expected diagnostics.
+GET /health -> ~/internal/handler.(*Handler).Ping |
+GET /ping -> ~/internal/handler.(*Handler).Ping | ~/internal/mw.Logger$1(h)
+POST /api/v1/tx -> ~/internal/handler.(*Handler).CreateTx | ~/internal/mw.Logger$1(h), ~/internal/mw.Auth, ~/internal/mw.Trace, ~/internal/mw.RateLimit$1(h)
+GET /api/v1/tx/:id -> ~.main$1 | ~/internal/mw.Logger$1(h), ~/internal/mw.Auth, ~/internal/mw.Trace
+DELETE /tx/:id -> ~/internal/handler.(*Handler).DeleteTx | ~/internal/mw.Logger$1(h)
+ANY /any -> ~/internal/handler.(*Handler).Ping | ~/internal/mw.Logger$1(h)
+GET /? -> ~/internal/handler.(*Handler).Ping | ~/internal/mw.Logger$1(h)
+diag: ROUTE_PATH_DYNAMIC

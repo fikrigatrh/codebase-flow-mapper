@@ -1,0 +1,1580 @@
+{
+  "schemaVersion": "2.0.0",
+  "analyzerVersion": "test",
+  "module": "example.com/fiberapp",
+  "goVersion": "1.23",
+  "generatedAt": "",
+  "editorRoot": null,
+  "nodes": [
+    {
+      "id": "endpoint:fiber:ANY:/api/v1/any:main.go:20",
+      "kind": "endpoint",
+      "name": "ANY /api/v1/any",
+      "loc": {
+        "file": "main.go",
+        "line": 20,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "fiber",
+      "method": "ANY",
+      "path": "/api/v1/any"
+    },
+    {
+      "id": "endpoint:fiber:DELETE:/api/admin/users/:id:main.go:25",
+      "kind": "endpoint",
+      "name": "DELETE /api/admin/users/:id",
+      "loc": {
+        "file": "main.go",
+        "line": 25,
+        "col": 3
+      },
+      "status": "resolved",
+      "framework": "fiber",
+      "method": "DELETE",
+      "path": "/api/admin/users/:id"
+    },
+    {
+      "id": "endpoint:fiber:GET:/a:main.go:27",
+      "kind": "endpoint",
+      "name": "GET /a",
+      "loc": {
+        "file": "main.go",
+        "line": 27,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "fiber",
+      "method": "GET",
+      "path": "/a"
+    },
+    {
+      "id": "endpoint:fiber:GET:/api/v1/users/:id:main.go:18",
+      "kind": "endpoint",
+      "name": "GET /api/v1/users/:id",
+      "loc": {
+        "file": "main.go",
+        "line": 18,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "fiber",
+      "method": "GET",
+      "path": "/api/v1/users/:id"
+    },
+    {
+      "id": "endpoint:fiber:GET:/apix:main.go:22",
+      "kind": "endpoint",
+      "name": "GET /apix",
+      "loc": {
+        "file": "main.go",
+        "line": 22,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "fiber",
+      "method": "GET",
+      "path": "/apix"
+    },
+    {
+      "id": "endpoint:fiber:GET:/b:main.go:27",
+      "kind": "endpoint",
+      "name": "GET /b",
+      "loc": {
+        "file": "main.go",
+        "line": 27,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "fiber",
+      "method": "GET",
+      "path": "/b"
+    },
+    {
+      "id": "endpoint:fiber:GET:/health:main.go:13",
+      "kind": "endpoint",
+      "name": "GET /health",
+      "loc": {
+        "file": "main.go",
+        "line": 13,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "fiber",
+      "method": "GET",
+      "path": "/health"
+    },
+    {
+      "id": "endpoint:fiber:GET:/public:main.go:23",
+      "kind": "endpoint",
+      "name": "GET /public",
+      "loc": {
+        "file": "main.go",
+        "line": 23,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "fiber",
+      "method": "GET",
+      "path": "/public"
+    },
+    {
+      "id": "endpoint:fiber:GET:/v2/users:internal/handler/handler.go:12",
+      "kind": "endpoint",
+      "name": "GET /v2/users",
+      "loc": {
+        "file": "internal/handler/handler.go",
+        "line": 12,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "fiber",
+      "method": "GET",
+      "path": "/v2/users"
+    },
+    {
+      "id": "endpoint:fiber:PATCH:/api/v1/users/:id:main.go:21",
+      "kind": "endpoint",
+      "name": "PATCH /api/v1/users/:id",
+      "loc": {
+        "file": "main.go",
+        "line": 21,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "fiber",
+      "method": "PATCH",
+      "path": "/api/v1/users/:id"
+    },
+    {
+      "id": "endpoint:fiber:POST:/api/v1/users:main.go:19",
+      "kind": "endpoint",
+      "name": "POST /api/v1/users",
+      "loc": {
+        "file": "main.go",
+        "line": 19,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "fiber",
+      "method": "POST",
+      "path": "/api/v1/users"
+    },
+    {
+      "id": "external:github.com/gofiber/fiber/v2.(*App).Get",
+      "kind": "external",
+      "name": "(*App).Get",
+      "pkg": "github.com/gofiber/fiber/v2",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gofiber/fiber/v2.(*App).Group",
+      "kind": "external",
+      "name": "(*App).Group",
+      "pkg": "github.com/gofiber/fiber/v2",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gofiber/fiber/v2.(*App).Listen",
+      "kind": "external",
+      "name": "(*App).Listen",
+      "pkg": "github.com/gofiber/fiber/v2",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gofiber/fiber/v2.(*App).Use",
+      "kind": "external",
+      "name": "(*App).Use",
+      "pkg": "github.com/gofiber/fiber/v2",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gofiber/fiber/v2.(*Ctx).JSON",
+      "kind": "external",
+      "name": "(*Ctx).JSON",
+      "pkg": "github.com/gofiber/fiber/v2",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gofiber/fiber/v2.(*Ctx).Next",
+      "kind": "external",
+      "name": "(*Ctx).Next",
+      "pkg": "github.com/gofiber/fiber/v2",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gofiber/fiber/v2.(*Ctx).Params",
+      "kind": "external",
+      "name": "(*Ctx).Params",
+      "pkg": "github.com/gofiber/fiber/v2",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gofiber/fiber/v2.(*Ctx).SendStatus",
+      "kind": "external",
+      "name": "(*Ctx).SendStatus",
+      "pkg": "github.com/gofiber/fiber/v2",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gofiber/fiber/v2.(*Ctx).SendString",
+      "kind": "external",
+      "name": "(*Ctx).SendString",
+      "pkg": "github.com/gofiber/fiber/v2",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gofiber/fiber/v2.(Router).Add",
+      "kind": "external",
+      "name": "(Router).Add",
+      "pkg": "github.com/gofiber/fiber/v2",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gofiber/fiber/v2.(Router).All",
+      "kind": "external",
+      "name": "(Router).All",
+      "pkg": "github.com/gofiber/fiber/v2",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gofiber/fiber/v2.(Router).Delete",
+      "kind": "external",
+      "name": "(Router).Delete",
+      "pkg": "github.com/gofiber/fiber/v2",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gofiber/fiber/v2.(Router).Get",
+      "kind": "external",
+      "name": "(Router).Get",
+      "pkg": "github.com/gofiber/fiber/v2",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gofiber/fiber/v2.(Router).Group",
+      "kind": "external",
+      "name": "(Router).Group",
+      "pkg": "github.com/gofiber/fiber/v2",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gofiber/fiber/v2.(Router).Post",
+      "kind": "external",
+      "name": "(Router).Post",
+      "pkg": "github.com/gofiber/fiber/v2",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gofiber/fiber/v2.(Router).Route",
+      "kind": "external",
+      "name": "(Router).Route",
+      "pkg": "github.com/gofiber/fiber/v2",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gofiber/fiber/v2.New",
+      "kind": "external",
+      "name": "New",
+      "pkg": "github.com/gofiber/fiber/v2",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gofiber/fiber/v2/middleware/logger.New",
+      "kind": "external",
+      "name": "New",
+      "pkg": "github.com/gofiber/fiber/v2/middleware/logger",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "fn:example.com/fiberapp.main",
+      "kind": "function",
+      "name": "main",
+      "pkg": "example.com/fiberapp",
+      "loc": {
+        "file": "main.go",
+        "line": 11,
+        "col": 1,
+        "endLine": 30
+      },
+      "status": "resolved",
+      "signature": "func()",
+      "flow": [
+        {
+          "k": "call",
+          "site": "main.go:12:18",
+          "line": 12
+        },
+        {
+          "k": "call",
+          "site": "main.go:13:9",
+          "line": 13
+        },
+        {
+          "k": "call",
+          "site": "main.go:14:20",
+          "line": 14
+        },
+        {
+          "k": "call",
+          "site": "main.go:14:9",
+          "line": 14
+        },
+        {
+          "k": "call",
+          "site": "main.go:15:9",
+          "line": 15
+        },
+        {
+          "k": "call",
+          "site": "main.go:16:18",
+          "line": 16
+        },
+        {
+          "k": "call",
+          "site": "main.go:17:17",
+          "line": 17
+        },
+        {
+          "k": "call",
+          "site": "main.go:18:8",
+          "line": 18
+        },
+        {
+          "k": "call",
+          "site": "main.go:19:32",
+          "line": 19
+        },
+        {
+          "k": "call",
+          "site": "main.go:19:9",
+          "line": 19
+        },
+        {
+          "k": "call",
+          "site": "main.go:20:8",
+          "line": 20
+        },
+        {
+          "k": "call",
+          "site": "main.go:21:8",
+          "line": 21
+        },
+        {
+          "k": "call",
+          "site": "main.go:22:9",
+          "line": 22
+        },
+        {
+          "k": "call",
+          "site": "main.go:23:9",
+          "line": 23
+        },
+        {
+          "k": "call",
+          "site": "main.go:24:11",
+          "line": 24
+        },
+        {
+          "k": "call",
+          "site": "main.go:27:9",
+          "line": 27
+        },
+        {
+          "k": "call",
+          "site": "main.go:27:35",
+          "line": 27
+        },
+        {
+          "k": "call",
+          "site": "main.go:28:18",
+          "line": 28
+        },
+        {
+          "k": "call",
+          "site": "main.go:29:16",
+          "line": 29
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fiberapp.main$1",
+      "kind": "function",
+      "name": "main$1",
+      "pkg": "example.com/fiberapp",
+      "loc": {
+        "file": "main.go",
+        "line": 24,
+        "col": 22,
+        "endLine": 26
+      },
+      "status": "resolved",
+      "signature": "func(r fiber.Router)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "main.go:25:11",
+          "line": 25
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fiberapp.main$2",
+      "kind": "function",
+      "name": "main$2",
+      "pkg": "example.com/fiberapp",
+      "loc": {
+        "file": "main.go",
+        "line": 27,
+        "col": 42,
+        "endLine": 27
+      },
+      "status": "resolved",
+      "signature": "func(c *fiber.Ctx) error",
+      "flow": [
+        {
+          "k": "call",
+          "site": "main.go:27:88",
+          "line": 27
+        },
+        {
+          "k": "return",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fiberapp/internal/handler.CreateUser",
+      "kind": "function",
+      "name": "CreateUser",
+      "pkg": "example.com/fiberapp/internal/handler",
+      "loc": {
+        "file": "internal/handler/handler.go",
+        "line": 7,
+        "col": 1,
+        "endLine": 7
+      },
+      "status": "resolved",
+      "signature": "func(c *fiber.Ctx) error",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/handler/handler.go:7:58",
+          "line": 7
+        },
+        {
+          "k": "return",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fiberapp/internal/handler.DeleteUser",
+      "kind": "function",
+      "name": "DeleteUser",
+      "pkg": "example.com/fiberapp/internal/handler",
+      "loc": {
+        "file": "internal/handler/handler.go",
+        "line": 8,
+        "col": 1,
+        "endLine": 8
+      },
+      "status": "resolved",
+      "signature": "func(c *fiber.Ctx) error",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/handler/handler.go:8:58",
+          "line": 8
+        },
+        {
+          "k": "return",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fiberapp/internal/handler.GetUser",
+      "kind": "function",
+      "name": "GetUser",
+      "pkg": "example.com/fiberapp/internal/handler",
+      "loc": {
+        "file": "internal/handler/handler.go",
+        "line": 6,
+        "col": 1,
+        "endLine": 6
+      },
+      "status": "resolved",
+      "signature": "func(c *fiber.Ctx) error",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/handler/handler.go:6:77",
+          "line": 6
+        },
+        {
+          "k": "call",
+          "site": "internal/handler/handler.go:6:52",
+          "line": 6
+        },
+        {
+          "k": "return",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fiberapp/internal/handler.Health",
+      "kind": "function",
+      "name": "Health",
+      "pkg": "example.com/fiberapp/internal/handler",
+      "loc": {
+        "file": "internal/handler/handler.go",
+        "line": 5,
+        "col": 1,
+        "endLine": 5
+      },
+      "status": "resolved",
+      "signature": "func(c *fiber.Ctx) error",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/handler/handler.go:5:58",
+          "line": 5
+        },
+        {
+          "k": "return",
+          "line": 5
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fiberapp/internal/handler.Register",
+      "kind": "function",
+      "name": "Register",
+      "pkg": "example.com/fiberapp/internal/handler",
+      "loc": {
+        "file": "internal/handler/handler.go",
+        "line": 11,
+        "col": 1,
+        "endLine": 13
+      },
+      "status": "resolved",
+      "signature": "func(r fiber.Router)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/handler/handler.go:12:7",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fiberapp/internal/mw.Auth",
+      "kind": "function",
+      "name": "Auth",
+      "pkg": "example.com/fiberapp/internal/mw",
+      "loc": {
+        "file": "internal/mw/mw.go",
+        "line": 5,
+        "col": 1,
+        "endLine": 5
+      },
+      "status": "resolved",
+      "signature": "func(c *fiber.Ctx) error",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/mw/mw.go:5:47",
+          "line": 5
+        },
+        {
+          "k": "return",
+          "line": 5
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fiberapp/internal/mw.RateLimit",
+      "kind": "function",
+      "name": "RateLimit",
+      "pkg": "example.com/fiberapp/internal/mw",
+      "loc": {
+        "file": "internal/mw/mw.go",
+        "line": 8,
+        "col": 1,
+        "endLine": 15
+      },
+      "status": "resolved",
+      "signature": "func(n int) fiber.Handler",
+      "flow": [
+        {
+          "k": "return",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fiberapp/internal/mw.RateLimit$1",
+      "kind": "function",
+      "name": "RateLimit$1",
+      "pkg": "example.com/fiberapp/internal/mw",
+      "loc": {
+        "file": "internal/mw/mw.go",
+        "line": 9,
+        "col": 9,
+        "endLine": 14
+      },
+      "status": "resolved",
+      "signature": "func(c *fiber.Ctx) error",
+      "flow": [
+        {
+          "k": "if",
+          "line": 10,
+          "cond": "n \u003c= 0",
+          "then": [
+            {
+              "k": "return",
+              "line": 11
+            }
+          ]
+        },
+        {
+          "k": "call",
+          "site": "internal/mw/mw.go:13:16",
+          "line": 13
+        },
+        {
+          "k": "return",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fiberapp/internal/mw.Trace",
+      "kind": "function",
+      "name": "Trace",
+      "pkg": "example.com/fiberapp/internal/mw",
+      "loc": {
+        "file": "internal/mw/mw.go",
+        "line": 6,
+        "col": 1,
+        "endLine": 6
+      },
+      "status": "resolved",
+      "signature": "func(c *fiber.Ctx) error",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/mw/mw.go:6:47",
+          "line": 6
+        },
+        {
+          "k": "return",
+          "line": 6
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "endpoint:fiber:ANY:/api/v1/any:main.go:20",
+      "target": "external:github.com/gofiber/fiber/v2/middleware/logger.New",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 20,
+        "col": 2
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:fiber:ANY:/api/v1/any:main.go:20",
+      "target": "fn:example.com/fiberapp/internal/handler.Health",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 20,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:fiber:ANY:/api/v1/any:main.go:20",
+      "target": "fn:example.com/fiberapp/internal/mw.Auth",
+      "kind": "uses_middleware",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 20,
+        "col": 2
+      },
+      "order": 1
+    },
+    {
+      "source": "endpoint:fiber:ANY:/api/v1/any:main.go:20",
+      "target": "fn:example.com/fiberapp/internal/mw.Trace",
+      "kind": "uses_middleware",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 20,
+        "col": 2
+      },
+      "order": 2
+    },
+    {
+      "source": "endpoint:fiber:DELETE:/api/admin/users/:id:main.go:25",
+      "target": "external:github.com/gofiber/fiber/v2/middleware/logger.New",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 25,
+        "col": 3
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:fiber:DELETE:/api/admin/users/:id:main.go:25",
+      "target": "fn:example.com/fiberapp/internal/handler.DeleteUser",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 25,
+        "col": 3
+      }
+    },
+    {
+      "source": "endpoint:fiber:DELETE:/api/admin/users/:id:main.go:25",
+      "target": "fn:example.com/fiberapp/internal/mw.Auth",
+      "kind": "uses_middleware",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 25,
+        "col": 3
+      },
+      "order": 1
+    },
+    {
+      "source": "endpoint:fiber:DELETE:/api/admin/users/:id:main.go:25",
+      "target": "fn:example.com/fiberapp/internal/mw.Trace",
+      "kind": "uses_middleware",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 25,
+        "col": 3
+      },
+      "order": 2
+    },
+    {
+      "source": "endpoint:fiber:GET:/a:main.go:27",
+      "target": "external:github.com/gofiber/fiber/v2/middleware/logger.New",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 27,
+        "col": 2
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:fiber:GET:/a:main.go:27",
+      "target": "fn:example.com/fiberapp/internal/handler.Health",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 27,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:fiber:GET:/api/v1/users/:id:main.go:18",
+      "target": "external:github.com/gofiber/fiber/v2/middleware/logger.New",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 18,
+        "col": 2
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:fiber:GET:/api/v1/users/:id:main.go:18",
+      "target": "fn:example.com/fiberapp/internal/handler.GetUser",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 18,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:fiber:GET:/api/v1/users/:id:main.go:18",
+      "target": "fn:example.com/fiberapp/internal/mw.Auth",
+      "kind": "uses_middleware",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 18,
+        "col": 2
+      },
+      "order": 1
+    },
+    {
+      "source": "endpoint:fiber:GET:/api/v1/users/:id:main.go:18",
+      "target": "fn:example.com/fiberapp/internal/mw.Trace",
+      "kind": "uses_middleware",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 18,
+        "col": 2
+      },
+      "order": 2
+    },
+    {
+      "source": "endpoint:fiber:GET:/apix:main.go:22",
+      "target": "external:github.com/gofiber/fiber/v2/middleware/logger.New",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 22,
+        "col": 2
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:fiber:GET:/apix:main.go:22",
+      "target": "fn:example.com/fiberapp/internal/handler.Health",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 22,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:fiber:GET:/apix:main.go:22",
+      "target": "fn:example.com/fiberapp/internal/mw.Auth",
+      "kind": "uses_middleware",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 22,
+        "col": 2
+      },
+      "order": 1
+    },
+    {
+      "source": "endpoint:fiber:GET:/b:main.go:27",
+      "target": "external:github.com/gofiber/fiber/v2/middleware/logger.New",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 27,
+        "col": 2
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:fiber:GET:/b:main.go:27",
+      "target": "fn:example.com/fiberapp.main$2",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 27,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:fiber:GET:/health:main.go:13",
+      "target": "fn:example.com/fiberapp/internal/handler.Health",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 13,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:fiber:GET:/public:main.go:23",
+      "target": "external:github.com/gofiber/fiber/v2/middleware/logger.New",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 23,
+        "col": 2
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:fiber:GET:/public:main.go:23",
+      "target": "fn:example.com/fiberapp/internal/handler.Health",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 23,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:fiber:GET:/v2/users:internal/handler/handler.go:12",
+      "target": "external:github.com/gofiber/fiber/v2/middleware/logger.New",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 12,
+        "col": 2
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:fiber:GET:/v2/users:internal/handler/handler.go:12",
+      "target": "fn:example.com/fiberapp/internal/handler.GetUser",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 12,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:fiber:PATCH:/api/v1/users/:id:main.go:21",
+      "target": "external:github.com/gofiber/fiber/v2/middleware/logger.New",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 21,
+        "col": 2
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:fiber:PATCH:/api/v1/users/:id:main.go:21",
+      "target": "fn:example.com/fiberapp/internal/handler.CreateUser",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 21,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:fiber:PATCH:/api/v1/users/:id:main.go:21",
+      "target": "fn:example.com/fiberapp/internal/mw.Auth",
+      "kind": "uses_middleware",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 21,
+        "col": 2
+      },
+      "order": 1
+    },
+    {
+      "source": "endpoint:fiber:PATCH:/api/v1/users/:id:main.go:21",
+      "target": "fn:example.com/fiberapp/internal/mw.Trace",
+      "kind": "uses_middleware",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 21,
+        "col": 2
+      },
+      "order": 2
+    },
+    {
+      "source": "endpoint:fiber:POST:/api/v1/users:main.go:19",
+      "target": "external:github.com/gofiber/fiber/v2/middleware/logger.New",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 19,
+        "col": 2
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:fiber:POST:/api/v1/users:main.go:19",
+      "target": "fn:example.com/fiberapp/internal/handler.CreateUser",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 19,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:fiber:POST:/api/v1/users:main.go:19",
+      "target": "fn:example.com/fiberapp/internal/mw.Auth",
+      "kind": "uses_middleware",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 19,
+        "col": 2
+      },
+      "order": 1
+    },
+    {
+      "source": "endpoint:fiber:POST:/api/v1/users:main.go:19",
+      "target": "fn:example.com/fiberapp/internal/mw.RateLimit$1",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 19,
+        "col": 2
+      },
+      "order": 3
+    },
+    {
+      "source": "endpoint:fiber:POST:/api/v1/users:main.go:19",
+      "target": "fn:example.com/fiberapp/internal/mw.Trace",
+      "kind": "uses_middleware",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 19,
+        "col": 2
+      },
+      "order": 2
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "external:github.com/gofiber/fiber/v2.(*App).Get",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 13,
+        "col": 9
+      },
+      "siteId": "main.go:13:9"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "external:github.com/gofiber/fiber/v2.(*App).Get",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 22,
+        "col": 9
+      },
+      "siteId": "main.go:22:9"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "external:github.com/gofiber/fiber/v2.(*App).Get",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 23,
+        "col": 9
+      },
+      "siteId": "main.go:23:9"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "external:github.com/gofiber/fiber/v2.(*App).Get",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 27,
+        "col": 9
+      },
+      "siteId": "main.go:27:9"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "external:github.com/gofiber/fiber/v2.(*App).Group",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 16,
+        "col": 18
+      },
+      "siteId": "main.go:16:18"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "external:github.com/gofiber/fiber/v2.(*App).Listen",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 29,
+        "col": 16
+      },
+      "siteId": "main.go:29:16"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "external:github.com/gofiber/fiber/v2.(*App).Use",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 14,
+        "col": 9
+      },
+      "siteId": "main.go:14:9"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "external:github.com/gofiber/fiber/v2.(*App).Use",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 15,
+        "col": 9
+      },
+      "siteId": "main.go:15:9"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "external:github.com/gofiber/fiber/v2.(Router).Add",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call fiber.Router.Add declared in github.com/gofiber/fiber/v2; implementation not tracked",
+      "site": {
+        "file": "main.go",
+        "line": 21,
+        "col": 8
+      },
+      "siteId": "main.go:21:8"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "external:github.com/gofiber/fiber/v2.(Router).All",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call fiber.Router.All declared in github.com/gofiber/fiber/v2; implementation not tracked",
+      "site": {
+        "file": "main.go",
+        "line": 20,
+        "col": 8
+      },
+      "siteId": "main.go:20:8"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "external:github.com/gofiber/fiber/v2.(Router).Get",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call fiber.Router.Get declared in github.com/gofiber/fiber/v2; implementation not tracked",
+      "site": {
+        "file": "main.go",
+        "line": 18,
+        "col": 8
+      },
+      "siteId": "main.go:18:8"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "external:github.com/gofiber/fiber/v2.(Router).Get",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call fiber.Router.Get declared in github.com/gofiber/fiber/v2; implementation not tracked",
+      "site": {
+        "file": "main.go",
+        "line": 27,
+        "col": 35
+      },
+      "siteId": "main.go:27:35"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "external:github.com/gofiber/fiber/v2.(Router).Group",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call fiber.Router.Group declared in github.com/gofiber/fiber/v2; implementation not tracked",
+      "site": {
+        "file": "main.go",
+        "line": 17,
+        "col": 17
+      },
+      "siteId": "main.go:17:17"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "external:github.com/gofiber/fiber/v2.(Router).Post",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call fiber.Router.Post declared in github.com/gofiber/fiber/v2; implementation not tracked",
+      "site": {
+        "file": "main.go",
+        "line": 19,
+        "col": 9
+      },
+      "siteId": "main.go:19:9"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "external:github.com/gofiber/fiber/v2.(Router).Route",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call fiber.Router.Route declared in github.com/gofiber/fiber/v2; implementation not tracked",
+      "site": {
+        "file": "main.go",
+        "line": 24,
+        "col": 11
+      },
+      "siteId": "main.go:24:11"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "external:github.com/gofiber/fiber/v2.New",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 12,
+        "col": 18
+      },
+      "siteId": "main.go:12:18"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "external:github.com/gofiber/fiber/v2/middleware/logger.New",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 14,
+        "col": 20
+      },
+      "siteId": "main.go:14:20"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "fn:example.com/fiberapp/internal/handler.Register",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 28,
+        "col": 18
+      },
+      "siteId": "main.go:28:18"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main",
+      "target": "fn:example.com/fiberapp/internal/mw.RateLimit",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 19,
+        "col": 32
+      },
+      "siteId": "main.go:19:32"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main$1",
+      "target": "external:github.com/gofiber/fiber/v2.(Router).Delete",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call fiber.Router.Delete declared in github.com/gofiber/fiber/v2; implementation not tracked",
+      "site": {
+        "file": "main.go",
+        "line": 25,
+        "col": 11
+      },
+      "siteId": "main.go:25:11"
+    },
+    {
+      "source": "fn:example.com/fiberapp.main$2",
+      "target": "external:github.com/gofiber/fiber/v2.(*Ctx).SendString",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 27,
+        "col": 88
+      },
+      "siteId": "main.go:27:88"
+    },
+    {
+      "source": "fn:example.com/fiberapp/internal/handler.CreateUser",
+      "target": "external:github.com/gofiber/fiber/v2.(*Ctx).SendStatus",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 7,
+        "col": 58
+      },
+      "siteId": "internal/handler/handler.go:7:58"
+    },
+    {
+      "source": "fn:example.com/fiberapp/internal/handler.DeleteUser",
+      "target": "external:github.com/gofiber/fiber/v2.(*Ctx).SendStatus",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 8,
+        "col": 58
+      },
+      "siteId": "internal/handler/handler.go:8:58"
+    },
+    {
+      "source": "fn:example.com/fiberapp/internal/handler.GetUser",
+      "target": "external:github.com/gofiber/fiber/v2.(*Ctx).JSON",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 6,
+        "col": 52
+      },
+      "siteId": "internal/handler/handler.go:6:52"
+    },
+    {
+      "source": "fn:example.com/fiberapp/internal/handler.GetUser",
+      "target": "external:github.com/gofiber/fiber/v2.(*Ctx).Params",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 6,
+        "col": 77
+      },
+      "siteId": "internal/handler/handler.go:6:77"
+    },
+    {
+      "source": "fn:example.com/fiberapp/internal/handler.Health",
+      "target": "external:github.com/gofiber/fiber/v2.(*Ctx).SendStatus",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 5,
+        "col": 58
+      },
+      "siteId": "internal/handler/handler.go:5:58"
+    },
+    {
+      "source": "fn:example.com/fiberapp/internal/handler.Register",
+      "target": "external:github.com/gofiber/fiber/v2.(Router).Get",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call fiber.Router.Get declared in github.com/gofiber/fiber/v2; implementation not tracked",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 12,
+        "col": 7
+      },
+      "siteId": "internal/handler/handler.go:12:7"
+    },
+    {
+      "source": "fn:example.com/fiberapp/internal/mw.Auth",
+      "target": "external:github.com/gofiber/fiber/v2.(*Ctx).Next",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/mw/mw.go",
+        "line": 5,
+        "col": 47
+      },
+      "siteId": "internal/mw/mw.go:5:47"
+    },
+    {
+      "source": "fn:example.com/fiberapp/internal/mw.RateLimit$1",
+      "target": "external:github.com/gofiber/fiber/v2.(*Ctx).Next",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/mw/mw.go",
+        "line": 13,
+        "col": 16
+      },
+      "siteId": "internal/mw/mw.go:13:16"
+    },
+    {
+      "source": "fn:example.com/fiberapp/internal/mw.Trace",
+      "target": "external:github.com/gofiber/fiber/v2.(*Ctx).Next",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/mw/mw.go",
+        "line": 6,
+        "col": 47
+      },
+      "siteId": "internal/mw/mw.go:6:47"
+    }
+  ],
+  "diagnostics": [],
+  "stats": {
+    "packages": 3,
+    "functions": 12,
+    "endpoints": 11,
+    "edges": 63,
+    "unresolved": 0,
+    "elapsedMs": 0,
+    "blockers": []
+  }
+}

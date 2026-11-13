@@ -1,0 +1,8 @@
+# Hand-written before internal/routes/nethttp.go existed. Router in a map, dynamic path and a
+# func value from a map: kept with '?' or unresolved, each with a diagnostic, never dropped.
+ANY ?/m -> ~.ping |
+ANY ? -> ~.ping |
+ANY /h -> unresolved:routes.go:14:23 |
+diag: HANDLER_UNRESOLVED
+diag: ROUTE_PATH_DYNAMIC
+diag: ROUTE_PREFIX_UNKNOWN

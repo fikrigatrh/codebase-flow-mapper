@@ -1,0 +1,22 @@
+{
+  "package": "Codebase Flow Mapper — Lean MVP Package",
+  "version": "2.0",
+  "documents": [
+    "ADR.md",
+    "AGENTS.md",
+    "ARCHITECTURE.md",
+    "GRAPH_SCHEMA.md",
+    "PRD.md",
+    "README.md",
+    "SPRINT_BACKLOG.md"
+  ],
+  "archived": "archive/v1.1/",
+  "baseline": {
+    "languages": ["go"],
+    "frameworks": ["gin", "net/http", "fiber/v2"],
+    "analysis": "static",
+    "callGraph": "vta",
+    "output": "static-html",
+    "ai": "none"
+  }
+}

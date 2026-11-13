@@ -1,0 +1,657 @@
+{
+  "schemaVersion": "2.0.0",
+  "analyzerVersion": "test",
+  "module": "example.com/flow",
+  "goVersion": "1.23",
+  "generatedAt": "",
+  "editorRoot": null,
+  "nodes": [
+    {
+      "id": "external:context.(Context).Done",
+      "kind": "external",
+      "name": "(Context).Done",
+      "pkg": "context",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:context.(Context).Err",
+      "kind": "external",
+      "name": "(Context).Err",
+      "pkg": "context",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:context.Background",
+      "kind": "external",
+      "name": "Background",
+      "pkg": "context",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:errors.New",
+      "kind": "external",
+      "name": "New",
+      "pkg": "errors",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:fmt.Println",
+      "kind": "external",
+      "name": "Println",
+      "pkg": "fmt",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:fmt.Sprint",
+      "kind": "external",
+      "name": "Sprint",
+      "pkg": "fmt",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:strconv.Itoa",
+      "kind": "external",
+      "name": "Itoa",
+      "pkg": "strconv",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:sync.(*Mutex).Lock",
+      "kind": "external",
+      "name": "(*Mutex).Lock",
+      "pkg": "sync",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:sync.(*Mutex).Unlock",
+      "kind": "external",
+      "name": "(*Mutex).Unlock",
+      "pkg": "sync",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "fn:example.com/flow.Process",
+      "kind": "function",
+      "name": "Process",
+      "pkg": "example.com/flow",
+      "loc": {
+        "file": "main.go",
+        "line": 18,
+        "col": 1,
+        "endLine": 65
+      },
+      "status": "resolved",
+      "signature": "func(ctx context.Context, ids []string, ch chan int) (int, error)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "main.go:20:9",
+          "line": 20
+        },
+        {
+          "k": "defer",
+          "site": "main.go:21:2",
+          "line": 21
+        },
+        {
+          "k": "if",
+          "line": 24,
+          "cond": "n == 0",
+          "then": [
+            {
+              "k": "call",
+              "site": "main.go:25:23",
+              "line": 25
+            },
+            {
+              "k": "return",
+              "line": 25
+            }
+          ],
+          "else": [
+            {
+              "k": "if",
+              "line": 26,
+              "cond": "n \u003e 100",
+              "then": [
+                {
+                  "k": "call",
+                  "site": "main.go:27:36",
+                  "line": 27
+                },
+                {
+                  "k": "panic",
+                  "line": 27
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "k": "loop",
+          "line": 31,
+          "head": "_, id := range ids",
+          "body": [
+            {
+              "k": "call",
+              "site": "main.go:32:18",
+              "line": 32
+            },
+            {
+              "k": "switch",
+              "line": 36,
+              "tag": "it.ID",
+              "cases": [
+                {
+                  "label": "\"a\", \"b\"",
+                  "body": [
+                    {
+                      "k": "call",
+                      "site": "main.go:39:12",
+                      "line": 39
+                    }
+                  ]
+                },
+                {
+                  "label": "default",
+                  "body": [
+                    {
+                      "k": "call",
+                      "site": "main.go:41:15",
+                      "line": 41
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "k": "call",
+          "site": "main.go:47:2",
+          "line": 47
+        },
+        {
+          "k": "loop",
+          "line": 47,
+          "head": "v := range seq",
+          "body": [
+            {
+              "k": "call",
+              "site": "main.go:48:18",
+              "line": 48
+            }
+          ]
+        },
+        {
+          "k": "call",
+          "site": "main.go:51:17",
+          "line": 51
+        },
+        {
+          "k": "select",
+          "line": 50,
+          "cases": [
+            {
+              "label": "\u003c-ctx.Done()",
+              "body": [
+                {
+                  "k": "call",
+                  "site": "main.go:52:20",
+                  "line": 52
+                },
+                {
+                  "k": "return",
+                  "line": 52
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "k": "go",
+          "site": "main.go:56:2",
+          "line": 56
+        },
+        {
+          "k": "switch",
+          "line": 58,
+          "tag": "t := x.(type)",
+          "cases": [
+            {
+              "label": "int",
+              "body": [
+                {
+                  "k": "if",
+                  "line": 60,
+                  "cond": "t == 1 || t == 2 || t == 3 || t == 4 || t == 5 || t == 6 || t == 7 || t == 8 || t == 9 || t == 10 || t == 11 || t == 12 …",
+                  "then": [
+                    {
+                      "k": "return",
+                      "line": 61
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "k": "call",
+          "site": "main.go:64:36",
+          "line": 64
+        },
+        {
+          "k": "call",
+          "site": "main.go:64:16",
+          "line": 64
+        },
+        {
+          "k": "return",
+          "line": 64
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/flow.Process$2",
+      "kind": "function",
+      "name": "Process$2",
+      "pkg": "example.com/flow",
+      "loc": {
+        "file": "main.go",
+        "line": 56,
+        "col": 5,
+        "endLine": 56
+      },
+      "status": "resolved",
+      "signature": "func()",
+      "flow": [
+        {
+          "k": "call",
+          "site": "main.go:56:22",
+          "line": 56
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/flow.int64ToInt",
+      "kind": "function",
+      "name": "int64ToInt",
+      "pkg": "example.com/flow",
+      "loc": {
+        "file": "main.go",
+        "line": 67,
+        "col": 1,
+        "endLine": 67
+      },
+      "status": "resolved",
+      "signature": "func(v int64) int",
+      "flow": [
+        {
+          "k": "return",
+          "line": 67
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/flow.load",
+      "kind": "function",
+      "name": "load",
+      "pkg": "example.com/flow",
+      "loc": {
+        "file": "main.go",
+        "line": 14,
+        "col": 1,
+        "endLine": 14
+      },
+      "status": "resolved",
+      "signature": "func(id string) (Item, error)",
+      "flow": [
+        {
+          "k": "return",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/flow.main",
+      "kind": "function",
+      "name": "main",
+      "pkg": "example.com/flow",
+      "loc": {
+        "file": "main.go",
+        "line": 69,
+        "col": 1,
+        "endLine": 69
+      },
+      "status": "resolved",
+      "signature": "func()",
+      "flow": [
+        {
+          "k": "call",
+          "site": "main.go:69:48",
+          "line": 69
+        },
+        {
+          "k": "call",
+          "site": "main.go:69:29",
+          "line": 69
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/flow.save",
+      "kind": "function",
+      "name": "save",
+      "pkg": "example.com/flow",
+      "loc": {
+        "file": "main.go",
+        "line": 15,
+        "col": 1,
+        "endLine": 15
+      },
+      "status": "resolved",
+      "signature": "func(it Item) error",
+      "flow": [
+        {
+          "k": "return",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/flow.seq",
+      "kind": "function",
+      "name": "seq",
+      "pkg": "example.com/flow",
+      "loc": {
+        "file": "main.go",
+        "line": 16,
+        "col": 1,
+        "endLine": 16
+      },
+      "status": "resolved",
+      "signature": "func(yield func(int) bool)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "main.go:16:47",
+          "line": 16
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "fn:example.com/flow.Process",
+      "target": "external:context.(Context).Done",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call context.Context.Done declared in context; implementation not tracked",
+      "site": {
+        "file": "main.go",
+        "line": 51,
+        "col": 17
+      },
+      "siteId": "main.go:51:17"
+    },
+    {
+      "source": "fn:example.com/flow.Process",
+      "target": "external:context.(Context).Err",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call context.Context.Err declared in context; implementation not tracked",
+      "site": {
+        "file": "main.go",
+        "line": 52,
+        "col": 20
+      },
+      "siteId": "main.go:52:20"
+    },
+    {
+      "source": "fn:example.com/flow.Process",
+      "target": "external:errors.New",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 25,
+        "col": 23
+      },
+      "siteId": "main.go:25:23"
+    },
+    {
+      "source": "fn:example.com/flow.Process",
+      "target": "external:fmt.Println",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 41,
+        "col": 15
+      },
+      "siteId": "main.go:41:15"
+    },
+    {
+      "source": "fn:example.com/flow.Process",
+      "target": "external:fmt.Sprint",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 64,
+        "col": 36
+      },
+      "siteId": "main.go:64:36"
+    },
+    {
+      "source": "fn:example.com/flow.Process",
+      "target": "external:strconv.Itoa",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 27,
+        "col": 36
+      },
+      "siteId": "main.go:27:36"
+    },
+    {
+      "source": "fn:example.com/flow.Process",
+      "target": "external:sync.(*Mutex).Lock",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 20,
+        "col": 9
+      },
+      "siteId": "main.go:20:9"
+    },
+    {
+      "source": "fn:example.com/flow.Process",
+      "target": "external:sync.(*Mutex).Unlock",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 21,
+        "col": 2
+      },
+      "siteId": "main.go:21:2"
+    },
+    {
+      "source": "fn:example.com/flow.Process",
+      "target": "fn:example.com/flow.Process$2",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 56,
+        "col": 2
+      },
+      "siteId": "main.go:56:2"
+    },
+    {
+      "source": "fn:example.com/flow.Process",
+      "target": "fn:example.com/flow.int64ToInt",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 48,
+        "col": 18
+      },
+      "siteId": "main.go:48:18"
+    },
+    {
+      "source": "fn:example.com/flow.Process",
+      "target": "fn:example.com/flow.load",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 32,
+        "col": 18
+      },
+      "siteId": "main.go:32:18"
+    },
+    {
+      "source": "fn:example.com/flow.Process",
+      "target": "fn:example.com/flow.save",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 39,
+        "col": 12
+      },
+      "siteId": "main.go:39:12"
+    },
+    {
+      "source": "fn:example.com/flow.Process",
+      "target": "fn:example.com/flow.save",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 64,
+        "col": 16
+      },
+      "siteId": "main.go:64:16"
+    },
+    {
+      "source": "fn:example.com/flow.Process",
+      "target": "fn:example.com/flow.seq",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 47,
+        "col": 2
+      },
+      "siteId": "main.go:47:2"
+    },
+    {
+      "source": "fn:example.com/flow.Process$2",
+      "target": "fn:example.com/flow.save",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 56,
+        "col": 22
+      },
+      "siteId": "main.go:56:22"
+    },
+    {
+      "source": "fn:example.com/flow.main",
+      "target": "external:context.Background",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 69,
+        "col": 48
+      },
+      "siteId": "main.go:69:48"
+    },
+    {
+      "source": "fn:example.com/flow.main",
+      "target": "fn:example.com/flow.Process",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 69,
+        "col": 29
+      },
+      "siteId": "main.go:69:29"
+    },
+    {
+      "source": "fn:example.com/flow.seq",
+      "target": "fn:example.com/flow.Process",
+      "kind": "calls",
+      "confidence": "medium",
+      "method": "vta",
+      "reason": "func value call; 1 concrete target reaches this site",
+      "site": {
+        "file": "main.go",
+        "line": 16,
+        "col": 47
+      },
+      "siteId": "main.go:16:47"
+    }
+  ],
+  "diagnostics": [],
+  "stats": {
+    "packages": 1,
+    "functions": 7,
+    "endpoints": 0,
+    "edges": 18,
+    "unresolved": 0,
+    "elapsedMs": 0,
+    "blockers": []
+  }
+}

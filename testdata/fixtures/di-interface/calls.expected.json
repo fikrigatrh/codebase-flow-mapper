@@ -1,0 +1,43 @@
+{
+  "_comment": "Hand-written before CFM-104 was implemented (CFM-103 AC). Stage-level expectation for internal/callgraph: every project function, every external, every calls edge. Columns count a tab as 1. Correction after first run: (*memRepo).Save is not a node — its type never reaches an interface, so SSA never builds the method (dead code is out of scope).",
+  "functions": [
+    "fn:example.com/fixturedi/cmd/api.initApp",
+    "fn:example.com/fixturedi/cmd/api.main",
+    "fn:example.com/fixturedi/internal/handler.(*TxHandler).Create",
+    "fn:example.com/fixturedi/internal/handler.New",
+    "fn:example.com/fixturedi/internal/repo.(*pgRepo).Save",
+    "fn:example.com/fixturedi/internal/repo.(*pgRepo).exec",
+    "fn:example.com/fixturedi/internal/repo.NewPg",
+    "fn:example.com/fixturedi/internal/service.(*txService).Create",
+    "fn:example.com/fixturedi/internal/service.New"
+  ],
+  "externals": {
+    "external:builtin.(error).Error": "other",
+    "external:context.(Context).Err": "other",
+    "external:errors.New": "other",
+    "external:net/http.(*Request).Context": "other",
+    "external:net/http.(*ServeMux).HandleFunc": "other",
+    "external:net/http.(ResponseWriter).WriteHeader": "other",
+    "external:net/http.Error": "other",
+    "external:net/http.ListenAndServe": "other",
+    "external:net/http.NewServeMux": "other"
+  },
+  "calls": [
+    ["cmd/api/main.go:6:14", "fn:example.com/fixturedi/cmd/api.initApp", "high", "static"],
+    ["cmd/api/main.go:7:25", "external:net/http.NewServeMux", "high", "static"],
+    ["cmd/api/main.go:8:16", "external:net/http.(*ServeMux).HandleFunc", "high", "static"],
+    ["cmd/api/main.go:9:25", "external:net/http.ListenAndServe", "high", "static"],
+    ["cmd/api/wire_gen.go:12:17", "fn:example.com/fixturedi/internal/repo.NewPg", "high", "static"],
+    ["cmd/api/wire_gen.go:13:18", "fn:example.com/fixturedi/internal/service.New", "high", "static"],
+    ["cmd/api/wire_gen.go:14:20", "fn:example.com/fixturedi/internal/handler.New", "high", "static"],
+    ["internal/handler/handler.go:14:24", "fn:example.com/fixturedi/internal/service.(*txService).Create", "medium", "vta"],
+    ["internal/handler/handler.go:14:34", "external:net/http.(*Request).Context", "high", "static"],
+    ["internal/handler/handler.go:15:13", "external:net/http.Error", "high", "static"],
+    ["internal/handler/handler.go:15:26", "external:builtin.(error).Error", "high", "static"],
+    ["internal/handler/handler.go:18:15", "external:net/http.(ResponseWriter).WriteHeader", "high", "static"],
+    ["internal/repo/repo.go:18:72", "fn:example.com/fixturedi/internal/repo.(*pgRepo).exec", "high", "static"],
+    ["internal/repo/repo.go:19:73", "external:context.(Context).Err", "high", "static"],
+    ["internal/service/service.go:20:20", "external:errors.New", "high", "static"],
+    ["internal/service/service.go:22:20", "fn:example.com/fixturedi/internal/repo.(*pgRepo).Save", "medium", "vta"]
+  ]
+}

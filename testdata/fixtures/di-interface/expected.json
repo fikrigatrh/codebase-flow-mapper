@@ -1,0 +1,629 @@
+{
+  "schemaVersion": "2.0.0",
+  "analyzerVersion": "test",
+  "module": "example.com/fixturedi",
+  "goVersion": "1.23",
+  "generatedAt": "",
+  "editorRoot": null,
+  "nodes": [
+    {
+      "id": "endpoint:nethttp:POST:/tx:cmd/api/main.go:8",
+      "kind": "endpoint",
+      "name": "POST /tx",
+      "loc": {
+        "file": "cmd/api/main.go",
+        "line": 8,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "nethttp",
+      "method": "POST",
+      "path": "/tx"
+    },
+    {
+      "id": "external:builtin.(error).Error",
+      "kind": "external",
+      "name": "(error).Error",
+      "pkg": "builtin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:context.(Context).Err",
+      "kind": "external",
+      "name": "(Context).Err",
+      "pkg": "context",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:errors.New",
+      "kind": "external",
+      "name": "New",
+      "pkg": "errors",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.(*Request).Context",
+      "kind": "external",
+      "name": "(*Request).Context",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.(*ServeMux).HandleFunc",
+      "kind": "external",
+      "name": "(*ServeMux).HandleFunc",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.(ResponseWriter).WriteHeader",
+      "kind": "external",
+      "name": "(ResponseWriter).WriteHeader",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.Error",
+      "kind": "external",
+      "name": "Error",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.ListenAndServe",
+      "kind": "external",
+      "name": "ListenAndServe",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.NewServeMux",
+      "kind": "external",
+      "name": "NewServeMux",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "fn:example.com/fixturedi/cmd/api.initApp",
+      "kind": "function",
+      "name": "initApp",
+      "pkg": "example.com/fixturedi/cmd/api",
+      "loc": {
+        "file": "cmd/api/wire_gen.go",
+        "line": 11,
+        "col": 1,
+        "endLine": 15
+      },
+      "status": "resolved",
+      "signature": "func() *handler.TxHandler",
+      "flow": [
+        {
+          "k": "call",
+          "site": "cmd/api/wire_gen.go:12:17",
+          "line": 12
+        },
+        {
+          "k": "call",
+          "site": "cmd/api/wire_gen.go:13:18",
+          "line": 13
+        },
+        {
+          "k": "call",
+          "site": "cmd/api/wire_gen.go:14:20",
+          "line": 14
+        },
+        {
+          "k": "return",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fixturedi/cmd/api.main",
+      "kind": "function",
+      "name": "main",
+      "pkg": "example.com/fixturedi/cmd/api",
+      "loc": {
+        "file": "cmd/api/main.go",
+        "line": 5,
+        "col": 1,
+        "endLine": 10
+      },
+      "status": "resolved",
+      "signature": "func()",
+      "flow": [
+        {
+          "k": "call",
+          "site": "cmd/api/main.go:6:14",
+          "line": 6
+        },
+        {
+          "k": "call",
+          "site": "cmd/api/main.go:7:25",
+          "line": 7
+        },
+        {
+          "k": "call",
+          "site": "cmd/api/main.go:8:16",
+          "line": 8
+        },
+        {
+          "k": "call",
+          "site": "cmd/api/main.go:9:25",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fixturedi/internal/handler.(*TxHandler).Create",
+      "kind": "function",
+      "name": "(*TxHandler).Create",
+      "pkg": "example.com/fixturedi/internal/handler",
+      "loc": {
+        "file": "internal/handler/handler.go",
+        "line": 13,
+        "col": 1,
+        "endLine": 19
+      },
+      "status": "resolved",
+      "receiver": "*TxHandler",
+      "signature": "func(w http.ResponseWriter, r *http.Request)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/handler/handler.go:14:34",
+          "line": 14
+        },
+        {
+          "k": "call",
+          "site": "internal/handler/handler.go:14:24",
+          "line": 14
+        },
+        {
+          "k": "if",
+          "line": 14,
+          "cond": "err != nil",
+          "then": [
+            {
+              "k": "call",
+              "site": "internal/handler/handler.go:15:26",
+              "line": 15
+            },
+            {
+              "k": "call",
+              "site": "internal/handler/handler.go:15:13",
+              "line": 15
+            },
+            {
+              "k": "return",
+              "line": 16
+            }
+          ]
+        },
+        {
+          "k": "call",
+          "site": "internal/handler/handler.go:18:15",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fixturedi/internal/handler.New",
+      "kind": "function",
+      "name": "New",
+      "pkg": "example.com/fixturedi/internal/handler",
+      "loc": {
+        "file": "internal/handler/handler.go",
+        "line": 11,
+        "col": 1,
+        "endLine": 11
+      },
+      "status": "resolved",
+      "signature": "func(s service.TxService) *TxHandler",
+      "flow": [
+        {
+          "k": "return",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fixturedi/internal/repo.(*pgRepo).Save",
+      "kind": "function",
+      "name": "(*pgRepo).Save",
+      "pkg": "example.com/fixturedi/internal/repo",
+      "loc": {
+        "file": "internal/repo/repo.go",
+        "line": 18,
+        "col": 1,
+        "endLine": 18
+      },
+      "status": "resolved",
+      "receiver": "*pgRepo",
+      "signature": "func(ctx context.Context, tx Tx) error",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/repo/repo.go:18:72",
+          "line": 18
+        },
+        {
+          "k": "return",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fixturedi/internal/repo.(*pgRepo).exec",
+      "kind": "function",
+      "name": "(*pgRepo).exec",
+      "pkg": "example.com/fixturedi/internal/repo",
+      "loc": {
+        "file": "internal/repo/repo.go",
+        "line": 19,
+        "col": 1,
+        "endLine": 19
+      },
+      "status": "resolved",
+      "receiver": "*pgRepo",
+      "signature": "func(ctx context.Context) error",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/repo/repo.go:19:73",
+          "line": 19
+        },
+        {
+          "k": "return",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fixturedi/internal/repo.NewPg",
+      "kind": "function",
+      "name": "NewPg",
+      "pkg": "example.com/fixturedi/internal/repo",
+      "loc": {
+        "file": "internal/repo/repo.go",
+        "line": 16,
+        "col": 1,
+        "endLine": 16
+      },
+      "status": "resolved",
+      "signature": "func() TxRepo",
+      "flow": [
+        {
+          "k": "return",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fixturedi/internal/service.(*txService).Create",
+      "kind": "function",
+      "name": "(*txService).Create",
+      "pkg": "example.com/fixturedi/internal/service",
+      "loc": {
+        "file": "internal/service/service.go",
+        "line": 18,
+        "col": 1,
+        "endLine": 23
+      },
+      "status": "resolved",
+      "receiver": "*txService",
+      "signature": "func(ctx context.Context, amount int) error",
+      "flow": [
+        {
+          "k": "if",
+          "line": 19,
+          "cond": "amount \u003c= 0",
+          "then": [
+            {
+              "k": "call",
+              "site": "internal/service/service.go:20:20",
+              "line": 20
+            },
+            {
+              "k": "return",
+              "line": 20
+            }
+          ]
+        },
+        {
+          "k": "call",
+          "site": "internal/service/service.go:22:20",
+          "line": 22
+        },
+        {
+          "k": "return",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/fixturedi/internal/service.New",
+      "kind": "function",
+      "name": "New",
+      "pkg": "example.com/fixturedi/internal/service",
+      "loc": {
+        "file": "internal/service/service.go",
+        "line": 16,
+        "col": 1,
+        "endLine": 16
+      },
+      "status": "resolved",
+      "signature": "func(r repo.TxRepo) TxService",
+      "flow": [
+        {
+          "k": "return",
+          "line": 16
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "endpoint:nethttp:POST:/tx:cmd/api/main.go:8",
+      "target": "fn:example.com/fixturedi/internal/handler.(*TxHandler).Create",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "cmd/api/main.go",
+        "line": 8,
+        "col": 2
+      }
+    },
+    {
+      "source": "fn:example.com/fixturedi/cmd/api.initApp",
+      "target": "fn:example.com/fixturedi/internal/handler.New",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "cmd/api/wire_gen.go",
+        "line": 14,
+        "col": 20
+      },
+      "siteId": "cmd/api/wire_gen.go:14:20"
+    },
+    {
+      "source": "fn:example.com/fixturedi/cmd/api.initApp",
+      "target": "fn:example.com/fixturedi/internal/repo.NewPg",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "cmd/api/wire_gen.go",
+        "line": 12,
+        "col": 17
+      },
+      "siteId": "cmd/api/wire_gen.go:12:17"
+    },
+    {
+      "source": "fn:example.com/fixturedi/cmd/api.initApp",
+      "target": "fn:example.com/fixturedi/internal/service.New",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "cmd/api/wire_gen.go",
+        "line": 13,
+        "col": 18
+      },
+      "siteId": "cmd/api/wire_gen.go:13:18"
+    },
+    {
+      "source": "fn:example.com/fixturedi/cmd/api.main",
+      "target": "external:net/http.(*ServeMux).HandleFunc",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "cmd/api/main.go",
+        "line": 8,
+        "col": 16
+      },
+      "siteId": "cmd/api/main.go:8:16"
+    },
+    {
+      "source": "fn:example.com/fixturedi/cmd/api.main",
+      "target": "external:net/http.ListenAndServe",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "cmd/api/main.go",
+        "line": 9,
+        "col": 25
+      },
+      "siteId": "cmd/api/main.go:9:25"
+    },
+    {
+      "source": "fn:example.com/fixturedi/cmd/api.main",
+      "target": "external:net/http.NewServeMux",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "cmd/api/main.go",
+        "line": 7,
+        "col": 25
+      },
+      "siteId": "cmd/api/main.go:7:25"
+    },
+    {
+      "source": "fn:example.com/fixturedi/cmd/api.main",
+      "target": "fn:example.com/fixturedi/cmd/api.initApp",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "cmd/api/main.go",
+        "line": 6,
+        "col": 14
+      },
+      "siteId": "cmd/api/main.go:6:14"
+    },
+    {
+      "source": "fn:example.com/fixturedi/internal/handler.(*TxHandler).Create",
+      "target": "external:builtin.(error).Error",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call error.Error declared in builtin; implementation not tracked",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 15,
+        "col": 26
+      },
+      "siteId": "internal/handler/handler.go:15:26"
+    },
+    {
+      "source": "fn:example.com/fixturedi/internal/handler.(*TxHandler).Create",
+      "target": "external:net/http.(*Request).Context",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 14,
+        "col": 34
+      },
+      "siteId": "internal/handler/handler.go:14:34"
+    },
+    {
+      "source": "fn:example.com/fixturedi/internal/handler.(*TxHandler).Create",
+      "target": "external:net/http.(ResponseWriter).WriteHeader",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call http.ResponseWriter.WriteHeader declared in net/http; implementation not tracked",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 18,
+        "col": 15
+      },
+      "siteId": "internal/handler/handler.go:18:15"
+    },
+    {
+      "source": "fn:example.com/fixturedi/internal/handler.(*TxHandler).Create",
+      "target": "external:net/http.Error",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 15,
+        "col": 13
+      },
+      "siteId": "internal/handler/handler.go:15:13"
+    },
+    {
+      "source": "fn:example.com/fixturedi/internal/handler.(*TxHandler).Create",
+      "target": "fn:example.com/fixturedi/internal/service.(*txService).Create",
+      "kind": "calls",
+      "confidence": "medium",
+      "method": "vta",
+      "reason": "interface call service.TxService.Create; 1 concrete target reaches this site",
+      "site": {
+        "file": "internal/handler/handler.go",
+        "line": 14,
+        "col": 24
+      },
+      "siteId": "internal/handler/handler.go:14:24"
+    },
+    {
+      "source": "fn:example.com/fixturedi/internal/repo.(*pgRepo).Save",
+      "target": "fn:example.com/fixturedi/internal/repo.(*pgRepo).exec",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/repo/repo.go",
+        "line": 18,
+        "col": 72
+      },
+      "siteId": "internal/repo/repo.go:18:72"
+    },
+    {
+      "source": "fn:example.com/fixturedi/internal/repo.(*pgRepo).exec",
+      "target": "external:context.(Context).Err",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call context.Context.Err declared in context; implementation not tracked",
+      "site": {
+        "file": "internal/repo/repo.go",
+        "line": 19,
+        "col": 73
+      },
+      "siteId": "internal/repo/repo.go:19:73"
+    },
+    {
+      "source": "fn:example.com/fixturedi/internal/service.(*txService).Create",
+      "target": "external:errors.New",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/service/service.go",
+        "line": 20,
+        "col": 20
+      },
+      "siteId": "internal/service/service.go:20:20"
+    },
+    {
+      "source": "fn:example.com/fixturedi/internal/service.(*txService).Create",
+      "target": "fn:example.com/fixturedi/internal/repo.(*pgRepo).Save",
+      "kind": "calls",
+      "confidence": "medium",
+      "method": "vta",
+      "reason": "interface call repo.TxRepo.Save; 1 concrete target reaches this site",
+      "site": {
+        "file": "internal/service/service.go",
+        "line": 22,
+        "col": 20
+      },
+      "siteId": "internal/service/service.go:22:20"
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "info",
+      "code": "PACKAGE_EXCLUDED",
+      "message": "package excluded from analysis: example.com/fixturedi/internal/repo/repofakes"
+    }
+  ],
+  "stats": {
+    "packages": 4,
+    "functions": 9,
+    "endpoints": 1,
+    "edges": 17,
+    "unresolved": 0,
+    "elapsedMs": 0,
+    "blockers": []
+  }
+}

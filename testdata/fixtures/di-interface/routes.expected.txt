@@ -1,0 +1,2 @@
+# Hand-written before internal/routes/nethttp.go existed. Format: see gin-basic.
+POST /tx -> ~/internal/handler.(*TxHandler).Create |

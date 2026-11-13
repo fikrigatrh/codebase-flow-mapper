@@ -1,0 +1,16 @@
+# Hand-written before internal/routes ran on this fixture. Format: see gin-basic.
+GET /api/v1/users -> ~/internal/users.List |
+GET /api/v2/users -> ~/internal/users.List | ~/internal/mw.Auth
+GET /api/v1/x/deep -> ~/internal/users.List |
+GET /api/v2/x/deep -> ~/internal/users.List | ~/internal/mw.Auth
+GET /admin/stats -> ~/internal/users.List |
+GET /api/nest/n -> ~/internal/users.List |
+GET /api/nest/n/n -> ~/internal/users.List |
+GET /api/nest/n/n/n -> ~/internal/users.List |
+GET /api/nest/n/n/n/n -> ~/internal/users.List |
+GET /api/nest/n/n/n/n/n -> ~/internal/users.List |
+GET /api/nest/n/n/n/n/n/n -> ~/internal/users.List |
+GET /api/nest/n/n/n/n/n/n/n -> ~/internal/users.List |
+GET ?/orphan -> ~/internal/users.List |
+diag: ROUTE_PREFIX_DEPTH
+diag: ROUTE_PREFIX_UNKNOWN

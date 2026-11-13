@@ -1,0 +1,2 @@
+# Hand-written before ROUTER_UNSUPPORTED existed. No routes; the v3 import is reported.
+diag: ROUTER_UNSUPPORTED

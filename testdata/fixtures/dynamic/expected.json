@@ -1,0 +1,852 @@
+{
+  "schemaVersion": "2.0.0",
+  "analyzerVersion": "test",
+  "module": "example.com/dynamic",
+  "goVersion": "1.23",
+  "generatedAt": "",
+  "editorRoot": null,
+  "nodes": [
+    {
+      "id": "endpoint:nethttp:ANY:/h:routes.go:14",
+      "kind": "endpoint",
+      "name": "ANY /h",
+      "loc": {
+        "file": "routes.go",
+        "line": 14,
+        "col": 2
+      },
+      "status": "partially_resolved",
+      "framework": "nethttp",
+      "method": "ANY",
+      "path": "/h"
+    },
+    {
+      "id": "endpoint:nethttp:ANY:?/m:routes.go:11",
+      "kind": "endpoint",
+      "name": "ANY ?/m",
+      "loc": {
+        "file": "routes.go",
+        "line": 11,
+        "col": 2
+      },
+      "status": "partially_resolved",
+      "framework": "nethttp",
+      "method": "ANY",
+      "path": "?/m"
+    },
+    {
+      "id": "endpoint:nethttp:ANY:?:routes.go:13",
+      "kind": "endpoint",
+      "name": "ANY ?",
+      "loc": {
+        "file": "routes.go",
+        "line": 13,
+        "col": 2
+      },
+      "status": "partially_resolved",
+      "framework": "nethttp",
+      "method": "ANY",
+      "path": "?"
+    },
+    {
+      "id": "external:context.Background",
+      "kind": "external",
+      "name": "Background",
+      "pkg": "context",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:context.CancelFunc",
+      "kind": "external",
+      "name": "CancelFunc",
+      "pkg": "context",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:context.WithCancel",
+      "kind": "external",
+      "name": "WithCancel",
+      "pkg": "context",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.(*ServeMux).HandleFunc",
+      "kind": "external",
+      "name": "(*ServeMux).HandleFunc",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.NewServeMux",
+      "kind": "external",
+      "name": "NewServeMux",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "fn:example.com/dynamic.main",
+      "kind": "function",
+      "name": "main",
+      "pkg": "example.com/dynamic",
+      "loc": {
+        "file": "main.go",
+        "line": 9,
+        "col": 1,
+        "endLine": 22
+      },
+      "status": "resolved",
+      "signature": "func()",
+      "flow": [
+        {
+          "k": "call",
+          "site": "main.go:16:10",
+          "line": 16
+        },
+        {
+          "k": "call",
+          "site": "main.go:17:13",
+          "line": 17
+        },
+        {
+          "k": "call",
+          "site": "main.go:18:12",
+          "line": 18
+        },
+        {
+          "k": "call",
+          "site": "main.go:19:2",
+          "line": 19
+        },
+        {
+          "k": "loop",
+          "line": 19,
+          "head": "v := range notify.Count",
+          "body": [
+            {
+              "k": "call",
+              "site": "main.go:20:20",
+              "line": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/dynamic.main$1",
+      "kind": "function",
+      "name": "main$1",
+      "pkg": "example.com/dynamic",
+      "loc": {
+        "file": "main.go",
+        "line": 17,
+        "col": 29,
+        "endLine": 17
+      },
+      "status": "resolved",
+      "signature": "func(m string)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "main.go:17:56",
+          "line": 17
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/dynamic.ping",
+      "kind": "function",
+      "name": "ping",
+      "pkg": "example.com/dynamic",
+      "loc": {
+        "file": "routes.go",
+        "line": 17,
+        "col": 1,
+        "endLine": 17
+      },
+      "status": "resolved",
+      "signature": "func(w http.ResponseWriter, r *http.Request)"
+    },
+    {
+      "id": "fn:example.com/dynamic.routes",
+      "kind": "function",
+      "name": "routes",
+      "pkg": "example.com/dynamic",
+      "loc": {
+        "file": "routes.go",
+        "line": 8,
+        "col": 1,
+        "endLine": 15
+      },
+      "status": "resolved",
+      "signature": "func()",
+      "flow": [
+        {
+          "k": "call",
+          "site": "routes.go:9:60",
+          "line": 9
+        },
+        {
+          "k": "call",
+          "site": "routes.go:11:25",
+          "line": 11
+        },
+        {
+          "k": "call",
+          "site": "routes.go:12:25",
+          "line": 12
+        },
+        {
+          "k": "call",
+          "site": "routes.go:13:16",
+          "line": 13
+        },
+        {
+          "k": "call",
+          "site": "routes.go:14:16",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/dynamic/internal/notify.(Email).Notify",
+      "kind": "function",
+      "name": "(Email).Notify",
+      "pkg": "example.com/dynamic/internal/notify",
+      "loc": {
+        "file": "internal/notify/notify.go",
+        "line": 7,
+        "col": 1,
+        "endLine": 7
+      },
+      "status": "resolved",
+      "receiver": "Email",
+      "signature": "func(msg string) error",
+      "flow": [
+        {
+          "k": "return",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/dynamic/internal/notify.(SMS).Notify",
+      "kind": "function",
+      "name": "(SMS).Notify",
+      "pkg": "example.com/dynamic/internal/notify",
+      "loc": {
+        "file": "internal/notify/notify.go",
+        "line": 11,
+        "col": 1,
+        "endLine": 11
+      },
+      "status": "resolved",
+      "receiver": "SMS",
+      "signature": "func(msg string) error",
+      "flow": [
+        {
+          "k": "return",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/dynamic/internal/notify.(Service).Send",
+      "kind": "function",
+      "name": "(Service).Send",
+      "pkg": "example.com/dynamic/internal/notify",
+      "loc": {
+        "file": "internal/notify/notify.go",
+        "line": 16,
+        "col": 1,
+        "endLine": 16
+      },
+      "status": "resolved",
+      "receiver": "Service",
+      "signature": "func(msg string) error",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/notify/notify.go:16:60",
+          "line": 16
+        },
+        {
+          "k": "return",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/dynamic/internal/notify.Apply",
+      "kind": "function",
+      "name": "Apply",
+      "pkg": "example.com/dynamic/internal/notify",
+      "loc": {
+        "file": "internal/notify/notify.go",
+        "line": 24,
+        "col": 1,
+        "endLine": 24
+      },
+      "status": "partially_resolved",
+      "signature": "func(f func(string) string, s string) string",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/notify/notify.go:24:62",
+          "line": 24
+        },
+        {
+          "k": "return",
+          "line": 24
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/dynamic/internal/notify.Count",
+      "kind": "function",
+      "name": "Count",
+      "pkg": "example.com/dynamic/internal/notify",
+      "loc": {
+        "file": "internal/notify/notify.go",
+        "line": 32,
+        "col": 1,
+        "endLine": 32
+      },
+      "status": "resolved",
+      "signature": "func(yield func(int) bool)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/notify/notify.go:32:41",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/dynamic/internal/notify.Double",
+      "kind": "function",
+      "name": "Double",
+      "pkg": "example.com/dynamic/internal/notify",
+      "loc": {
+        "file": "internal/notify/notify.go",
+        "line": 34,
+        "col": 1,
+        "endLine": 34
+      },
+      "status": "resolved",
+      "signature": "func(v int) int",
+      "flow": [
+        {
+          "k": "return",
+          "line": 34
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/dynamic/internal/notify.Each",
+      "kind": "function",
+      "name": "Each",
+      "pkg": "example.com/dynamic/internal/notify",
+      "loc": {
+        "file": "internal/notify/notify.go",
+        "line": 26,
+        "col": 1,
+        "endLine": 30
+      },
+      "status": "resolved",
+      "signature": "func[T any](xs []T, f func(T))",
+      "flow": [
+        {
+          "k": "loop",
+          "line": 27,
+          "head": "_, x := range xs",
+          "body": [
+            {
+              "k": "call",
+              "site": "internal/notify/notify.go:28:4",
+              "line": 28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/dynamic/internal/notify.Log",
+      "kind": "function",
+      "name": "Log",
+      "pkg": "example.com/dynamic/internal/notify",
+      "loc": {
+        "file": "internal/notify/notify.go",
+        "line": 21,
+        "col": 1,
+        "endLine": 21
+      },
+      "status": "partially_resolved",
+      "signature": "func(a Audit, msg string)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/notify/notify.go:21:41",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/dynamic/internal/notify.WithCancel",
+      "kind": "function",
+      "name": "WithCancel",
+      "pkg": "example.com/dynamic/internal/notify",
+      "loc": {
+        "file": "internal/notify/cancel.go",
+        "line": 5,
+        "col": 1,
+        "endLine": 9
+      },
+      "status": "resolved",
+      "signature": "func()",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/notify/cancel.go:6:54",
+          "line": 6
+        },
+        {
+          "k": "call",
+          "site": "internal/notify/cancel.go:6:35",
+          "line": 6
+        },
+        {
+          "k": "defer",
+          "site": "internal/notify/cancel.go:7:2",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "id": "unresolved:internal/notify/notify.go:21:41",
+      "kind": "unresolved",
+      "name": "notify.Audit.Record(...)",
+      "loc": {
+        "file": "internal/notify/notify.go",
+        "line": 21,
+        "col": 41
+      },
+      "status": "unresolved",
+      "reason": "no_concrete_type"
+    },
+    {
+      "id": "unresolved:internal/notify/notify.go:24:62",
+      "kind": "unresolved",
+      "name": "f(...)",
+      "loc": {
+        "file": "internal/notify/notify.go",
+        "line": 24,
+        "col": 62
+      },
+      "status": "unresolved",
+      "reason": "func_value_unknown"
+    },
+    {
+      "id": "unresolved:routes.go:14:23",
+      "kind": "unresolved",
+      "name": "handlers[\"ping\"]",
+      "loc": {
+        "file": "routes.go",
+        "line": 14,
+        "col": 23
+      },
+      "status": "unresolved",
+      "reason": "func_value_unknown"
+    }
+  ],
+  "edges": [
+    {
+      "source": "endpoint:nethttp:ANY:/h:routes.go:14",
+      "target": "unresolved:routes.go:14:23",
+      "kind": "routes_to",
+      "confidence": "unknown",
+      "method": "unresolved",
+      "reason": "registered as handler",
+      "site": {
+        "file": "routes.go",
+        "line": 14,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:nethttp:ANY:?/m:routes.go:11",
+      "target": "fn:example.com/dynamic.ping",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "routes.go",
+        "line": 11,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:nethttp:ANY:?:routes.go:13",
+      "target": "fn:example.com/dynamic.ping",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "routes.go",
+        "line": 13,
+        "col": 2
+      }
+    },
+    {
+      "source": "fn:example.com/dynamic.main",
+      "target": "fn:example.com/dynamic/internal/notify.(Service).Send",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 16,
+        "col": 10
+      },
+      "siteId": "main.go:16:10"
+    },
+    {
+      "source": "fn:example.com/dynamic.main",
+      "target": "fn:example.com/dynamic/internal/notify.Count",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 19,
+        "col": 2
+      },
+      "siteId": "main.go:19:2"
+    },
+    {
+      "source": "fn:example.com/dynamic.main",
+      "target": "fn:example.com/dynamic/internal/notify.Double",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 20,
+        "col": 20
+      },
+      "siteId": "main.go:20:20"
+    },
+    {
+      "source": "fn:example.com/dynamic.main",
+      "target": "fn:example.com/dynamic/internal/notify.Each",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 17,
+        "col": 13
+      },
+      "siteId": "main.go:17:13"
+    },
+    {
+      "source": "fn:example.com/dynamic.main",
+      "target": "fn:example.com/dynamic/internal/notify.Log",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 18,
+        "col": 12
+      },
+      "siteId": "main.go:18:12"
+    },
+    {
+      "source": "fn:example.com/dynamic.main$1",
+      "target": "fn:example.com/dynamic/internal/notify.(Service).Send",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 17,
+        "col": 56
+      },
+      "siteId": "main.go:17:56"
+    },
+    {
+      "source": "fn:example.com/dynamic.routes",
+      "target": "external:net/http.(*ServeMux).HandleFunc",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "routes.go",
+        "line": 11,
+        "col": 25
+      },
+      "siteId": "routes.go:11:25"
+    },
+    {
+      "source": "fn:example.com/dynamic.routes",
+      "target": "external:net/http.(*ServeMux).HandleFunc",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "routes.go",
+        "line": 13,
+        "col": 16
+      },
+      "siteId": "routes.go:13:16"
+    },
+    {
+      "source": "fn:example.com/dynamic.routes",
+      "target": "external:net/http.(*ServeMux).HandleFunc",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "routes.go",
+        "line": 14,
+        "col": 16
+      },
+      "siteId": "routes.go:14:16"
+    },
+    {
+      "source": "fn:example.com/dynamic.routes",
+      "target": "external:net/http.NewServeMux",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "routes.go",
+        "line": 12,
+        "col": 25
+      },
+      "siteId": "routes.go:12:25"
+    },
+    {
+      "source": "fn:example.com/dynamic.routes",
+      "target": "external:net/http.NewServeMux",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "routes.go",
+        "line": 9,
+        "col": 60
+      },
+      "siteId": "routes.go:9:60"
+    },
+    {
+      "source": "fn:example.com/dynamic/internal/notify.(Service).Send",
+      "target": "fn:example.com/dynamic/internal/notify.(Email).Notify",
+      "kind": "calls",
+      "confidence": "low",
+      "method": "vta",
+      "reason": "interface call notify.Notifier.Notify; 2 concrete targets reach this site",
+      "site": {
+        "file": "internal/notify/notify.go",
+        "line": 16,
+        "col": 60
+      },
+      "siteId": "internal/notify/notify.go:16:60",
+      "alternatives": 2
+    },
+    {
+      "source": "fn:example.com/dynamic/internal/notify.(Service).Send",
+      "target": "fn:example.com/dynamic/internal/notify.(SMS).Notify",
+      "kind": "calls",
+      "confidence": "low",
+      "method": "vta",
+      "reason": "interface call notify.Notifier.Notify; 2 concrete targets reach this site",
+      "site": {
+        "file": "internal/notify/notify.go",
+        "line": 16,
+        "col": 60
+      },
+      "siteId": "internal/notify/notify.go:16:60",
+      "alternatives": 2
+    },
+    {
+      "source": "fn:example.com/dynamic/internal/notify.Apply",
+      "target": "unresolved:internal/notify/notify.go:24:62",
+      "kind": "calls",
+      "confidence": "unknown",
+      "method": "unresolved",
+      "reason": "func_value_unknown: func value call; no concrete target reaches this site",
+      "site": {
+        "file": "internal/notify/notify.go",
+        "line": 24,
+        "col": 62
+      },
+      "siteId": "internal/notify/notify.go:24:62"
+    },
+    {
+      "source": "fn:example.com/dynamic/internal/notify.Count",
+      "target": "fn:example.com/dynamic.main",
+      "kind": "calls",
+      "confidence": "medium",
+      "method": "vta",
+      "reason": "func value call; 1 concrete target reaches this site",
+      "site": {
+        "file": "internal/notify/notify.go",
+        "line": 32,
+        "col": 41
+      },
+      "siteId": "internal/notify/notify.go:32:41"
+    },
+    {
+      "source": "fn:example.com/dynamic/internal/notify.Each",
+      "target": "fn:example.com/dynamic.main$1",
+      "kind": "calls",
+      "confidence": "medium",
+      "method": "vta",
+      "reason": "func value call; 1 concrete target reaches this site",
+      "site": {
+        "file": "internal/notify/notify.go",
+        "line": 28,
+        "col": 4
+      },
+      "siteId": "internal/notify/notify.go:28:4"
+    },
+    {
+      "source": "fn:example.com/dynamic/internal/notify.Log",
+      "target": "unresolved:internal/notify/notify.go:21:41",
+      "kind": "calls",
+      "confidence": "unknown",
+      "method": "unresolved",
+      "reason": "no_concrete_type: interface call notify.Audit.Record; no concrete target reaches this site",
+      "site": {
+        "file": "internal/notify/notify.go",
+        "line": 21,
+        "col": 41
+      },
+      "siteId": "internal/notify/notify.go:21:41"
+    },
+    {
+      "source": "fn:example.com/dynamic/internal/notify.WithCancel",
+      "target": "external:context.Background",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/notify/cancel.go",
+        "line": 6,
+        "col": 54
+      },
+      "siteId": "internal/notify/cancel.go:6:54"
+    },
+    {
+      "source": "fn:example.com/dynamic/internal/notify.WithCancel",
+      "target": "external:context.CancelFunc",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "func value call declared in context; implementation not tracked",
+      "site": {
+        "file": "internal/notify/cancel.go",
+        "line": 7,
+        "col": 2
+      },
+      "siteId": "internal/notify/cancel.go:7:2"
+    },
+    {
+      "source": "fn:example.com/dynamic/internal/notify.WithCancel",
+      "target": "external:context.WithCancel",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/notify/cancel.go",
+        "line": 6,
+        "col": 35
+      },
+      "siteId": "internal/notify/cancel.go:6:35"
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "info",
+      "code": "CALL_UNRESOLVED",
+      "message": "call target not resolved (no_concrete_type): notify.Audit.Record(...)",
+      "loc": {
+        "file": "internal/notify/notify.go",
+        "line": 21,
+        "col": 41
+      },
+      "nodeId": "unresolved:internal/notify/notify.go:21:41"
+    },
+    {
+      "severity": "info",
+      "code": "CALL_UNRESOLVED",
+      "message": "call target not resolved (func_value_unknown): f(...)",
+      "loc": {
+        "file": "internal/notify/notify.go",
+        "line": 24,
+        "col": 62
+      },
+      "nodeId": "unresolved:internal/notify/notify.go:24:62"
+    },
+    {
+      "severity": "warning",
+      "code": "ROUTE_PREFIX_UNKNOWN",
+      "message": "router muxes[\"api\"] is not tracked (field assigned more than once or never, or returned by a call): prefix unknown",
+      "loc": {
+        "file": "routes.go",
+        "line": 11,
+        "col": 2
+      }
+    },
+    {
+      "severity": "warning",
+      "code": "ROUTE_PATH_DYNAMIC",
+      "message": "route path is not a constant; kept with a '?' segment",
+      "loc": {
+        "file": "routes.go",
+        "line": 13,
+        "col": 17
+      }
+    },
+    {
+      "severity": "warning",
+      "code": "HANDLER_UNRESOLVED",
+      "message": "handler or middleware handlers[\"ping\"] not resolved (func_value_unknown)",
+      "loc": {
+        "file": "routes.go",
+        "line": 14,
+        "col": 23
+      }
+    }
+  ],
+  "stats": {
+    "packages": 2,
+    "functions": 13,
+    "endpoints": 3,
+    "edges": 23,
+    "unresolved": 3,
+    "elapsedMs": 0,
+    "blockers": []
+  }
+}

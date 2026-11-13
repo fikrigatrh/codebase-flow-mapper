@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "2.0.0",
+  "analyzerVersion": "test",
+  "module": "example.com/missingdep",
+  "goVersion": "1.23",
+  "generatedAt": "",
+  "editorRoot": null,
+  "nodes": [],
+  "edges": [],
+  "diagnostics": [
+    {
+      "severity": "warning",
+      "code": "GO_LOAD_ERROR",
+      "message": "dependency example.com/doesnotexist/lib is not in the module cache; importers are only partially typed",
+      "loc": {
+        "file": "main.go",
+        "line": 3,
+        "col": 8
+      },
+      "details": {
+        "fix": "go mod download",
+        "package": "example.com/doesnotexist/lib"
+      }
+    },
+    {
+      "severity": "warning",
+      "code": "GO_LOAD_ERROR",
+      "message": "dependency github.com/gofiber/fiber/v3 is not in the module cache; importers are only partially typed",
+      "loc": {
+        "file": "v3.go",
+        "line": 3,
+        "col": 16
+      },
+      "details": {
+        "fix": "go mod download",
+        "package": "github.com/gofiber/fiber/v3"
+      }
+    },
+    {
+      "severity": "info",
+      "code": "NO_COMPOSITION_ROOT",
+      "message": "no well-typed main package loaded: interface calls can only resolve if concrete types are constructed in the analyzed code"
+    },
+    {
+      "severity": "warning",
+      "code": "ROUTER_UNSUPPORTED",
+      "message": "github.com/gofiber/fiber/v3 is not a supported router: its routes are not extracted",
+      "loc": {
+        "file": "v3.go",
+        "line": 3,
+        "col": 8
+      }
+    }
+  ],
+  "stats": {
+    "packages": 1,
+    "functions": 0,
+    "endpoints": 0,
+    "edges": 0,
+    "unresolved": 0,
+    "elapsedMs": 0,
+    "blockers": []
+  }
+}

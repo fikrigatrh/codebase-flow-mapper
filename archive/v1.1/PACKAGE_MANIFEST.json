@@ -1,0 +1,25 @@
+{
+  "package": "Codebase Flow Mapper \u2014 Engineering-Ready Implementation Package",
+  "version": "1.1",
+  "documents": [
+    "ADR.md",
+    "AGENTS.md",
+    "ARCHITECTURE.md",
+    "CODING_STANDARDS.md",
+    "GRAPH_SCHEMA.md",
+    "IMPLEMENTATION_GUIDE.md",
+    "PRD.md",
+    "README.md",
+    "SPRINT_BACKLOG.md",
+    "TESTING_STRATEGY.md"
+  ],
+  "baseline": {
+    "languages": [
+      "go",
+      "typescript"
+    ],
+    "analysis": "static",
+    "runtime": "local-first",
+    "ai": "optional"
+  }
+}

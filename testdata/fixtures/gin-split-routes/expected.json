@@ -1,0 +1,1060 @@
+{
+  "schemaVersion": "2.0.0",
+  "analyzerVersion": "test",
+  "module": "example.com/ginsplit",
+  "goVersion": "1.23",
+  "generatedAt": "",
+  "editorRoot": null,
+  "nodes": [
+    {
+      "id": "endpoint:gin:GET:/admin/stats:internal/routes/routes.go:32",
+      "kind": "endpoint",
+      "name": "GET /admin/stats",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 32,
+        "col": 29
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "GET",
+      "path": "/admin/stats"
+    },
+    {
+      "id": "endpoint:gin:GET:/api/nest/n/n/n/n/n/n/n:internal/routes/routes.go:36",
+      "kind": "endpoint",
+      "name": "GET /api/nest/n/n/n/n/n/n/n",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 36,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "GET",
+      "path": "/api/nest/n/n/n/n/n/n/n"
+    },
+    {
+      "id": "endpoint:gin:GET:/api/nest/n/n/n/n/n/n:internal/routes/routes.go:36",
+      "kind": "endpoint",
+      "name": "GET /api/nest/n/n/n/n/n/n",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 36,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "GET",
+      "path": "/api/nest/n/n/n/n/n/n"
+    },
+    {
+      "id": "endpoint:gin:GET:/api/nest/n/n/n/n/n:internal/routes/routes.go:36",
+      "kind": "endpoint",
+      "name": "GET /api/nest/n/n/n/n/n",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 36,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "GET",
+      "path": "/api/nest/n/n/n/n/n"
+    },
+    {
+      "id": "endpoint:gin:GET:/api/nest/n/n/n/n:internal/routes/routes.go:36",
+      "kind": "endpoint",
+      "name": "GET /api/nest/n/n/n/n",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 36,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "GET",
+      "path": "/api/nest/n/n/n/n"
+    },
+    {
+      "id": "endpoint:gin:GET:/api/nest/n/n/n:internal/routes/routes.go:36",
+      "kind": "endpoint",
+      "name": "GET /api/nest/n/n/n",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 36,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "GET",
+      "path": "/api/nest/n/n/n"
+    },
+    {
+      "id": "endpoint:gin:GET:/api/nest/n/n:internal/routes/routes.go:36",
+      "kind": "endpoint",
+      "name": "GET /api/nest/n/n",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 36,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "GET",
+      "path": "/api/nest/n/n"
+    },
+    {
+      "id": "endpoint:gin:GET:/api/nest/n:internal/routes/routes.go:36",
+      "kind": "endpoint",
+      "name": "GET /api/nest/n",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 36,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "GET",
+      "path": "/api/nest/n"
+    },
+    {
+      "id": "endpoint:gin:GET:/api/v1/users:internal/routes/routes.go:23",
+      "kind": "endpoint",
+      "name": "GET /api/v1/users",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 23,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "GET",
+      "path": "/api/v1/users"
+    },
+    {
+      "id": "endpoint:gin:GET:/api/v1/x/deep:internal/routes/routes.go:27",
+      "kind": "endpoint",
+      "name": "GET /api/v1/x/deep",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 27,
+        "col": 41
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "GET",
+      "path": "/api/v1/x/deep"
+    },
+    {
+      "id": "endpoint:gin:GET:/api/v2/users:internal/routes/routes.go:23",
+      "kind": "endpoint",
+      "name": "GET /api/v2/users",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 23,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "GET",
+      "path": "/api/v2/users"
+    },
+    {
+      "id": "endpoint:gin:GET:/api/v2/x/deep:internal/routes/routes.go:27",
+      "kind": "endpoint",
+      "name": "GET /api/v2/x/deep",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 27,
+        "col": 41
+      },
+      "status": "resolved",
+      "framework": "gin",
+      "method": "GET",
+      "path": "/api/v2/x/deep"
+    },
+    {
+      "id": "endpoint:gin:GET:?/orphan:internal/routes/routes.go:41",
+      "kind": "endpoint",
+      "name": "GET ?/orphan",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 41,
+        "col": 38
+      },
+      "status": "partially_resolved",
+      "framework": "gin",
+      "method": "GET",
+      "path": "?/orphan"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*Context).JSON",
+      "kind": "external",
+      "name": "(*Context).JSON",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*Context).Next",
+      "kind": "external",
+      "name": "(*Context).Next",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*Engine).Run",
+      "kind": "external",
+      "name": "(*Engine).Run",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*RouterGroup).GET",
+      "kind": "external",
+      "name": "(*RouterGroup).GET",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(*RouterGroup).Group",
+      "kind": "external",
+      "name": "(*RouterGroup).Group",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.(IRoutes).GET",
+      "kind": "external",
+      "name": "(IRoutes).GET",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:github.com/gin-gonic/gin.Default",
+      "kind": "external",
+      "name": "Default",
+      "pkg": "github.com/gin-gonic/gin",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "fn:example.com/ginsplit.main",
+      "kind": "function",
+      "name": "main",
+      "pkg": "example.com/ginsplit",
+      "loc": {
+        "file": "main.go",
+        "line": 9,
+        "col": 1,
+        "endLine": 13
+      },
+      "status": "resolved",
+      "signature": "func()",
+      "flow": [
+        {
+          "k": "call",
+          "site": "main.go:10:18",
+          "line": 10
+        },
+        {
+          "k": "call",
+          "site": "main.go:11:17",
+          "line": 11
+        },
+        {
+          "k": "call",
+          "site": "main.go:12:11",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginsplit/internal/mw.Auth",
+      "kind": "function",
+      "name": "Auth",
+      "pkg": "example.com/ginsplit/internal/mw",
+      "loc": {
+        "file": "internal/mw/mw.go",
+        "line": 5,
+        "col": 1,
+        "endLine": 5
+      },
+      "status": "resolved",
+      "signature": "func(c *gin.Context)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/mw/mw.go:5:35",
+          "line": 5
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginsplit/internal/routes.(*Server).routes",
+      "kind": "function",
+      "name": "(*Server).routes",
+      "pkg": "example.com/ginsplit/internal/routes",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 32,
+        "col": 1,
+        "endLine": 32
+      },
+      "status": "resolved",
+      "receiver": "*Server",
+      "signature": "func()",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/routes/routes.go:32:41",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginsplit/internal/routes.Register",
+      "kind": "function",
+      "name": "Register",
+      "pkg": "example.com/ginsplit/internal/routes",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 10,
+        "col": 1,
+        "endLine": 19
+      },
+      "status": "resolved",
+      "signature": "func(r *gin.Engine)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/routes/routes.go:11:16",
+          "line": 11
+        },
+        {
+          "k": "call",
+          "site": "internal/routes/routes.go:12:17",
+          "line": 12
+        },
+        {
+          "k": "call",
+          "site": "internal/routes/routes.go:13:17",
+          "line": 13
+        },
+        {
+          "k": "call",
+          "site": "internal/routes/routes.go:14:15",
+          "line": 14
+        },
+        {
+          "k": "call",
+          "site": "internal/routes/routes.go:15:15",
+          "line": 15
+        },
+        {
+          "k": "call",
+          "site": "internal/routes/routes.go:16:30",
+          "line": 16
+        },
+        {
+          "k": "call",
+          "site": "internal/routes/routes.go:17:10",
+          "line": 17
+        },
+        {
+          "k": "call",
+          "site": "internal/routes/routes.go:18:16",
+          "line": 18
+        },
+        {
+          "k": "call",
+          "site": "internal/routes/routes.go:18:6",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginsplit/internal/routes.RegisterOrphan",
+      "kind": "function",
+      "name": "RegisterOrphan",
+      "pkg": "example.com/ginsplit/internal/routes",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 41,
+        "col": 1,
+        "endLine": 41
+      },
+      "status": "resolved",
+      "signature": "func(g gin.IRouter)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/routes/routes.go:41:43",
+          "line": 41
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginsplit/internal/routes.nest",
+      "kind": "function",
+      "name": "nest",
+      "pkg": "example.com/ginsplit/internal/routes",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 35,
+        "col": 1,
+        "endLine": 38
+      },
+      "status": "resolved",
+      "signature": "func(g *gin.RouterGroup)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/routes/routes.go:36:7",
+          "line": 36
+        },
+        {
+          "k": "call",
+          "site": "internal/routes/routes.go:37:14",
+          "line": 37
+        },
+        {
+          "k": "call",
+          "site": "internal/routes/routes.go:37:6",
+          "line": 37
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginsplit/internal/routes.registerDeep",
+      "kind": "function",
+      "name": "registerDeep",
+      "pkg": "example.com/ginsplit/internal/routes",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 27,
+        "col": 1,
+        "endLine": 27
+      },
+      "status": "resolved",
+      "signature": "func(g *gin.RouterGroup)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/routes/routes.go:27:46",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginsplit/internal/routes.registerUsers",
+      "kind": "function",
+      "name": "registerUsers",
+      "pkg": "example.com/ginsplit/internal/routes",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 22,
+        "col": 1,
+        "endLine": 25
+      },
+      "status": "resolved",
+      "signature": "func(g *gin.RouterGroup)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/routes/routes.go:23:7",
+          "line": 23
+        },
+        {
+          "k": "call",
+          "site": "internal/routes/routes.go:24:22",
+          "line": 24
+        },
+        {
+          "k": "call",
+          "site": "internal/routes/routes.go:24:14",
+          "line": 24
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/ginsplit/internal/users.List",
+      "kind": "function",
+      "name": "List",
+      "pkg": "example.com/ginsplit/internal/users",
+      "loc": {
+        "file": "internal/users/users.go",
+        "line": 5,
+        "col": 1,
+        "endLine": 5
+      },
+      "status": "resolved",
+      "signature": "func(c *gin.Context)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/users/users.go:5:35",
+          "line": 5
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "endpoint:gin:GET:/admin/stats:internal/routes/routes.go:32",
+      "target": "fn:example.com/ginsplit/internal/users.List",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 32,
+        "col": 29
+      }
+    },
+    {
+      "source": "endpoint:gin:GET:/api/nest/n/n/n/n/n/n/n:internal/routes/routes.go:36",
+      "target": "fn:example.com/ginsplit/internal/users.List",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 36,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:gin:GET:/api/nest/n/n/n/n/n/n:internal/routes/routes.go:36",
+      "target": "fn:example.com/ginsplit/internal/users.List",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 36,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:gin:GET:/api/nest/n/n/n/n/n:internal/routes/routes.go:36",
+      "target": "fn:example.com/ginsplit/internal/users.List",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 36,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:gin:GET:/api/nest/n/n/n/n:internal/routes/routes.go:36",
+      "target": "fn:example.com/ginsplit/internal/users.List",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 36,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:gin:GET:/api/nest/n/n/n:internal/routes/routes.go:36",
+      "target": "fn:example.com/ginsplit/internal/users.List",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 36,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:gin:GET:/api/nest/n/n:internal/routes/routes.go:36",
+      "target": "fn:example.com/ginsplit/internal/users.List",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 36,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:gin:GET:/api/nest/n:internal/routes/routes.go:36",
+      "target": "fn:example.com/ginsplit/internal/users.List",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 36,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:gin:GET:/api/v1/users:internal/routes/routes.go:23",
+      "target": "fn:example.com/ginsplit/internal/users.List",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 23,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:gin:GET:/api/v1/x/deep:internal/routes/routes.go:27",
+      "target": "fn:example.com/ginsplit/internal/users.List",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 27,
+        "col": 41
+      }
+    },
+    {
+      "source": "endpoint:gin:GET:/api/v2/users:internal/routes/routes.go:23",
+      "target": "fn:example.com/ginsplit/internal/mw.Auth",
+      "kind": "uses_middleware",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 23,
+        "col": 2
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:gin:GET:/api/v2/users:internal/routes/routes.go:23",
+      "target": "fn:example.com/ginsplit/internal/users.List",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 23,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:gin:GET:/api/v2/x/deep:internal/routes/routes.go:27",
+      "target": "fn:example.com/ginsplit/internal/mw.Auth",
+      "kind": "uses_middleware",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 27,
+        "col": 41
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:gin:GET:/api/v2/x/deep:internal/routes/routes.go:27",
+      "target": "fn:example.com/ginsplit/internal/users.List",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 27,
+        "col": 41
+      }
+    },
+    {
+      "source": "endpoint:gin:GET:?/orphan:internal/routes/routes.go:41",
+      "target": "fn:example.com/ginsplit/internal/users.List",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 41,
+        "col": 38
+      }
+    },
+    {
+      "source": "fn:example.com/ginsplit.main",
+      "target": "external:github.com/gin-gonic/gin.(*Engine).Run",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 12,
+        "col": 11
+      },
+      "siteId": "main.go:12:11"
+    },
+    {
+      "source": "fn:example.com/ginsplit.main",
+      "target": "external:github.com/gin-gonic/gin.Default",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 10,
+        "col": 18
+      },
+      "siteId": "main.go:10:18"
+    },
+    {
+      "source": "fn:example.com/ginsplit.main",
+      "target": "fn:example.com/ginsplit/internal/routes.Register",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 11,
+        "col": 17
+      },
+      "siteId": "main.go:11:17"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/mw.Auth",
+      "target": "external:github.com/gin-gonic/gin.(*Context).Next",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/mw/mw.go",
+        "line": 5,
+        "col": 35
+      },
+      "siteId": "internal/mw/mw.go:5:35"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/routes.(*Server).routes",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).GET",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 32,
+        "col": 41
+      },
+      "siteId": "internal/routes/routes.go:32:41"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/routes.Register",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).Group",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 11,
+        "col": 16
+      },
+      "siteId": "internal/routes/routes.go:11:16"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/routes.Register",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).Group",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 12,
+        "col": 17
+      },
+      "siteId": "internal/routes/routes.go:12:17"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/routes.Register",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).Group",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 13,
+        "col": 17
+      },
+      "siteId": "internal/routes/routes.go:13:17"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/routes.Register",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).Group",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 16,
+        "col": 30
+      },
+      "siteId": "internal/routes/routes.go:16:30"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/routes.Register",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).Group",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 18,
+        "col": 16
+      },
+      "siteId": "internal/routes/routes.go:18:16"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/routes.Register",
+      "target": "fn:example.com/ginsplit/internal/routes.(*Server).routes",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 17,
+        "col": 10
+      },
+      "siteId": "internal/routes/routes.go:17:10"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/routes.Register",
+      "target": "fn:example.com/ginsplit/internal/routes.nest",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 18,
+        "col": 6
+      },
+      "siteId": "internal/routes/routes.go:18:6"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/routes.Register",
+      "target": "fn:example.com/ginsplit/internal/routes.registerUsers",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 14,
+        "col": 15
+      },
+      "siteId": "internal/routes/routes.go:14:15"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/routes.Register",
+      "target": "fn:example.com/ginsplit/internal/routes.registerUsers",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 15,
+        "col": 15
+      },
+      "siteId": "internal/routes/routes.go:15:15"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/routes.RegisterOrphan",
+      "target": "external:github.com/gin-gonic/gin.(IRoutes).GET",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call gin.IRoutes.GET declared in github.com/gin-gonic/gin; implementation not tracked",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 41,
+        "col": 43
+      },
+      "siteId": "internal/routes/routes.go:41:43"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/routes.nest",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).GET",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 36,
+        "col": 7
+      },
+      "siteId": "internal/routes/routes.go:36:7"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/routes.nest",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).Group",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 37,
+        "col": 14
+      },
+      "siteId": "internal/routes/routes.go:37:14"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/routes.nest",
+      "target": "fn:example.com/ginsplit/internal/routes.nest",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 37,
+        "col": 6
+      },
+      "siteId": "internal/routes/routes.go:37:6"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/routes.registerDeep",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).GET",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 27,
+        "col": 46
+      },
+      "siteId": "internal/routes/routes.go:27:46"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/routes.registerUsers",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).GET",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 23,
+        "col": 7
+      },
+      "siteId": "internal/routes/routes.go:23:7"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/routes.registerUsers",
+      "target": "external:github.com/gin-gonic/gin.(*RouterGroup).Group",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 24,
+        "col": 22
+      },
+      "siteId": "internal/routes/routes.go:24:22"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/routes.registerUsers",
+      "target": "fn:example.com/ginsplit/internal/routes.registerDeep",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/routes/routes.go",
+        "line": 24,
+        "col": 14
+      },
+      "siteId": "internal/routes/routes.go:24:14"
+    },
+    {
+      "source": "fn:example.com/ginsplit/internal/users.List",
+      "target": "external:github.com/gin-gonic/gin.(*Context).JSON",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/users/users.go",
+        "line": 5,
+        "col": 35
+      },
+      "siteId": "internal/users/users.go:5:35"
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "warning",
+      "code": "ROUTE_PREFIX_DEPTH",
+      "message": "router passed through more than 8 calls into nest: deeper registrations are not followed",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 37,
+        "col": 2
+      }
+    },
+    {
+      "severity": "warning",
+      "code": "ROUTE_PREFIX_UNKNOWN",
+      "message": "router parameter of RegisterOrphan is never passed a tracked router: prefix unknown",
+      "loc": {
+        "file": "internal/routes/routes.go",
+        "line": 41,
+        "col": 6
+      }
+    }
+  ],
+  "stats": {
+    "packages": 4,
+    "functions": 9,
+    "endpoints": 13,
+    "edges": 38,
+    "unresolved": 0,
+    "elapsedMs": 0,
+    "blockers": []
+  }
+}

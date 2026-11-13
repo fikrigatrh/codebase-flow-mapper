@@ -1,0 +1,195 @@
+/* Direction: DESIGN.md (IDE-like, dark default + light, system fonts, one amber accent). */
+:root,
+:root[data-theme="dark"] {
+  --bg: #16181c;
+  --panel: #1e2126;
+  --line: #3a3f47;
+  --text: #d9dce1;
+  --muted: #9ba1aa;
+  --accent: #f0a830;
+  --danger: #ff8a80;
+}
+:root[data-theme="light"] {
+  --bg: #f7f7f5;
+  --panel: #ffffff;
+  --line: #c9ccd1;
+  --text: #1d2025;
+  --muted: #555b64;
+  --accent: #9a5b00;
+  --danger: #b3261e;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.45 system-ui, sans-serif;
+}
+code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 16px;
+  padding: 0 16px;
+  min-height: 44px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+header .brand { color: var(--accent); font-weight: 700; }
+header .module { overflow-wrap: anywhere; }
+header .stats { color: var(--muted); }
+header button { margin-left: auto; }
+
+button {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+button:hover { border-color: var(--muted); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.muted { color: var(--muted); }
+
+/* Three panes like an editor: navigator, canvas, inspector. Stacks on narrow screens. */
+.layout {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(240px, 300px) 1fr minmax(260px, 360px);
+}
+.side, #detail {
+  min-height: 0;
+  overflow: auto;
+  background: var(--panel);
+}
+.side { display: flex; flex-direction: column; border-right: 1px solid var(--line); }
+#detail { padding: 12px 16px; border-left: 1px solid var(--line); overflow-wrap: anywhere; }
+
+.tabs { display: flex; border-bottom: 1px solid var(--line); }
+.tabs button { flex: 1; border: 0; border-radius: 0; border-bottom: 2px solid transparent; }
+.tabs button[aria-selected="true"] { border-bottom-color: var(--accent); font-weight: 600; }
+
+#search {
+  margin: 8px;
+  min-height: 36px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--bg);
+  color: var(--text);
+  font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+#count { margin: 0 8px 4px; font-size: 12px; }
+
+#list { flex: 1; margin: 0; padding: 0; list-style: none; overflow: auto; }
+#list li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 44px;
+  padding: 4px 8px 4px 10px;
+  border-left: 2px solid transparent;
+  cursor: pointer;
+}
+#list li:hover { background: var(--bg); }
+#list li[aria-selected="true"] { border-left-color: var(--accent); background: var(--bg); }
+#list li:focus-visible { outline-offset: -2px; }
+.row-head { font-size: 12px; overflow-wrap: anywhere; }
+.row-sub { font-size: 11px; color: var(--muted); overflow-wrap: anywhere; }
+.verb { font-weight: 700; }
+
+main { display: flex; flex-direction: column; min-height: 0; min-width: 0; }
+.canvas { position: relative; flex: 1; min-height: 0; }
+#graph { position: absolute; inset: 0; }
+
+.banner {
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--line);
+  border-left: 3px solid var(--danger);
+  background: var(--panel);
+}
+.banner p { margin: 2px 0; }
+.banner code { color: var(--accent); }
+.banner[hidden], .toolbar[hidden] { display: none; }
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--line);
+}
+.seg { display: flex; }
+.seg button { border-radius: 0; }
+.seg button + button { border-left: 0; }
+.controls { display: contents; }
+.controls[hidden] { display: none; }
+.seg button[aria-selected="true"],
+.seg button[aria-pressed="true"] { border-bottom: 2px solid var(--accent); font-weight: 600; }
+label.check { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; cursor: pointer; }
+label.check input { width: 16px; height: 16px; margin: 0; accent-color: var(--accent); }
+#pkgs summary { display: flex; align-items: center; min-height: 44px; cursor: pointer; }
+#pkgs { position: relative; }
+/* Overlay instead of pushing the canvas down; the tree stays where the reader left it. */
+#pkg-list {
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  left: 0;
+  width: max-content;
+  max-width: min(480px, 90vw);
+  max-height: 260px;
+  overflow: auto;
+  padding: 4px 12px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--panel);
+}
+#pkg-list label.check { display: flex; font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+#tree-note { margin: 0; font-size: 12px; flex-basis: 100%; }
+#tree-note:empty { display: none; }
+#status { margin: 0; padding: 16px; color: var(--muted); }
+#status.error { color: var(--danger); }
+#status[hidden] { display: none; }
+
+#detail h2 { margin: 0 0 8px; font-size: 14px; }
+#detail h3 { margin: 16px 0 4px; font-size: 12px; color: var(--muted); font-weight: 600; }
+#detail dl { display: grid; grid-template-columns: max-content 1fr; gap: 2px 12px; margin: 0; }
+#detail dt { color: var(--muted); }
+#detail dd { margin: 0; min-width: 0; }
+.edges { margin: 0; padding: 0; list-style: none; }
+.diag { margin: 4px 0; color: var(--danger); }
+button.link {
+  min-height: 32px;
+  padding: 2px 4px;
+  border: 0;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+button.link:hover { text-decoration: underline; }
+button.edge { display: flex; flex-direction: column; align-items: flex-start; width: 100%; min-height: 44px; }
+.conf { color: var(--muted); font-size: 11px; }
+a.loc { color: var(--text); text-decoration: underline; text-decoration-color: var(--accent); }
+
+@media (max-width: 900px) {
+  body { height: auto; }
+  .layout { display: flex; flex-direction: column; }
+  .side { max-height: 45vh; border-right: 0; border-bottom: 1px solid var(--line); }
+  main { flex: none; }
+  .canvas { height: 360px; flex: none; }
+  #detail { border-left: 0; border-top: 1px solid var(--line); }
+  button.link { min-height: 44px; }
+  a.loc { display: inline-block; min-height: 44px; line-height: 44px; }
+}
+.legend { margin-left: auto; font-size: 11px; }

@@ -1,0 +1,13 @@
+# Hand-written before internal/routes/nethttp.go existed. Format: see gin-basic.
+GET /users/{id} -> ~/internal/api.(*Users).Get |
+POST /users -> ~/internal/api.CreateUser |
+ANY /static/ -> ~/internal/api.Static |
+GET /health -> ~/internal/api.(Health).ServeHTTP |
+DELETE /users/{id} -> ~/internal/api.(*Users).Delete | ~/internal/api.Logging(h), ~/internal/api.RequireRole(h)
+ANY /ping -> ~.main$1 |
+GET /files/ -> external:net/http.StripPrefix(h) |
+ANY /iface -> unresolved:main.go:20:23 |
+GET /v2/users -> ~/internal/api.CreateUser |
+GET /default -> ~/internal/api.CreateUser |
+PUT /default -> ~/internal/api.(Health).ServeHTTP |
+diag: HANDLER_UNRESOLVED

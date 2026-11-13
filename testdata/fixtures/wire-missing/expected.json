@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "2.0.0",
+  "analyzerVersion": "test",
+  "module": "example.com/wiremissing",
+  "goVersion": "1.23",
+  "generatedAt": "",
+  "editorRoot": null,
+  "nodes": [
+    {
+      "id": "fn:example.com/wiremissing/internal/app.New",
+      "kind": "function",
+      "name": "New",
+      "pkg": "example.com/wiremissing/internal/app",
+      "loc": {
+        "file": "internal/app/app.go",
+        "line": 5,
+        "col": 1,
+        "endLine": 5
+      },
+      "status": "resolved",
+      "signature": "func() *App",
+      "flow": [
+        {
+          "k": "return",
+          "line": 5
+        }
+      ]
+    }
+  ],
+  "edges": [],
+  "diagnostics": [
+    {
+      "severity": "warning",
+      "code": "GENERATED_PKG_MISSING",
+      "message": "in-module package example.com/wiremissing/docs has no Go files (generated and not checked in?); importers are only partially typed",
+      "details": {
+        "fix": "swag init",
+        "package": "example.com/wiremissing/docs"
+      }
+    },
+    {
+      "severity": "warning",
+      "code": "GO_TYPE_ERROR",
+      "message": "undefined: InitApp (package left out of the call graph)",
+      "loc": {
+        "file": "cmd/api/main.go",
+        "line": 5,
+        "col": 19
+      }
+    },
+    {
+      "severity": "warning",
+      "code": "WIRE_GEN_MISSING",
+      "message": "wire injector found but wire_gen.go is missing: interface calls wired by Wire cannot be resolved",
+      "loc": {
+        "file": "cmd/api/wire.go",
+        "line": 1,
+        "col": 1
+      },
+      "details": {
+        "fix": "wire ./cmd/api"
+      }
+    },
+    {
+      "severity": "info",
+      "code": "NO_COMPOSITION_ROOT",
+      "message": "no well-typed main package loaded: interface calls can only resolve if concrete types are constructed in the analyzed code"
+    }
+  ],
+  "stats": {
+    "packages": 2,
+    "functions": 1,
+    "endpoints": 0,
+    "edges": 0,
+    "unresolved": 0,
+    "elapsedMs": 0,
+    "blockers": [
+      0,
+      2
+    ]
+  }
+}

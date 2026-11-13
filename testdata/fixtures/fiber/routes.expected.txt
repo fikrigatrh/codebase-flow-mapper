@@ -1,0 +1,13 @@
+# Hand-written before internal/routes/fiber.go existed. Format: see gin-basic.
+# Fiber matches a Use prefix with a plain string prefix test, so Use("/api", Auth) also reaches /apix.
+GET /health -> ~/internal/handler.Health |
+GET /api/v1/users/:id -> ~/internal/handler.GetUser | external:github.com/gofiber/fiber/v2/middleware/logger.New(h), ~/internal/mw.Auth, ~/internal/mw.Trace
+POST /api/v1/users -> ~/internal/handler.CreateUser | external:github.com/gofiber/fiber/v2/middleware/logger.New(h), ~/internal/mw.Auth, ~/internal/mw.Trace, ~/internal/mw.RateLimit$1(h)
+ANY /api/v1/any -> ~/internal/handler.Health | external:github.com/gofiber/fiber/v2/middleware/logger.New(h), ~/internal/mw.Auth, ~/internal/mw.Trace
+PATCH /api/v1/users/:id -> ~/internal/handler.CreateUser | external:github.com/gofiber/fiber/v2/middleware/logger.New(h), ~/internal/mw.Auth, ~/internal/mw.Trace
+GET /apix -> ~/internal/handler.Health | external:github.com/gofiber/fiber/v2/middleware/logger.New(h), ~/internal/mw.Auth
+GET /public -> ~/internal/handler.Health | external:github.com/gofiber/fiber/v2/middleware/logger.New(h)
+DELETE /api/admin/users/:id -> ~/internal/handler.DeleteUser | external:github.com/gofiber/fiber/v2/middleware/logger.New(h), ~/internal/mw.Auth, ~/internal/mw.Trace
+GET /a -> ~/internal/handler.Health | external:github.com/gofiber/fiber/v2/middleware/logger.New(h)
+GET /b -> ~.main$2 | external:github.com/gofiber/fiber/v2/middleware/logger.New(h)
+GET /v2/users -> ~/internal/handler.GetUser | external:github.com/gofiber/fiber/v2/middleware/logger.New(h)

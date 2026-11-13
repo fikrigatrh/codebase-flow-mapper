@@ -1,0 +1,1089 @@
+{
+  "schemaVersion": "2.0.0",
+  "analyzerVersion": "test",
+  "module": "example.com/nethttp",
+  "goVersion": "1.23",
+  "generatedAt": "",
+  "editorRoot": null,
+  "nodes": [
+    {
+      "id": "endpoint:nethttp:ANY:/iface:main.go:20",
+      "kind": "endpoint",
+      "name": "ANY /iface",
+      "loc": {
+        "file": "main.go",
+        "line": 20,
+        "col": 2
+      },
+      "status": "partially_resolved",
+      "framework": "nethttp",
+      "method": "ANY",
+      "path": "/iface"
+    },
+    {
+      "id": "endpoint:nethttp:ANY:/ping:main.go:17",
+      "kind": "endpoint",
+      "name": "ANY /ping",
+      "loc": {
+        "file": "main.go",
+        "line": 17,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "nethttp",
+      "method": "ANY",
+      "path": "/ping"
+    },
+    {
+      "id": "endpoint:nethttp:ANY:/static/:main.go:14",
+      "kind": "endpoint",
+      "name": "ANY /static/",
+      "loc": {
+        "file": "main.go",
+        "line": 14,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "nethttp",
+      "method": "ANY",
+      "path": "/static/"
+    },
+    {
+      "id": "endpoint:nethttp:DELETE:/users/{id}:main.go:16",
+      "kind": "endpoint",
+      "name": "DELETE /users/{id}",
+      "loc": {
+        "file": "main.go",
+        "line": 16,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "nethttp",
+      "method": "DELETE",
+      "path": "/users/{id}"
+    },
+    {
+      "id": "endpoint:nethttp:GET:/default:main.go:22",
+      "kind": "endpoint",
+      "name": "GET /default",
+      "loc": {
+        "file": "main.go",
+        "line": 22,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "nethttp",
+      "method": "GET",
+      "path": "/default"
+    },
+    {
+      "id": "endpoint:nethttp:GET:/files/:main.go:18",
+      "kind": "endpoint",
+      "name": "GET /files/",
+      "loc": {
+        "file": "main.go",
+        "line": 18,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "nethttp",
+      "method": "GET",
+      "path": "/files/"
+    },
+    {
+      "id": "endpoint:nethttp:GET:/health:main.go:15",
+      "kind": "endpoint",
+      "name": "GET /health",
+      "loc": {
+        "file": "main.go",
+        "line": 15,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "nethttp",
+      "method": "GET",
+      "path": "/health"
+    },
+    {
+      "id": "endpoint:nethttp:GET:/users/{id}:main.go:12",
+      "kind": "endpoint",
+      "name": "GET /users/{id}",
+      "loc": {
+        "file": "main.go",
+        "line": 12,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "nethttp",
+      "method": "GET",
+      "path": "/users/{id}"
+    },
+    {
+      "id": "endpoint:nethttp:GET:/v2/users:internal/api/api.go:33",
+      "kind": "endpoint",
+      "name": "GET /v2/users",
+      "loc": {
+        "file": "internal/api/api.go",
+        "line": 33,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "nethttp",
+      "method": "GET",
+      "path": "/v2/users"
+    },
+    {
+      "id": "endpoint:nethttp:POST:/users:main.go:13",
+      "kind": "endpoint",
+      "name": "POST /users",
+      "loc": {
+        "file": "main.go",
+        "line": 13,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "nethttp",
+      "method": "POST",
+      "path": "/users"
+    },
+    {
+      "id": "endpoint:nethttp:PUT:/default:main.go:23",
+      "kind": "endpoint",
+      "name": "PUT /default",
+      "loc": {
+        "file": "main.go",
+        "line": 23,
+        "col": 2
+      },
+      "status": "resolved",
+      "framework": "nethttp",
+      "method": "PUT",
+      "path": "/default"
+    },
+    {
+      "id": "external:net/http.(*ServeMux).Handle",
+      "kind": "external",
+      "name": "(*ServeMux).Handle",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.(*ServeMux).HandleFunc",
+      "kind": "external",
+      "name": "(*ServeMux).HandleFunc",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.(Handler).ServeHTTP",
+      "kind": "external",
+      "name": "(Handler).ServeHTTP",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.(Header).Get",
+      "kind": "external",
+      "name": "(Header).Get",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.Error",
+      "kind": "external",
+      "name": "Error",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.FileServer",
+      "kind": "external",
+      "name": "FileServer",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.HandleFunc",
+      "kind": "external",
+      "name": "HandleFunc",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.ListenAndServe",
+      "kind": "external",
+      "name": "ListenAndServe",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.NewServeMux",
+      "kind": "external",
+      "name": "NewServeMux",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "external:net/http.StripPrefix",
+      "kind": "external",
+      "name": "StripPrefix",
+      "pkg": "net/http",
+      "status": "resolved",
+      "category": "other"
+    },
+    {
+      "id": "fn:example.com/nethttp.main",
+      "kind": "function",
+      "name": "main",
+      "pkg": "example.com/nethttp",
+      "loc": {
+        "file": "main.go",
+        "line": 9,
+        "col": 1,
+        "endLine": 25
+      },
+      "status": "resolved",
+      "signature": "func()",
+      "flow": [
+        {
+          "k": "call",
+          "site": "main.go:10:25",
+          "line": 10
+        },
+        {
+          "k": "call",
+          "site": "main.go:12:16",
+          "line": 12
+        },
+        {
+          "k": "call",
+          "site": "main.go:13:16",
+          "line": 13
+        },
+        {
+          "k": "call",
+          "site": "main.go:14:12",
+          "line": 14
+        },
+        {
+          "k": "call",
+          "site": "main.go:15:12",
+          "line": 15
+        },
+        {
+          "k": "call",
+          "site": "main.go:16:62",
+          "line": 16
+        },
+        {
+          "k": "call",
+          "site": "main.go:16:46",
+          "line": 16
+        },
+        {
+          "k": "call",
+          "site": "main.go:16:12",
+          "line": 16
+        },
+        {
+          "k": "call",
+          "site": "main.go:17:16",
+          "line": 17
+        },
+        {
+          "k": "call",
+          "site": "main.go:18:71",
+          "line": 18
+        },
+        {
+          "k": "call",
+          "site": "main.go:18:44",
+          "line": 18
+        },
+        {
+          "k": "call",
+          "site": "main.go:18:12",
+          "line": 18
+        },
+        {
+          "k": "call",
+          "site": "main.go:20:12",
+          "line": 20
+        },
+        {
+          "k": "call",
+          "site": "main.go:21:11",
+          "line": 21
+        },
+        {
+          "k": "call",
+          "site": "main.go:22:17",
+          "line": 22
+        },
+        {
+          "k": "call",
+          "site": "main.go:23:29",
+          "line": 23
+        },
+        {
+          "k": "call",
+          "site": "main.go:24:46",
+          "line": 24
+        },
+        {
+          "k": "call",
+          "site": "main.go:24:25",
+          "line": 24
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/nethttp.main$1",
+      "kind": "function",
+      "name": "main$1",
+      "pkg": "example.com/nethttp",
+      "loc": {
+        "file": "main.go",
+        "line": 17,
+        "col": 26,
+        "endLine": 17
+      },
+      "status": "resolved",
+      "signature": "func(w http.ResponseWriter, r *http.Request)"
+    },
+    {
+      "id": "fn:example.com/nethttp/internal/api.(*Users).Delete",
+      "kind": "function",
+      "name": "(*Users).Delete",
+      "pkg": "example.com/nethttp/internal/api",
+      "loc": {
+        "file": "internal/api/api.go",
+        "line": 8,
+        "col": 1,
+        "endLine": 8
+      },
+      "status": "resolved",
+      "receiver": "*Users",
+      "signature": "func(w http.ResponseWriter, r *http.Request)"
+    },
+    {
+      "id": "fn:example.com/nethttp/internal/api.(*Users).Get",
+      "kind": "function",
+      "name": "(*Users).Get",
+      "pkg": "example.com/nethttp/internal/api",
+      "loc": {
+        "file": "internal/api/api.go",
+        "line": 7,
+        "col": 1,
+        "endLine": 7
+      },
+      "status": "resolved",
+      "receiver": "*Users",
+      "signature": "func(w http.ResponseWriter, r *http.Request)"
+    },
+    {
+      "id": "fn:example.com/nethttp/internal/api.(Health).ServeHTTP",
+      "kind": "function",
+      "name": "(Health).ServeHTTP",
+      "pkg": "example.com/nethttp/internal/api",
+      "loc": {
+        "file": "internal/api/api.go",
+        "line": 15,
+        "col": 1,
+        "endLine": 15
+      },
+      "status": "resolved",
+      "receiver": "Health",
+      "signature": "func(w http.ResponseWriter, r *http.Request)"
+    },
+    {
+      "id": "fn:example.com/nethttp/internal/api.CreateUser",
+      "kind": "function",
+      "name": "CreateUser",
+      "pkg": "example.com/nethttp/internal/api",
+      "loc": {
+        "file": "internal/api/api.go",
+        "line": 10,
+        "col": 1,
+        "endLine": 10
+      },
+      "status": "resolved",
+      "signature": "func(w http.ResponseWriter, r *http.Request)"
+    },
+    {
+      "id": "fn:example.com/nethttp/internal/api.Logging",
+      "kind": "function",
+      "name": "Logging",
+      "pkg": "example.com/nethttp/internal/api",
+      "loc": {
+        "file": "internal/api/api.go",
+        "line": 17,
+        "col": 1,
+        "endLine": 19
+      },
+      "status": "resolved",
+      "signature": "func(next http.Handler) http.Handler",
+      "flow": [
+        {
+          "k": "return",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/nethttp/internal/api.Logging$1",
+      "kind": "function",
+      "name": "Logging$1",
+      "pkg": "example.com/nethttp/internal/api",
+      "loc": {
+        "file": "internal/api/api.go",
+        "line": 18,
+        "col": 26,
+        "endLine": 18
+      },
+      "status": "resolved",
+      "signature": "func(w http.ResponseWriter, r *http.Request)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/api/api.go:18:87",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/nethttp/internal/api.Mount",
+      "kind": "function",
+      "name": "Mount",
+      "pkg": "example.com/nethttp/internal/api",
+      "loc": {
+        "file": "internal/api/api.go",
+        "line": 32,
+        "col": 1,
+        "endLine": 34
+      },
+      "status": "resolved",
+      "signature": "func(mux *http.ServeMux)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/api/api.go:33:16",
+          "line": 33
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/nethttp/internal/api.RequireRole",
+      "kind": "function",
+      "name": "RequireRole",
+      "pkg": "example.com/nethttp/internal/api",
+      "loc": {
+        "file": "internal/api/api.go",
+        "line": 21,
+        "col": 1,
+        "endLine": 29
+      },
+      "status": "resolved",
+      "signature": "func(role string, next http.Handler) http.Handler",
+      "flow": [
+        {
+          "k": "return",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/nethttp/internal/api.RequireRole$1",
+      "kind": "function",
+      "name": "RequireRole$1",
+      "pkg": "example.com/nethttp/internal/api",
+      "loc": {
+        "file": "internal/api/api.go",
+        "line": 22,
+        "col": 26,
+        "endLine": 28
+      },
+      "status": "resolved",
+      "signature": "func(w http.ResponseWriter, r *http.Request)",
+      "flow": [
+        {
+          "k": "call",
+          "site": "internal/api/api.go:23:18",
+          "line": 23
+        },
+        {
+          "k": "if",
+          "line": 23,
+          "cond": "r.Header.Get(\"X-Role\") != role",
+          "then": [
+            {
+              "k": "call",
+              "site": "internal/api/api.go:24:14",
+              "line": 24
+            },
+            {
+              "k": "return",
+              "line": 25
+            }
+          ]
+        },
+        {
+          "k": "call",
+          "site": "internal/api/api.go:27:17",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "id": "fn:example.com/nethttp/internal/api.Static",
+      "kind": "function",
+      "name": "Static",
+      "pkg": "example.com/nethttp/internal/api",
+      "loc": {
+        "file": "internal/api/api.go",
+        "line": 11,
+        "col": 1,
+        "endLine": 11
+      },
+      "status": "resolved",
+      "signature": "func(w http.ResponseWriter, r *http.Request)"
+    },
+    {
+      "id": "unresolved:main.go:20:23",
+      "kind": "unresolved",
+      "name": "h",
+      "loc": {
+        "file": "main.go",
+        "line": 20,
+        "col": 23
+      },
+      "status": "unresolved",
+      "reason": "no_concrete_type"
+    }
+  ],
+  "edges": [
+    {
+      "source": "endpoint:nethttp:ANY:/iface:main.go:20",
+      "target": "unresolved:main.go:20:23",
+      "kind": "routes_to",
+      "confidence": "unknown",
+      "method": "unresolved",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 20,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:nethttp:ANY:/ping:main.go:17",
+      "target": "fn:example.com/nethttp.main$1",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 17,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:nethttp:ANY:/static/:main.go:14",
+      "target": "fn:example.com/nethttp/internal/api.Static",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 14,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:nethttp:DELETE:/users/{id}:main.go:16",
+      "target": "fn:example.com/nethttp/internal/api.(*Users).Delete",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 16,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:nethttp:DELETE:/users/{id}:main.go:16",
+      "target": "fn:example.com/nethttp/internal/api.Logging",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 16,
+        "col": 2
+      },
+      "order": 0
+    },
+    {
+      "source": "endpoint:nethttp:DELETE:/users/{id}:main.go:16",
+      "target": "fn:example.com/nethttp/internal/api.RequireRole",
+      "kind": "uses_middleware",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "middleware in the chain",
+      "site": {
+        "file": "main.go",
+        "line": 16,
+        "col": 2
+      },
+      "order": 1
+    },
+    {
+      "source": "endpoint:nethttp:GET:/default:main.go:22",
+      "target": "fn:example.com/nethttp/internal/api.CreateUser",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 22,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:nethttp:GET:/files/:main.go:18",
+      "target": "external:net/http.StripPrefix",
+      "kind": "routes_to",
+      "confidence": "medium",
+      "method": "wrapper_heuristic",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 18,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:nethttp:GET:/health:main.go:15",
+      "target": "fn:example.com/nethttp/internal/api.(Health).ServeHTTP",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 15,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:nethttp:GET:/users/{id}:main.go:12",
+      "target": "fn:example.com/nethttp/internal/api.(*Users).Get",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 12,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:nethttp:GET:/v2/users:internal/api/api.go:33",
+      "target": "fn:example.com/nethttp/internal/api.CreateUser",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "internal/api/api.go",
+        "line": 33,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:nethttp:POST:/users:main.go:13",
+      "target": "fn:example.com/nethttp/internal/api.CreateUser",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 13,
+        "col": 2
+      }
+    },
+    {
+      "source": "endpoint:nethttp:PUT:/default:main.go:23",
+      "target": "fn:example.com/nethttp/internal/api.(Health).ServeHTTP",
+      "kind": "routes_to",
+      "confidence": "high",
+      "method": "framework_registration",
+      "reason": "registered as handler",
+      "site": {
+        "file": "main.go",
+        "line": 23,
+        "col": 2
+      }
+    },
+    {
+      "source": "fn:example.com/nethttp.main",
+      "target": "external:net/http.(*ServeMux).Handle",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 14,
+        "col": 12
+      },
+      "siteId": "main.go:14:12"
+    },
+    {
+      "source": "fn:example.com/nethttp.main",
+      "target": "external:net/http.(*ServeMux).Handle",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 15,
+        "col": 12
+      },
+      "siteId": "main.go:15:12"
+    },
+    {
+      "source": "fn:example.com/nethttp.main",
+      "target": "external:net/http.(*ServeMux).Handle",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 16,
+        "col": 12
+      },
+      "siteId": "main.go:16:12"
+    },
+    {
+      "source": "fn:example.com/nethttp.main",
+      "target": "external:net/http.(*ServeMux).Handle",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 18,
+        "col": 12
+      },
+      "siteId": "main.go:18:12"
+    },
+    {
+      "source": "fn:example.com/nethttp.main",
+      "target": "external:net/http.(*ServeMux).Handle",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 20,
+        "col": 12
+      },
+      "siteId": "main.go:20:12"
+    },
+    {
+      "source": "fn:example.com/nethttp.main",
+      "target": "external:net/http.(*ServeMux).Handle",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 23,
+        "col": 29
+      },
+      "siteId": "main.go:23:29"
+    },
+    {
+      "source": "fn:example.com/nethttp.main",
+      "target": "external:net/http.(*ServeMux).HandleFunc",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 12,
+        "col": 16
+      },
+      "siteId": "main.go:12:16"
+    },
+    {
+      "source": "fn:example.com/nethttp.main",
+      "target": "external:net/http.(*ServeMux).HandleFunc",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 13,
+        "col": 16
+      },
+      "siteId": "main.go:13:16"
+    },
+    {
+      "source": "fn:example.com/nethttp.main",
+      "target": "external:net/http.(*ServeMux).HandleFunc",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 17,
+        "col": 16
+      },
+      "siteId": "main.go:17:16"
+    },
+    {
+      "source": "fn:example.com/nethttp.main",
+      "target": "external:net/http.FileServer",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 18,
+        "col": 71
+      },
+      "siteId": "main.go:18:71"
+    },
+    {
+      "source": "fn:example.com/nethttp.main",
+      "target": "external:net/http.HandleFunc",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 22,
+        "col": 17
+      },
+      "siteId": "main.go:22:17"
+    },
+    {
+      "source": "fn:example.com/nethttp.main",
+      "target": "external:net/http.ListenAndServe",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 24,
+        "col": 25
+      },
+      "siteId": "main.go:24:25"
+    },
+    {
+      "source": "fn:example.com/nethttp.main",
+      "target": "external:net/http.NewServeMux",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 10,
+        "col": 25
+      },
+      "siteId": "main.go:10:25"
+    },
+    {
+      "source": "fn:example.com/nethttp.main",
+      "target": "external:net/http.StripPrefix",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 18,
+        "col": 44
+      },
+      "siteId": "main.go:18:44"
+    },
+    {
+      "source": "fn:example.com/nethttp.main",
+      "target": "fn:example.com/nethttp/internal/api.Logging",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 16,
+        "col": 46
+      },
+      "siteId": "main.go:16:46"
+    },
+    {
+      "source": "fn:example.com/nethttp.main",
+      "target": "fn:example.com/nethttp/internal/api.Logging",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 24,
+        "col": 46
+      },
+      "siteId": "main.go:24:46"
+    },
+    {
+      "source": "fn:example.com/nethttp.main",
+      "target": "fn:example.com/nethttp/internal/api.Mount",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 21,
+        "col": 11
+      },
+      "siteId": "main.go:21:11"
+    },
+    {
+      "source": "fn:example.com/nethttp.main",
+      "target": "fn:example.com/nethttp/internal/api.RequireRole",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "main.go",
+        "line": 16,
+        "col": 62
+      },
+      "siteId": "main.go:16:62"
+    },
+    {
+      "source": "fn:example.com/nethttp/internal/api.Logging$1",
+      "target": "external:net/http.(Handler).ServeHTTP",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call http.Handler.ServeHTTP declared in net/http; implementation not tracked",
+      "site": {
+        "file": "internal/api/api.go",
+        "line": 18,
+        "col": 87
+      },
+      "siteId": "internal/api/api.go:18:87"
+    },
+    {
+      "source": "fn:example.com/nethttp/internal/api.Mount",
+      "target": "external:net/http.(*ServeMux).HandleFunc",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/api/api.go",
+        "line": 33,
+        "col": 16
+      },
+      "siteId": "internal/api/api.go:33:16"
+    },
+    {
+      "source": "fn:example.com/nethttp/internal/api.RequireRole$1",
+      "target": "external:net/http.(Handler).ServeHTTP",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "interface call http.Handler.ServeHTTP declared in net/http; implementation not tracked",
+      "site": {
+        "file": "internal/api/api.go",
+        "line": 27,
+        "col": 17
+      },
+      "siteId": "internal/api/api.go:27:17"
+    },
+    {
+      "source": "fn:example.com/nethttp/internal/api.RequireRole$1",
+      "target": "external:net/http.(Header).Get",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/api/api.go",
+        "line": 23,
+        "col": 18
+      },
+      "siteId": "internal/api/api.go:23:18"
+    },
+    {
+      "source": "fn:example.com/nethttp/internal/api.RequireRole$1",
+      "target": "external:net/http.Error",
+      "kind": "calls",
+      "confidence": "high",
+      "method": "static",
+      "reason": "static call",
+      "site": {
+        "file": "internal/api/api.go",
+        "line": 24,
+        "col": 14
+      },
+      "siteId": "internal/api/api.go:24:14"
+    }
+  ],
+  "diagnostics": [
+    {
+      "severity": "warning",
+      "code": "HANDLER_UNRESOLVED",
+      "message": "handler or middleware h not resolved (no_concrete_type)",
+      "loc": {
+        "file": "main.go",
+        "line": 20,
+        "col": 23
+      }
+    }
+  ],
+  "stats": {
+    "packages": 2,
+    "functions": 12,
+    "endpoints": 11,
+    "edges": 36,
+    "unresolved": 1,
+    "elapsedMs": 0,
+    "blockers": []
+  }
+}
