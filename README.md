@@ -10,6 +10,12 @@ CFM is a single Go binary. Point it at a Go module and it writes one self-contai
 
 There is no server, database, account, AI or network call, and CFM never runs any of the target project's code.
 
+![Call Tree of POST /tx: the handler calls the service through an interface, and the service reaches the Postgres repository](docs/img/call-tree.png)
+
+*Call Tree of `POST /tx` (fixture `testdata/fixtures/di-interface`). The handler calls `txService.Create` through an
+interface. The dashed `medium` edge marks an interface call that VTA resolved to the wired implementation, and it
+continues to `pgRepo.Save`.*
+
 ## Install
 
 Requires Go 1.26 or newer.
@@ -93,6 +99,12 @@ Typical run: 2–3 s and under 2 GB RSS for a service with 50–200 endpoints (`
 | Fiber v3 or other routers | `ROUTER_UNSUPPORTED` diagnostic |
 
 ### Trying a request body
+
+![Flowchart of POST /v1/topup with the body {"source":{"currency":"SGD"}}: the SGD case of the currency switch is highlighted](docs/img/request-body-flowchart.png)
+
+*Flowchart of `POST /v1/topup` (fixture `testdata/fixtures/body`) with a body whose currency is `SGD`. The
+`express && value > 1000` branch and the `case dto.CurrencySGD, "MYR"` branch inside the expanded
+`(*Service).Topup` are amber. The other cases are dimmed.*
 
 When a handler binds a JSON body (Gin `ShouldBindJSON`/`BindJSON`/`ShouldBind`/`Bind`, Fiber `BodyParser`,
 `json.NewDecoder(r.Body).Decode`), the endpoint's detail panel shows a JSON box prefilled with the body's fields. Edit
