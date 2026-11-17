@@ -111,7 +111,7 @@ The v1.1 records live in `archive/v1.1/ADR.md`. The table below gives each one's
 
 ## ADR-108: Other languages are separate analyzers that write the graph JSON
 
-**Status:** Accepted (step 1 shipped; the TypeScript spike decides step 2)
+**Status:** Accepted. Step 1 (`cfm render`) shipped. The TypeScript spike (CFM-502) says go, once a real NestJS service is available to validate against (`docs/validation.md`)
 
 **Context.** Everything that makes the report useful is Go-specific: `go/packages`, SSA, VTA, the router and binder rules. Only `GRAPH_SCHEMA.md` and the viewer are language-free. TypeScript or PHP support therefore needs a new front end, built on that language's own type checker, because resolution through interfaces and DI is the reason CFM exists.
 

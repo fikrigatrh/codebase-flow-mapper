@@ -174,7 +174,7 @@ A handler often branches on a body field, sometimes several calls deep (`currenc
 ### CFM-501: `cfm render` ✅ (2026-11-17; `render` of an `analyze --json` graph is byte-identical to the `analyze` report; old schema major, unknown field, invalid graph and broken JSON exit 3 and write nothing)
 Any analyzer that writes a valid graph JSON gets the same report as `cfm analyze`.
 
-### CFM-502: TypeScript spike (time-boxed to 3 days, not started)
+### CFM-502: TypeScript spike (time-boxed to 3 days) ✅ (2026-11-17; `nest-di` 11/11 hand-written edges, 0 decoy targets, provider-based DI resolves to one `medium` target; `cfm render` + viewer unchanged, 0 console errors; verdict "go once a real NestJS service is available"; details in `docs/validation.md`. No real TS service was named, so the result rests on the fixture)
 Answer one question: can a call graph built on the TypeScript compiler API follow NestJS DI from controller to repository well enough to be worth a full analyzer?
 
 **AC:**

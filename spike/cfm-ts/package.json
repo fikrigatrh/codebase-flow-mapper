@@ -1,0 +1,12 @@
+{
+  "name": "cfm-ts-spike",
+  "private": true,
+  "type": "module",
+  "description": "Throwaway CFM-502 spike: NestJS project to GRAPH_SCHEMA graph JSON",
+  "scripts": {
+    "test": "node --test"
+  },
+  "dependencies": {
+    "typescript": "5.9.3"
+  }
+}

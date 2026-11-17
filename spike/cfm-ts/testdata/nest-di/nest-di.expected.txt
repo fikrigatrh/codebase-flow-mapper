@@ -1,0 +1,13 @@
+# Hand-written before the analyzer ran. One line per edge: source -> target [method confidence].
+# Decoys MemoryTxRepo and SmsNotifier must not appear. Paths include the global prefix "api".
+endpoint POST /api/tx -> TxController.create [framework_registration high]
+endpoint GET /api/tx/:id -> TxController.find [framework_registration high]
+TxController.create -> TxService.create [static high]
+TxController.find -> TxService.find [static high]
+TxService.create -> PgTxRepo.save [framework_registration medium]
+TxService.create -> EmailNotifier.send [framework_registration medium]
+TxService.find -> PgTxRepo.find [framework_registration medium]
+PgTxRepo.save -> PgTxRepo.toRow [static high]
+PgTxRepo.save -> external String [static high]
+PgTxRepo.toRow -> external Date.now [static high]
+EmailNotifier.send -> external console.log [static high]

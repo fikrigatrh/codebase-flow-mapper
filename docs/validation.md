@@ -137,3 +137,37 @@ the full-build graph against the project-only graph:
 Known ceiling: a project value that only reaches a call through a dependency's body loses its VTA type, and that call
 shows up as unresolved instead. Examples are a project type stored in a library struct, or one handed back through a
 library callback. None of the three repos hit this.
+
+## TypeScript spike (CFM-502, ADR-108)
+
+The question: without VTA, can a TypeScript analyzer follow NestJS DI from controller to repository well enough to be worth building?
+
+**Setup.** `spike/cfm-ts/cfm-ts.mjs` (350 lines, TypeScript 5.9.3 compiler API, plain JS, no build step) on fixture `spike/cfm-ts/testdata/nest-di` (kept out of `testdata/fixtures`, which the Go tests walk). The fixture covers DI by concrete class, by an abstract class used as token (`{ provide: TxRepo, useClass: PgTxRepo }`), and by an interface with a `Symbol` token (`@Inject(NOTIFIER)`). It also has one unwired decoy implementation for each of the two abstractions. The expected edges in `nest-di.expected.txt` were written before the analyzer ran. Nest itself is not installed, which matches a checkout without `npm ci`.
+
+**Result.**
+
+| Check | Result |
+|---|---|
+| Hand-written edges found | 11 / 11, including both `/api` global-prefix routes |
+| Decoy (`MemoryTxRepo`, `SmsNotifier`) as call target | 0 |
+| DI hop with a provider in `@Module` | 1 target, `medium`, reason names the provider and its line |
+| Same code with the providers removed | Falls back to the class hierarchy: 2 targets each, `low`, `alternatives: 2` |
+| `cfm render` | Accepts the graph. Call Tree and Flowchart work with no viewer change, 0 console errors |
+| Time | 194 ms for 11 files |
+| Missing `@nestjs/*` | One `TS_MODULE_MISSING` warning per package with fix `npm ci`. DI still resolves, because it only needs project types |
+
+**Why it worked better than feared.** Nest DI is declarative: `@Module({ providers })` maps every token to a class. A provider map built from the AST does for Nest what VTA does for Wire. The risk named in ADR-108 holds only for code without a DI container, such as plain Express, where calls through an interface fall back to the class hierarchy and are marked `low`.
+
+**Schema changes a real analyzer needs** (not made; the spike reused existing values):
+- `edge.method` needs `di_provider` (the spike used `framework_registration`) and `cha` (the spike used `vta` with the reason saying "class hierarchy").
+- `goVersion` → a `language` field plus the toolchain version.
+- Function IDs `fn:<file without extension>.(Class).method` work as they are. Overloads share one implementation, so they collapse to one node.
+
+**Not covered by the spike:**
+- `useFactory` / `useValue` / `useExisting`, dynamic modules (`forRoot`), and module scoping (the spike uses one global provider map);
+- guards, interceptors and pipes as `uses_middleware`;
+- Express and Fastify routes, and the request body (DTO class + class-validator);
+- calls inside arrow functions are attributed to the enclosing method;
+- `new` expressions, hierarchies deeper than one level, and overrides in subclasses.
+
+**Verdict: go, on one condition.** The core risk is answered on a fixture. A full `cfm-ts` is worth starting only when a real NestJS service is available to validate against, because every number above comes from a fixture written by the same person as the analyzer.
