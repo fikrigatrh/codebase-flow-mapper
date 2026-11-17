@@ -68,6 +68,9 @@ open flow.html
 | `--exclude glob` | Skip more packages, by relative path or last path element. Repeatable. `*fakes`, `*mocks`, `mock*` and `testutil*` are always skipped, and so is `vendor/` |
 | `--editor vscode\|idea\|zed` | Make source locations open in your editor |
 
+`cfm render graph.json -o report.html` builds the same report from a graph JSON, such as one written by `--json`
+or by another analyzer that follows `GRAPH_SCHEMA.md`. A graph that doesn't validate exits with code 3.
+
 Point `cfm` at the directory with the module's `go.mod`. In a multi-module repo, that is the service's own directory
 (for example `services/orders/v2`), not the repo root.
 

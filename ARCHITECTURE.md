@@ -7,6 +7,7 @@
 
 ```
 cfm analyze <dir> -o report.html [--json graph.json] [--exclude glob]... [--editor vscode|idea|zed]
+cfm render <graph.json> -o report.html   # graph from any analyzer (ADR-108)
 
  ┌────────┐   ┌──────────┐   ┌───────────┐   ┌────────┐   ┌──────────┐
  │  load  │──▶│ callgraph│──▶│  routes   │──▶│  flow  │──▶│  graph   │──▶ report.html / graph.json

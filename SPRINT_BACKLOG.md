@@ -169,6 +169,20 @@ A handler often branches on a body field, sometimes several calls deep (`currenc
   - Invalid JSON says so and highlights nothing.
 - **Contract.** `GRAPH_SCHEMA.md` (2.1.0), `internal/graph` types, `Validate`, goldens and `viewer.js` change together. A new `body` fixture has hand-written expectations.
 
+## M5: Other languages (ADR-108)
+
+### CFM-501: `cfm render` ✅ (2026-11-17; `render` of an `analyze --json` graph is byte-identical to the `analyze` report; old schema major, unknown field, invalid graph and broken JSON exit 3 and write nothing)
+Any analyzer that writes a valid graph JSON gets the same report as `cfm analyze`.
+
+### CFM-502: TypeScript spike (time-boxed to 3 days, not started)
+Answer one question: can a call graph built on the TypeScript compiler API follow NestJS DI from controller to repository well enough to be worth a full analyzer?
+
+**AC:**
+- A `nest-di` fixture with a controller, a service behind an interface or injection token, and a repository.
+- A throwaway `cfm-ts` writes a graph that `cfm render` accepts, with the route endpoint and the DI hop resolved.
+- A note in `docs/validation.md`: what resolved, what did not, the schema changes needed, and a go/no-go for a full analyzer.
+- Before starting, name a real TS service to validate against. Without one, the result rests on fixtures only.
+
 ---
 
 ## Definition of done (every task)

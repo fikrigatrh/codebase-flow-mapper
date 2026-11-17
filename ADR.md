@@ -8,9 +8,9 @@ The v1.1 records live in `archive/v1.1/ADR.md`. The table below gives each one's
 |---|---|---|
 | 001 Local-first app (Go server + React + SQLite) | **Superseded by 101** | Still local, but there's no server |
 | 002 Modular monolith | **Kept, shrunk** | 6 internal packages (ARCHITECTURE §2) |
-| 003 Canonical IR across language adapters | **Deferred** | There's one language, so the analyzer emits the graph directly. Bring the IR back when TS lands |
+| 003 Canonical IR across language adapters | **Replaced by 108** | The graph JSON is the contract; each language gets its own analyzer |
 | 004 Go-native tooling | **Kept, amended by 102** | VTA is the call-graph algorithm |
-| 005 TypeScript Compiler API | **Deferred** | Post-MVP (PRD §7) |
+| 005 TypeScript Compiler API | **Deferred, spike planned** | CFM-502 (ADR-108) |
 | 006 Tree-sitter supplementary | **Deferred** | Not needed for Go |
 | 007 One canonical graph for both views | **Kept** | Flow outline is part of function nodes (103) |
 | 008 React Flow + ELK | **Superseded by 104** | |
@@ -108,3 +108,26 @@ The v1.1 records live in `archive/v1.1/ADR.md`. The table below gives each one's
 - Interpreting `wire.Build(...)` provider sets statically: this would work without generated code, but it reimplements Wire's solver. Revisit only if users routinely can't run `wire`.
 
 **Validation.** Add a fixture `wire-missing` containing a `wire.go` (`wireinject`) and no `wire_gen.go`, plus an import of an empty in-module `docs` package. Both warnings must appear, and `stats.blockers` must list both.
+
+## ADR-108: Other languages are separate analyzers that write the graph JSON
+
+**Status:** Accepted (step 1 shipped; the TypeScript spike decides step 2)
+
+**Context.** Everything that makes the report useful is Go-specific: `go/packages`, SSA, VTA, the router and binder rules. Only `GRAPH_SCHEMA.md` and the viewer are language-free. TypeScript or PHP support therefore needs a new front end, built on that language's own type checker, because resolution through interfaces and DI is the reason CFM exists.
+
+**Decision.**
+- `GRAPH_SCHEMA.md` is the contract between analyzers and the viewer. `cfm render <graph.json> -o report.html` wraps any graph that passes `Validate` in the viewer. The graph is foreign input there, so a violation is exit 3, not a CFM bug. Unknown fields are refused, so schema drift fails loudly.
+- Each language gets its own analyzer in its own runtime (`cfm-ts` on Node with the TypeScript compiler API, later maybe PHP). `cfm` stays one Go binary.
+- Schema changes a second language needs, such as a `language` field in place of `goVersion` or function IDs with overloads, are made by the spike that needs them, not ahead of it.
+
+**Alternatives rejected.**
+- Tree-sitter for every language: broad but untyped, so calls through interfaces and DI stop at the interface.
+- SCIP indexers as the front end: precise definitions and references, but no routes, flow outline or body.
+- One `cfm` binary with every language inside: it would bundle Node and PHP, or reimplement their type checkers in Go.
+
+**Consequences.**
+- A schema change is made once per analyzer.
+- Each analyzer ships through its own channel (`go install`, npm, …).
+- A call graph through interfaces must be written by hand outside Go, since there is no VTA for TypeScript or PHP. This is the main risk the spike measures.
+- PHP frameworks resolve much at runtime (facades, string container keys, `Controller@method`), and `php artisan route:list` runs app code (ADR-105). A PHP analyzer would parse routes statically and leave more unresolved.
+
