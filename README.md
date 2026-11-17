@@ -101,6 +101,11 @@ Typical run: 2–3 s and under 2 GB RSS for a service with 50–200 endpoints (`
 | Non-constant path, router or handler in a map, func value chosen at runtime | Shown as unresolved, with a diagnostic. Never dropped silently |
 | Fiber v3 or other routers | `ROUTER_UNSUPPORTED` diagnostic |
 
+### Other languages
+
+Only Go is supported. `spike/cfm-ts/` is a throwaway experiment that reads a NestJS project and writes a graph for
+`cfm render`. It isn't a supported tool. Results and gaps are in `docs/validation.md`, and the decision is ADR-108.
+
 ### Trying a request body
 
 ![Flowchart of POST /v1/topup with the body {"source":{"currency":"SGD"}}: the SGD case of the currency switch is highlighted](docs/img/request-body-flowchart.png)
